@@ -12,7 +12,7 @@ export default class Make {
 
     /**
      * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension.
-     * You can get compiler and linker version from `tondev sol version`
+     * You can get compiler and linker versions from `tondev sol version`
      * Example:
      *     {
      *         compile: [
