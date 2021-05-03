@@ -6,7 +6,7 @@
   "scripts": {
     "cp": "cp configs/config.example.ts configs/config.ts",
     "make": "ts-node scripts/make/make",
-    "test:before": "ts-node scripts/test/before",
+    "startup": "ts-node scripts/startup/startup",
     "test": "jest --detectOpenHandles --forceExit --runInBand --verbose"
   },
   "author": "Kok Kek",
