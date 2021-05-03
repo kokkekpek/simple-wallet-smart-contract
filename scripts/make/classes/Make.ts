@@ -33,7 +33,7 @@ export default class Make {
      * Run commands.
      */
     public async run(): Promise<void> {
-        await runCommand(consoleTerminal, 'sol set -e es6', {
+        await runCommand(consoleTerminal, 'sol set', {
             compiler: this._config.compiler,
             linker: this._config.linker
         })
