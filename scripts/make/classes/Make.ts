@@ -9,7 +9,9 @@ export default class Make {
     private _config: MakeConfigInterface
 
     /**
-     * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension. Example:
+     * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension.
+     * You can get compiler and linker version from `tondev sol version`
+     * Example:
      *     {
      *         compile: [
      *             'contracts/tokens/random/RandomToken',
@@ -17,7 +19,9 @@ export default class Make {
      *         ],
      *         wrap: [
      *             'tests/contracts/SafeMultisigWallet'
-     *         ]
+     *         ],
+     *         compiler: '0.42.0',
+     *         linker: '0.3.0'
      *     }
      */
     public constructor(config: MakeConfigInterface) {
@@ -26,12 +30,12 @@ export default class Make {
     }
 
     /**
-     * Execute current task.
+     * Run commands.
      */
     public async run(): Promise<void> {
         await runCommand(consoleTerminal, 'sol set -e es6', {
-            compiler: '0.42.0',
-            linker: '0.3.0'
+            compiler: this._config.compiler,
+            linker: this._config.linker
         })
 
         const compile: string[] = this._config.compile
