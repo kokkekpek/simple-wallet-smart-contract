@@ -1,0 +1,23 @@
+# Config
+configs/config.ts
+
+# Dependency directory
+node_modules
+
+# Contracts
+contracts/**/*.code
+contracts/**/*.decode
+contracts/**/*.conf.json
+contracts/**/*.keys.json
+
+# Test contracts
+common/contracts/**/*.code
+common/contracts/**/*.decode
+common/contracts/**/*.conf.json
+common/contracts/**/*.keys.json
+
+# Yarn
+*.log
+
+# TonOS CLI config in root directory
+*cli.conf.json
