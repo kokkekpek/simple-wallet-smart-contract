@@ -10,8 +10,7 @@ export default class TonKit {
      *         url: 'http://localhost:8080'
      *         timeout: 3000
      *     }
-     * @return {TonClient}
-     * @param config
+     * @return {KitInterface}
      */
     public getKit(config: KitConfigInterface): KitInterface {
         return {
