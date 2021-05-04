@@ -1,7 +1,7 @@
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import MakeConfigInterface from './interfaces/MakeConfigInterface'
-import root from '../../../root'
+import root from '../../root'
 import path from 'path'
 import {consoleTerminal, runCommand} from 'tondev'
 

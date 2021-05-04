@@ -5,8 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "cp": "cp configs/config.example.ts configs/config.ts",
-    "make": "ts-node scripts/make/make",
-    "startup": "ts-node scripts/startup/startup",
+    "make": "ts-node scripts/make",
+    "startup": "ts-node scripts/startup",
     "test": "jest --detectOpenHandles --forceExit --runInBand --verbose"
   },
   "author": "Kok Kek",

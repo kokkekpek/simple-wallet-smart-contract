@@ -1,4 +1,4 @@
-import config from '../../configs/config'
+import config from '../configs/config'
 import Startup from './classes/Startup'
 
 const startup: Startup = new Startup({
