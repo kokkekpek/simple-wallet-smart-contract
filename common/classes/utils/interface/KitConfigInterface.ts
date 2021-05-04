@@ -1,4 +1,4 @@
-export default interface KitConfig {
+export default interface KitConfigInterface {
     url: string
     port: string
     timeout: number

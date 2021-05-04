@@ -1,11 +1,11 @@
 import {TonClient} from '@tonclient/core'
 import KitInterface from '../interface/KitInterface'
-import KitConfig from '../interface/KitConfig'
+import KitConfigInterface from '../interface/KitConfigInterface'
 
 export default class TonKit {
     /**
      * Creates client
-     * @param config {KitConfig} Example:
+     * @param config {KitConfigInterface} Example:
      *     {
      *         url: 'http://localhost:8080'
      *         timeout: 3000
@@ -13,7 +13,7 @@ export default class TonKit {
      * @return {TonClient}
      * @param config
      */
-    public getKit(config: KitConfig): KitInterface {
+    public getKit(config: KitConfigInterface): KitInterface {
         return {
             client: new TonClient({
                 network: {
