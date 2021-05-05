@@ -8,8 +8,8 @@ import Ton from '../common/classes/utils/Ton'
 import {libNode} from '@tonclient/lib-node'
 import config from '../configs/config'
 import SimpleWallet from '../common/classes/SimpleWallet'
-import SimpleWalletV2 from '../common/classes/SimpleWalletV2'
-import SimpleWalletV2Contract from '../common/contracts/SimpleWalletV2/SimpleWalletV2'
+import SimpleWallet_idleContract from '../common/contracts/SimpleWallet_idle/SimpleWallet_idle'
+import SimpleWallet_idle from '../common/classes/SimpleWallet_idle'
 
 TonClient.useBinaryLibrary(libNode)
 const kit: KitInterface = Ton.kit.getKit(config.net.test)
@@ -19,7 +19,7 @@ it('Valid', async done => {
     const giver: GiverV2 = new GiverV2(kit, giverKeys)
     const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
     const simpleWallet: SimpleWallet = new SimpleWallet(kit, simpleWalletKeys)
-    const simpleWalletV2: SimpleWalletV2 = new SimpleWalletV2(
+    const simpleWallet_idle: SimpleWallet_idle = new SimpleWallet_idle(
         kit,
         simpleWalletKeys,
         await simpleWallet.calculateAddress()
@@ -27,8 +27,8 @@ it('Valid', async done => {
 
     await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
     await simpleWallet.deploy()
-    await simpleWallet.upgrade(SimpleWalletV2Contract.code)
+    await simpleWallet.upgrade(SimpleWallet_idleContract.code)
 
-    expect(await simpleWalletV2.getVersion()).toBe('2')
+    expect(await simpleWallet_idle.getVersion()).toBe('2')
     done()
 }, testTimeout)

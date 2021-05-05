@@ -3,7 +3,7 @@ import Make from './classes/Make'
 const make: Make = new Make({
     compile: [
         'contracts/SimpleWallet',
-        'common/contracts/SimpleWalletV2/SimpleWalletV2',
+        'common/contracts/SimpleWallet_idle/SimpleWallet_idle',
     ],
     wrap: [
         'common/contracts/SafeMultisigWallet/SafeMultisigWallet',
