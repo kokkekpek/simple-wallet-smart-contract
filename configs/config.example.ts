@@ -42,6 +42,51 @@ export default {
              *     5000
              */
             timeout: 3000
+        },
+        deploy: {
+            /**
+             * Network URL without port.
+             * Examples:
+             *     'http://localhost'
+             *     'http://0.0.0.0
+             */
+            url: 'http://localhost',
+
+            /**
+             * Network port.
+             * Examples:
+             *     '8080'
+             *     '80'
+             */
+            port: '8080',
+
+            /**
+             * IMPORTANT!!!
+             * Dont use default path. Store keys in encrypted directory or key storage.
+             * For directory encryption on linux use CryFS, eCrypfs or any other solution.
+             *
+             * Absolute path to giver keys file.
+             * Examples:
+             *     __dirname + '/../keys/GiverV2.keys.json'
+             *     '/home/user/keys/GiverV2.keys.json'
+             */
+            giverKeys: __dirname + '/../keys/GiverV2.keys.json',
+
+            /**
+             * How long to wait and result of call or deployment from local node in milliseconds
+             * Examples:
+             *     3000
+             *     5000
+             */
+            timeout: 3000,
+
+            /**
+             * One or more BCP 47 extension sequences or `undefined`
+             * Examples:
+             *     'RU'
+             *     'EN'
+             */
+            locale: undefined
         }
     }
 }

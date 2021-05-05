@@ -133,7 +133,7 @@ export default class Contract {
      * Example:
      *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
      *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
-     *     const balance: string = await simpleWalletV2.getBalance()
+     *     const balance: string = await safeMultisigWallet.getBalance()
      */
     public async getBalance(): Promise<string> {
         const queryCollectionResult: ResultOfQueryCollection = await this._client.net.query_collection({
@@ -145,7 +145,29 @@ export default class Contract {
             },
             result: 'balance'
         })
-        return queryCollectionResult.result[0]['balance']
+        const result: any[] = queryCollectionResult.result
+        return result.length ? result[0]['balance'] : '0x0'
+    }
+
+    /**
+     * Return contract account type.
+     * Example:
+     *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
+     *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
+     *     const accountType: number = await safeMultisigWallet.getAccountType()
+     */
+    public async getAccountType(): Promise<number> {
+        const queryCollectionResult: ResultOfQueryCollection = await this._client.net.query_collection({
+            collection: 'accounts',
+            filter: {
+                id: {
+                    eq: await this.calculateAddress()
+                }
+            },
+            result: 'acc_type'
+        })
+        const result: any[] = queryCollectionResult.result
+        return result.length ? result[0]['acc_type'] : -1
     }
 
 
