@@ -13,8 +13,8 @@ import {
 import {TonClient} from '@tonclient/core'
 import ContractConfig from './interfaces/ContractConfig'
 import DeployedContractConfig from './interfaces/DeployedContractConfig'
-import KitInterface from '../utils/ton/interfaces/KitInterface'
-import Ton from '../utils/ton/Ton'
+import KitInterface from '../utils/interfaces/KitInterface'
+import Ton from '../utils/Ton'
 import abi from './abi/transfer.abi.json'
 
 export default class Contract {
