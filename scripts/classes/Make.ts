@@ -3,7 +3,9 @@ import {libNode} from '@tonclient/lib-node'
 import MakeConfigInterface from './interfaces/MakeConfigInterface'
 import root from '../../root'
 import path from 'path'
-import {consoleTerminal, runCommand} from 'tondev'
+import {runCommand} from 'tondev'
+import errorConsoleTerminal from './utils/errorConsoleTerminal'
+import colors from 'colors'
 
 export default class Make {
     private readonly _config: MakeConfigInterface
@@ -39,7 +41,7 @@ export default class Make {
      * Run commands.
      */
     public async run(): Promise<void> {
-        await runCommand(consoleTerminal, 'sol set', {
+        await runCommand(errorConsoleTerminal, 'sol set', {
             compiler: this._config.compiler,
             linker: this._config.linker
         })
@@ -49,11 +51,15 @@ export default class Make {
             const file = compile[i]
             await Make._compile(file)
             await this._wrap(file)
+            console.log(colors.green(file))
         }
 
         const wrap: string[] = this._config.wrap
-        for (let i = 0; i < wrap.length; i++)
-            await this._wrap(wrap[i])
+        for (let i = 0; i < wrap.length; i++) {
+            const file = wrap[i]
+            await this._wrap(file)
+            console.log(colors.green(file))
+        }
     }
 
     /**
@@ -63,7 +69,7 @@ export default class Make {
      * @private
      */
     private static async _compile(file: string): Promise<void> {
-        await runCommand(consoleTerminal, 'sol compile', {
+        await runCommand(errorConsoleTerminal, 'sol compile', {
             file: path.resolve(root, `${file}.sol`)
         })
     }
@@ -75,7 +81,7 @@ export default class Make {
      * @private
      */
     private async _wrap(file: string): Promise<void> {
-        await runCommand(consoleTerminal, 'js wrap', {
+        await runCommand(errorConsoleTerminal, 'js wrap', {
             file: path.resolve(root, `${file}.abi.json`),
             export: this._export,
             output: `${path.basename(file)}.${this._extension}`
