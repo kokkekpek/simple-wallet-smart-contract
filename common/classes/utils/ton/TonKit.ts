@@ -1,25 +1,42 @@
 import {TonClient} from '@tonclient/core'
-import KitInterface from '../interface/KitInterface'
-import KitConfigInterface from '../interface/KitConfigInterface'
+import KitInterface from './interfaces/KitInterface'
+import KitConfigInterface from './interfaces/KitConfigInterface'
+import KitClientConfigInterface from './interfaces/KitClientConfigInterface'
 
 export default class TonKit {
     /**
-     * Creates client
+     * Creates kit.
      * @param config {KitConfigInterface} Example:
      *     {
-     *         url: 'http://localhost:8080'
+     *         url: 'http://localhost:8080',
+     *         port: '8080',
      *         timeout: 3000
      *     }
      * @return {KitInterface}
      */
     public getKit(config: KitConfigInterface): KitInterface {
         return {
-            client: new TonClient({
-                network: {
-                    server_address: `${config.url}:${config.port}`
-                }
-            }),
+            client: this.getClient(config),
             timeout: config.timeout
         }
+    }
+
+
+    /**
+     * Creates client.
+     * @param config {KitClientConfigInterface} Example:
+     *     {
+     *         url: 'http://localhost:8080',
+     *         port: '8080'
+     *     }
+     * @return {TonClient}
+     * @param config
+     */
+    public getClient(config: KitClientConfigInterface): TonClient {
+        return new TonClient({
+            network: {
+                server_address: `${config.url}:${config.port}`
+            }
+        })
     }
 }

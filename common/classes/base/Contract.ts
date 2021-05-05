@@ -13,7 +13,7 @@ import {
 import {TonClient} from '@tonclient/core'
 import ContractConfig from './interfaces/ContractConfig'
 import DeployedContractConfig from './interfaces/DeployedContractConfig'
-import KitInterface from '../utils/interface/KitInterface'
+import KitInterface from '../utils/ton/interfaces/KitInterface'
 import Ton from '../utils/ton/Ton'
 import abi from './abi/transfer.abi.json'
 
