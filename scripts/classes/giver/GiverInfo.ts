@@ -12,7 +12,7 @@ import colors from 'colors'
 
 export default class GiverInfo {
     private readonly _config: GiverInfoConfigInterface
-    private readonly _types: {[key: string]: string} = {
+    private readonly _types: { [key: string]: string } = {
         '-1': 'Not found',
         '0': 'uninit',
         '1': 'active',
@@ -56,6 +56,7 @@ export default class GiverInfo {
         const balance: string = await giver.getBalance()
         const accountType: number = await giver.getAccountType()
 
+        console.log(`${colors.gray('Net')}: ${this._config.url}:${this._config.port}`)
         console.log(`${colors.gray('Keys')}: ${keyResolvedPath}`)
         console.log(`${colors.gray('Address')}: ${address}`)
         console.log(`${colors.gray('Balance')}: ${this._getBalanceLog(balance)}`)
@@ -104,7 +105,9 @@ export default class GiverInfo {
         const fractionalFloat: number = parseInt(fractional.toString()) / x10n9
         const fractionalText: string = fractionalFloat.toLocaleString(
             this._config.locale,
-            { maximumFractionDigits: 10 }
+            {
+                maximumFractionDigits: 10
+            }
         ).substr(1)
         return integerText + fractionalText
     }
