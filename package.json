@@ -7,7 +7,7 @@
     "cp": "cp configs/config.example.ts configs/config.ts",
     "make": "ts-node scripts/make",
     "startup": "ts-node scripts/startup",
-    "giver:info": "ts-node scripts/giver/info",
+    "giver": "ts-node scripts/giver",
     "test": "jest --detectOpenHandles --forceExit --runInBand --verbose"
   },
   "author": "Kok Kek",
