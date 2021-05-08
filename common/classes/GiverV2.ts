@@ -16,6 +16,15 @@ export default class GiverV2 extends Contract {
 
 
     /**********
+     * DEPLOY *
+     **********/
+    public async deploy(): Promise<boolean> {
+        return await this._deploy({})
+    }
+
+
+
+    /**********
      * PUBLIC *
      **********/
     public sendTransaction(dest: string, value: number, bounce: boolean = false): Promise<ResultOfProcessMessage> {
