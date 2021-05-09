@@ -6,7 +6,7 @@ import * as fs from 'fs'
 import {libNode} from '@tonclient/lib-node'
 import path from 'node:path'
 import GiverV2 from '../../common/classes/GiverV2'
-import TonKeysFileReader from '../../common/classes/utils/TonKeysFileReader'
+import TonKeysFileReader from '../../common/classes/utils/TonKeysFile'
 import KitInterface from '../../common/classes/utils/interfaces/KitInterface'
 import colors from 'colors'
 
