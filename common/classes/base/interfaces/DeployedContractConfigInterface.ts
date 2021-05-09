@@ -1,6 +1,6 @@
 import {AbiContract, KeyPair} from '@tonclient/core/dist/modules'
 
-export default interface DeployedContractConfig {
+export default interface DeployedContractConfigInterface {
     abi: AbiContract | Object
     initialData?: Object
     keys?: KeyPair

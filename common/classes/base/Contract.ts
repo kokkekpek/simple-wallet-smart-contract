@@ -11,8 +11,8 @@ import {
     ResultOfWaitForCollection
 } from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
-import ContractConfig from './interfaces/ContractConfig'
-import DeployedContractConfig from './interfaces/DeployedContractConfig'
+import ContractConfigInterface from './interfaces/ContractConfigInterface'
+import DeployedContractConfigInterface from './interfaces/DeployedContractConfigInterface'
 import KitInterface from '../utils/interfaces/KitInterface'
 import Ton from '../utils/Ton'
 import abi from './abi/transfer.abi.json'
@@ -38,7 +38,7 @@ export default class Contract {
      *         url: 'http://localhost:8080'
      *         timeout: 3000
      *     }
-     * @param config {ContractConfig | DeployedContractConfig} Examples:
+     * @param config {ContractConfigInterface | DeployedContractConfigInterface} Examples:
      *     // Already deployment contract
      *     {
      *         abi: {'ABI version': 2, '...'}
@@ -53,7 +53,7 @@ export default class Contract {
      *         tvc: 'te6ccg...'
      *     }
      */
-    public constructor(kit: KitInterface, config: ContractConfig | DeployedContractConfig) {
+    public constructor(kit: KitInterface, config: ContractConfigInterface | DeployedContractConfigInterface) {
         this._client = kit.client
         this._timeout = kit.timeout
         this._abi = Contract._getAbi(config.abi)
