@@ -1,6 +1,6 @@
 export default class TonString {
     /**
-     * Add 0x to number or string
+     * Add 0x to number or string.
      * @param {number} number Example:
      *     '123'
      * @return {string} Example:
