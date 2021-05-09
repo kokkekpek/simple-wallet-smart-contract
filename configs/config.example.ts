@@ -63,7 +63,7 @@ export default {
             /**
              * IMPORTANT!!!
              * Dont use default path. Store keys in encrypted directory or key storage.
-             * For directory encryption on linux use CryFS, eCrypfs or any other solution.
+             * For directory encryption on linux use CryFS or any other solution.
              *
              * Absolute path to giver keys file.
              * Examples:
