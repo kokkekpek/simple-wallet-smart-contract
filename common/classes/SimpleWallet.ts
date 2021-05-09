@@ -23,6 +23,7 @@ export default class SimpleWallet extends Contract {
     }
 
 
+
     /**********
      * PUBLIC *
      **********/
