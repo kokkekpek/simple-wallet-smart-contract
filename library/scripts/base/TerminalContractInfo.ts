@@ -27,9 +27,9 @@ export default class TerminalContractInfo {
 
     /**
      * Read data from blockchain and output in console.
-     * @param label {string} Contract label.
-     *     'RU'
-     *     'EN'
+     * @param label {string} Contract label. Examples
+     *     'Giver'
+     *     'Wallet'
      * @param contract {Contract}
      * @param locale {string} One or more BCP 47 extension sequences or `undefined`. Examples:
      */
