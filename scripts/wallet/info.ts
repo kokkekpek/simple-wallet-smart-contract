@@ -5,7 +5,7 @@ const info: WalletInfo = new WalletInfo({
     url: config.net.deploy.url,
     port: config.net.deploy.port,
     timeout: config.net.deploy.timeout,
-    keysFile: config.net.deploy.keys.giver,
+    keysFile: config.net.deploy.keys.wallet,
     locale: config.net.deploy.locale
 })
 info.run().then()
