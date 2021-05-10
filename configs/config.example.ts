@@ -81,12 +81,20 @@ export default {
                 giver: __dirname + '/../library/keys/GiverV2.se.keys.json',
 
                 /**
-                 * Absolute path to SaveMultisig wallet keys file.
+                 * Absolute path to SafeMultisigWallet keys file.
                  * Examples:
-                 *     __dirname + '/../keys/SaveMultisigWallet.keys.json'
-                 *     '/home/user/keys/SaveMultisigWallet.keys.json'
+                 *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
+                 *     '/home/user/keys/SafeMultisigWallet.keys.json'
                  */
-                wallet: __dirname + '/../keys/SaveMultisigWallet.keys.json'
+                wallet: __dirname + '/../keys/SafeMultisigWallet.keys.json',
+
+                /**
+                 * Absolute path to SimpleWallet keys file.
+                 * Examples:
+                 *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
+                 *     '/home/user/keys/SafeMultisigWallet.keys.json'
+                 */
+                simpleWallet: __dirname + '/../keys/SimpleWallet.keys.json'
             },
 
             /**
