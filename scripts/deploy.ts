@@ -11,9 +11,6 @@ import config from '../configs/config'
 import SimpleWallet from '../contracts/SimpleWallet'
 import GiverV2 from '../library/ton/contracts/GiverV2'
 
-/**
- * Run commands.
- */
 async function run(): Promise<void> {
     TonClient.useBinaryLibrary(libNode)
     const kit: KitInterface = Ton.kit.create(config.net.deploy)
@@ -40,7 +37,6 @@ async function run(): Promise<void> {
         await TerminalContractInfo.logAccount('SimpleWallet', simpleWallet, config.net.deploy.locale)
         await TerminalContractInfo.log()
     }
-
 
     const canDeploy: boolean = await terminalDeploy(simpleWallet)
     if (!canDeploy)
