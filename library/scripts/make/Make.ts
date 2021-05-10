@@ -1,10 +1,10 @@
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import MakeConfigInterface from './interfaces/MakeConfigInterface'
-import root from '../../root'
+import root from '../../../root'
 import path from 'path'
 import {runCommand} from 'tondev'
-import errorConsoleTerminal from './utils/errorConsoleTerminal'
+import errorConsoleTerminal from '../base/utils/errorConsoleTerminal'
 import colors from 'colors'
 
 export default class Make {

@@ -1,5 +1,5 @@
 import config from '../configs/config'
-import Startup from '../library/scripts/Startup'
+import Startup from '../library/scripts/startup/Startup'
 
 const startup: Startup = new Startup({
     version: config.net.test.version,

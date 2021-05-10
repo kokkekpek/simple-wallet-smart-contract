@@ -14,9 +14,9 @@ export default class TonKit {
      *     }
      * @return {KitInterface}
      */
-    public getKit(config: KitConfigInterface): KitInterface {
+    public create(config: KitConfigInterface): KitInterface {
         return {
-            client: this.getClient(config),
+            client: this.createClient(config),
             timeout: config.timeout
         }
     }
@@ -32,7 +32,7 @@ export default class TonKit {
      * @return {TonClient}
      * @param config
      */
-    public getClient(config: KitClientConfigInterface): TonClient {
+    public createClient(config: KitClientConfigInterface): TonClient {
         return new TonClient({
             network: {
                 server_address: `${config.url}:${config.port}`

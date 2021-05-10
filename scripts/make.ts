@@ -1,4 +1,4 @@
-import Make from '../library/scripts/Make'
+import Make from '../library/scripts/make/Make'
 
 const make: Make = new Make({
     compile: [

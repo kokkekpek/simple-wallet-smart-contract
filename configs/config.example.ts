@@ -27,13 +27,19 @@ export default {
             version: '0.27.2',
 
             /**
-             * Absolute path to giver keys file.
-             * @see https://github.com/tonlabs/tonos-se/tree/master/contracts
-             * Examples:
-             *     __dirname + '/../library/keys/GiverV2.se.keys.json'
-             *     '/home/user/keys/GiverV2.keys.json'
+             * IMPORTANT!!!
+             * Dont use default path. Store keys in encrypted directory or key storage.
+             * For directory encryption on linux use CryFS or any other solution.
              */
-            giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
+            keys: {
+                /**
+                 * Absolute path to giver keys file.
+                 * Examples:
+                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                 *     '/home/user/keys/GiverV2.keys.json'
+                 */
+                giver: __dirname + '/../library/keys/GiverV2.se.keys.json'
+            },
 
             /**
              * How long to wait and result of call or deployment from local node in milliseconds
@@ -64,13 +70,16 @@ export default {
              * IMPORTANT!!!
              * Dont use default path. Store keys in encrypted directory or key storage.
              * For directory encryption on linux use CryFS or any other solution.
-             *
-             * Absolute path to giver keys file.
-             * Examples:
-             *     __dirname + '/../library/keys/GiverV2.se.keys.json'
-             *     '/home/user/keys/GiverV2.keys.json'
              */
-            giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
+            keys: {
+                /**
+                 * Absolute path to giver keys file.
+                 * Examples:
+                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                 *     '/home/user/keys/GiverV2.keys.json'
+                 */
+                giver: __dirname + '/../library/keys/GiverV2.se.keys.json'
+            },
 
             /**
              * How long to wait and result of call or deployment from local node in milliseconds
@@ -78,7 +87,7 @@ export default {
              *     3000
              *     5000
              */
-            timeout: 3000,
+            timeout: 30000,
 
             /**
              * One or more BCP 47 extension sequences or `undefined`

@@ -16,6 +16,7 @@ import DeployedContractConfigInterface from './interfaces/DeployedContractConfig
 import KitInterface from '../utils/interfaces/KitInterface'
 import Ton from '../utils/Ton'
 import abi from './abi/transfer.abi.json'
+import {AccountTypeEnum} from './enums/AccountTypeEnum'
 
 export default class Contract {
     private readonly _client: TonClient
@@ -154,9 +155,10 @@ export default class Contract {
      * Example:
      *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
      *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
-     *     const accountType: number = await safeMultisigWallet.getAccountType()
+     *     const accountType: AccountTypeEnum = await safeMultisigWallet.getAccountType()
+     * @return {Promise<AccountTypeEnum>}
      */
-    public async getAccountType(): Promise<number> {
+    public async getAccountType(): Promise<AccountTypeEnum> {
         const queryCollectionResult: ResultOfQueryCollection = await this._client.net.query_collection({
             collection: 'accounts',
             filter: {

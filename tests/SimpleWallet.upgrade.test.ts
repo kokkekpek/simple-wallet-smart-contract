@@ -12,7 +12,7 @@ import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWall
 import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
 
 TonClient.useBinaryLibrary(libNode)
-const kit: KitInterface = Ton.kit.getKit(config.net.test)
+const kit: KitInterface = Ton.kit.create(config.net.test)
 
 it('Valid', async done => {
     const giverKeys: KeyPair = TonKeysFile.read(config.net.test.giverKeys)
