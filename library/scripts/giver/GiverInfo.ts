@@ -14,11 +14,11 @@ export default class GiverInfo {
     /**
      * @param config {GiverConfigInterface} Example:
      *     {
-     *             url: 'http://localhost',
-     *             port: '8080',
-     *             timeout: 3000,
-     *             keysFile: '/home/user/keys/GiverV2.keys.json',
-     *             locale: 'EN'
+     *         url: 'http://localhost',
+     *         port: '8080',
+     *         timeout: 3000,
+     *         keysFile: '/home/user/keys/GiverV2.keys.json',
+     *         locale: 'EN'
      *     }
      */
     constructor(config: GiverConfigInterface) {
