@@ -39,14 +39,6 @@ export default class GiverSend {
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
         const giver: GiverV2 = new GiverV2(kit, keys)
 
-        const accountType: AccountTypeEnum = await giver.getAccountType()
-        if (accountType !== AccountTypeEnum.ACTIVE) {
-            await TerminalContractInfo.logNetwork(this._config)
-            await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
-            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
-            process.exit()
-        }
-
         const terminalArguments: TerminalArgumentsInterface = readTerminalArguments([
             'address',
             'value',
@@ -54,6 +46,14 @@ export default class GiverSend {
         ])
         if (!terminalArguments.valid)
             process.exit()
+
+        const accountType: AccountTypeEnum = await giver.getAccountType()
+        if (accountType !== AccountTypeEnum.ACTIVE) {
+            await TerminalContractInfo.logNetwork(this._config)
+            await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
+            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
+            process.exit()
+        }
 
         const args: any = terminalArguments.arguments
         const address: string = args.address

@@ -40,14 +40,6 @@ export default class WalletSend {
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
         const wallet: SafeMultisigWallet = new SafeMultisigWallet(kit, keys)
 
-        const accountType: AccountTypeEnum = await wallet.getAccountType()
-        if (accountType !== AccountTypeEnum.ACTIVE) {
-            await TerminalContractInfo.logNetwork(this._config)
-            await TerminalContractInfo.logAccount('Giver', wallet, this._config.locale)
-            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
-            process.exit()
-        }
-
         const terminalArguments: TerminalArgumentsInterface = readTerminalArguments([
             'address',
             'value',
@@ -59,6 +51,14 @@ export default class WalletSend {
         ])
         if (!terminalArguments.valid)
             process.exit()
+
+        const accountType: AccountTypeEnum = await wallet.getAccountType()
+        if (accountType !== AccountTypeEnum.ACTIVE) {
+            await TerminalContractInfo.logNetwork(this._config)
+            await TerminalContractInfo.logAccount('Giver', wallet, this._config.locale)
+            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
+            process.exit()
+        }
 
         const args: any = terminalArguments.arguments
         const address: string = args.address
