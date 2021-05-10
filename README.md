@@ -1,4 +1,4 @@
-# NiFi
+# Simple Wallet
 * [Installation](docs/INSTALLATION.md)
 * [Make](docs/MAKE.md)
 * [Tests](docs/TESTS.md)
