@@ -371,7 +371,7 @@ export default class Contract {
             call_set: {
                 function_name: 'transfer',
                 input: {
-                    comment: Ton.string.stringToHex(comment)
+                    comment: Ton.hex.string(comment)
                 }
             },
             is_internal: true

@@ -1,4 +1,4 @@
-export default class TonString {
+export default class TonHex {
     /**
      * Add 0x to number or string.
      * @param {number} number Example:
@@ -17,8 +17,8 @@ export default class TonString {
      * @return {string} Example:
      *     '7b0a0922...'
      */
-    public abiToHex(abi: Object): string {
-        return this.stringToHex(JSON.stringify(abi))
+    public abi(abi: Object): string {
+        return this.string(JSON.stringify(abi))
     }
 
     /**
@@ -28,7 +28,7 @@ export default class TonString {
      * @return {string} Example:
      *     '58595a313233'
      */
-    public stringToHex(string: string): string {
+    public string(string: string): string {
         return string.split('').map(x => x.charCodeAt(0).toString(16)).join('')
     }
 
@@ -39,8 +39,8 @@ export default class TonString {
      * @return {string} Example:
      *     ['58595a313233', '414243343536']
      */
-    public stringsToHex(strings: string[]): string[] {
-        return strings.map(x => this.stringToHex(x))
+    public strings(strings: string[]): string[] {
+        return strings.map(x => this.string(x))
     }
 
     /**
@@ -50,7 +50,7 @@ export default class TonString {
      * @return {string} Example:
      *     '0x3b9aca00'
      */
-    public numberToHex(number: number): string {
+    public number(number: number): string {
         return this.x0(number.toString(16))
     }
 }

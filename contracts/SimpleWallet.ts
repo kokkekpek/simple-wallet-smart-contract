@@ -1,7 +1,7 @@
-import Contract from '../library/ton/classes/base/Contract'
+import Contract from '../library/ton/base/Contract'
 import SimpleWalletContract from './SimpleWallet/SimpleWallet'
 import {AbiContract, DecodedMessageBody, KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
-import KitInterface from '../library/ton/classes/utils/interfaces/KitInterface'
+import KitInterface from '../library/ton/utils/interfaces/KitInterface'
 
 export default class SimpleWallet extends Contract {
     public constructor(kit: KitInterface, keys: KeyPair) {

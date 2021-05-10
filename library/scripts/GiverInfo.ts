@@ -1,13 +1,13 @@
-import Ton from '../ton/classes/utils/Ton'
+import Ton from '../ton/utils/Ton'
 import GiverInfoConfigInterface from './interfaces/GiverInfoConfigInterface'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
 import * as fs from 'fs'
 import {libNode} from '@tonclient/lib-node'
 import path from 'node:path'
-import GiverV2 from '../ton/classes/GiverV2'
-import TonKeysFileReader from '../ton/classes/utils/TonKeysFile'
-import KitInterface from '../ton/classes/utils/interfaces/KitInterface'
+import GiverV2 from '../ton/contracts/GiverV2'
+import TonKeysFileReader from '../ton/utils/node/TonKeysFile'
+import KitInterface from '../ton/utils/interfaces/KitInterface'
 import colors from 'colors'
 
 export default class GiverInfo {

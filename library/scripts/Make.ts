@@ -75,7 +75,7 @@ export default class Make {
     }
 
     /**
-     * Wrat *.abi.json file.
+     * Wrap *.abi.json file.
      * @param file {string} Example:
      *     '/home/user/Project/nifi/contracts/Root.abi.json'
      * @private

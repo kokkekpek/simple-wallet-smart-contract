@@ -1,10 +1,10 @@
 import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import TonKeysFile from '../library/ton/classes/utils/TonKeysFile'
-import GiverV2 from '../library/ton/classes/GiverV2'
+import TonKeysFile from '../library/ton/utils/node/TonKeysFile'
+import GiverV2 from '../library/ton/contracts/GiverV2'
 import {TonClient} from '@tonclient/core'
-import KitInterface from '../library/ton/classes/utils/interfaces/KitInterface'
-import Ton from '../library/ton/classes/utils/Ton'
+import KitInterface from '../library/ton/utils/interfaces/KitInterface'
+import Ton from '../library/ton/utils/Ton'
 import {libNode} from '@tonclient/lib-node'
 import config from '../configs/config'
 import SimpleWallet from '../contracts/SimpleWallet'
@@ -21,8 +21,8 @@ it('Valid', async done => {
 
     await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
     await simpleWallet.deploy()
-    await simpleWallet.changeOwner(Ton.string.x0(simpleWalletKeys2.public))
+    await simpleWallet.changeOwner(Ton.hex.x0(simpleWalletKeys2.public))
 
-    expect(await simpleWallet.getOwner()).toBe(Ton.string.x0(simpleWalletKeys2.public))
+    expect(await simpleWallet.getOwner()).toBe(Ton.hex.x0(simpleWalletKeys2.public))
     done()
 }, testTimeout)

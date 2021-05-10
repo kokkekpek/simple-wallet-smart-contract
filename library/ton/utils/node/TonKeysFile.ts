@@ -1,7 +1,7 @@
 import {KeyPair} from '@tonclient/core/dist/modules'
 import * as fs from 'fs'
 import {TonClient} from '@tonclient/core'
-import Ton from './Ton'
+import Ton from '../Ton'
 
 export default class TonKeysFile {
     /**
