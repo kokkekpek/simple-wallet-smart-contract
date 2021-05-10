@@ -1,4 +1,15 @@
 # Scripts
+## Simple Wallet
+### Info
+```sh
+yarn inf
+```
+
+### Deploy
+```sh
+yarn deploy
+```
+
 ## Giver
 ### Info
 ```sh
