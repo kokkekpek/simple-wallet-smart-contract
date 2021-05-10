@@ -1,13 +1,13 @@
 import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import TonKeysFile from '../common/classes/utils/TonKeysFile'
-import GiverV2 from '../common/classes/GiverV2'
+import TonKeysFile from '../library/ton/classes/utils/TonKeysFile'
+import GiverV2 from '../library/ton/classes/GiverV2'
 import {TonClient} from '@tonclient/core'
-import KitInterface from '../common/classes/utils/interfaces/KitInterface'
-import Ton from '../common/classes/utils/Ton'
+import KitInterface from '../library/ton/classes/utils/interfaces/KitInterface'
+import Ton from '../library/ton/classes/utils/Ton'
 import {libNode} from '@tonclient/lib-node'
 import config from '../configs/config'
-import SimpleWallet from '../common/classes/SimpleWallet'
+import SimpleWallet from '../contracts/SimpleWallet'
 
 TonClient.useBinaryLibrary(libNode)
 const kit: KitInterface = Ton.kit.getKit(config.net.test)

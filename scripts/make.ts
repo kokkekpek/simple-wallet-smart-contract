@@ -1,13 +1,13 @@
-import Make from './classes/Make'
+import Make from '../library/scripts/Make'
 
 const make: Make = new Make({
     compile: [
-        'contracts/SimpleWallet',
-        'common/contracts/SimpleWallet_idle/SimpleWallet_idle',
+        'contracts/SimpleWallet/SimpleWallet',
+        'contracts/SimpleWallet_idle/SimpleWallet_idle',
     ],
     wrap: [
-        'common/contracts/SafeMultisigWallet/SafeMultisigWallet',
-        'common/contracts/GiverV2/GiverV2'
+        'library/ton/contracts/SafeMultisigWallet/SafeMultisigWallet',
+        'library/ton/contracts/GiverV2/GiverV2'
     ],
     compiler: '0.42.0',
     linker: '0.3.0'

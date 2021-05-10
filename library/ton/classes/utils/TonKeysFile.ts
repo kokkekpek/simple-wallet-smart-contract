@@ -7,7 +7,7 @@ export default class TonKeysFile {
     /**
      * Read keys from *.json file.
      * @param file {string} Absolute path to file. Example:
-     *     '/home/user/keys/GiverV2.keys.json'
+     *     '/home/user/keys/GiverV2.se.keys.json'
      * @return {KeyPair}
      */
     public static read(file: string): KeyPair {
@@ -18,7 +18,7 @@ export default class TonKeysFile {
     /**
      * Create random keys if keys not exists.
      * @param file {string} Absolute path to file. Example:
-     *     '/home/user/keys/GiverV2.keys.json'
+     *     '/home/user/keys/GiverV2.se.keys.json'
      * @param client {TonClient}
      * @return {KeyPair}
      */

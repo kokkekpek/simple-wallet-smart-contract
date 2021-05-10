@@ -30,10 +30,10 @@ export default {
              * Absolute path to giver keys file.
              * @see https://github.com/tonlabs/tonos-se/tree/master/contracts
              * Examples:
-             *     __dirname + 'common/keys/GiverV2.keys.json'
+             *     __dirname + '/../library/keys/GiverV2.se.keys.json'
              *     '/home/user/keys/GiverV2.keys.json'
              */
-            giverKeys: __dirname + '/../common/keys/GiverV2.keys.json',
+            giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
 
             /**
              * How long to wait and result of call or deployment from local node in milliseconds
@@ -67,10 +67,10 @@ export default {
              *
              * Absolute path to giver keys file.
              * Examples:
-             *     __dirname + '/../keys/GiverV2.keys.json'
+             *     __dirname + '/../library/keys/GiverV2.se.keys.json'
              *     '/home/user/keys/GiverV2.keys.json'
              */
-            giverKeys: __dirname + '/../keys/GiverV2.keys.json',
+            giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
 
             /**
              * How long to wait and result of call or deployment from local node in milliseconds

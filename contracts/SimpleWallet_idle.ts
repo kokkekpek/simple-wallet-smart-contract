@@ -1,7 +1,7 @@
-import Contract from './base/Contract'
-import SimpleWalletV2Contract from '../contracts/SimpleWallet_idle/SimpleWallet_idle'
+import Contract from '../library/ton/classes/base/Contract'
+import SimpleWalletV2Contract from './SimpleWallet_idle/SimpleWallet_idle'
 import {DecodedMessageBody, KeyPair} from '@tonclient/core/dist/modules'
-import KitInterface from './utils/interfaces/KitInterface'
+import KitInterface from '../library/ton/classes/utils/interfaces/KitInterface'
 
 export default class SimpleWallet_idle extends Contract {
     public constructor(kit: KitInterface, keys: KeyPair, address: string,) {
