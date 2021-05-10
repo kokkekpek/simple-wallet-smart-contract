@@ -1,18 +1,18 @@
 import {libNode} from '@tonclient/lib-node'
 import {TonClient} from '@tonclient/core'
 import Ton from '../../ton/utils/Ton'
-import GiverConfigInterface from './interfaces/GiverConfigInterface'
 import TonKeysFile from '../../ton/utils/node/TonKeysFile'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import KitInterface from '../../ton/utils/interfaces/KitInterface'
 import TerminalContractInfo from '../base/TerminalContractInfo'
 import GiverV2 from '../../ton/contracts/GiverV2'
+import AccountConfigInterface from '../base/interfaces/AccountConfigInterface'
 
 export default class GiverInfo {
-    private readonly _config: GiverConfigInterface
+    private readonly _config: AccountConfigInterface
 
     /**
-     * @param config {GiverConfigInterface} Example:
+     * @param config {AccountConfigInterface} Example:
      *     {
      *         url: 'http://localhost',
      *         port: '8080',
@@ -21,7 +21,7 @@ export default class GiverInfo {
      *         locale: 'EN'
      *     }
      */
-    constructor(config: GiverConfigInterface) {
+    constructor(config: AccountConfigInterface) {
         this._config = config
     }
 

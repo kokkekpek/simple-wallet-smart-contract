@@ -4,15 +4,15 @@ import Ton from '../../ton/utils/Ton'
 import TonKeysFile from '../../ton/utils/node/TonKeysFile'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import KitInterface from '../../ton/utils/interfaces/KitInterface'
-import GiverV2 from '../../ton/contracts/GiverV2'
 import colors from 'colors'
 import TerminalContractInfo from '../base/TerminalContractInfo'
 import Contract from '../../ton/base/Contract'
 import TerminalArgumentsInterface from '../base/interfaces/TerminalArgumentsInterface'
 import readTerminalArguments from '../base/functions/readTerminalArguments'
 import AccountConfigInterface from '../base/interfaces/AccountConfigInterface'
+import SafeMultisigWallet from '../../ton/contracts/SafeMultisigWallet'
 
-export default class GiverSend {
+export default class WalletSend {
     private readonly _config: AccountConfigInterface
 
     /**
@@ -36,12 +36,14 @@ export default class GiverSend {
         TonClient.useBinaryLibrary(libNode)
         const kit: KitInterface = Ton.kit.create(this._config)
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
-        const giver: GiverV2 = new GiverV2(kit, keys)
+        const wallet: SafeMultisigWallet = new SafeMultisigWallet(kit, keys)
 
         const terminalArguments: TerminalArgumentsInterface = readTerminalArguments([
             'address',
             'value',
-            'bounce'
+            'bounce',
+            'flags',
+            'comment'
         ])
         if (!terminalArguments.valid)
             process.exit()
@@ -50,6 +52,8 @@ export default class GiverSend {
         const address: string = args.address
         const value: number = parseInt(args.value.split('_').join(''))
         const bounce: boolean = args.bounce === 'true'
+        const flags: number = parseInt(args.flags)
+        const comment: string = args.comment
 
         const targetContract: Contract = new Contract(kit,{
             abi: {},
@@ -58,13 +62,13 @@ export default class GiverSend {
 
         await TerminalContractInfo.logNetwork(this._config)
         await TerminalContractInfo.log()
-        await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
+        await TerminalContractInfo.logAccount('Wallet', wallet, this._config.locale)
         await TerminalContractInfo.log()
         await TerminalContractInfo.log('SENDING...')
-        await giver.sendTransaction(address, value, bounce)
+        await wallet.sendTransactionWithComment(address, value, bounce, flags, comment, keys)
         await TerminalContractInfo.log(colors.green('SENT'))
         await TerminalContractInfo.log()
-        await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
+        await TerminalContractInfo.logAccount('Wallet', wallet, this._config.locale)
         await TerminalContractInfo.log()
         await TerminalContractInfo.logAccount('Target', targetContract, this._config.locale)
         await TerminalContractInfo.log()

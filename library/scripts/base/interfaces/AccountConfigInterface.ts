@@ -1,4 +1,4 @@
-export default interface GiverConfigInterface {
+export default interface AccountConfigInterface {
     url: string
     port: string
     timeout: number

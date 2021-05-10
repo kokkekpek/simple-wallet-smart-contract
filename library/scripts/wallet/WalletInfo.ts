@@ -5,12 +5,10 @@ import TonKeysFile from '../../ton/utils/node/TonKeysFile'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import KitInterface from '../../ton/utils/interfaces/KitInterface'
 import TerminalContractInfo from '../base/TerminalContractInfo'
-import GiverV2 from '../../ton/contracts/GiverV2'
-import terminalDeploy from '../base/functions/terminalDeploy'
-import colors from 'colors'
 import AccountConfigInterface from '../base/interfaces/AccountConfigInterface'
+import SafeMultisigWallet from '../../ton/contracts/SafeMultisigWallet'
 
-export default class GiverDeploy {
+export default class WalletInfo {
     private readonly _config: AccountConfigInterface
 
     /**
@@ -34,21 +32,10 @@ export default class GiverDeploy {
         TonClient.useBinaryLibrary(libNode)
         const kit: KitInterface = Ton.kit.create(this._config)
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
-        const giver: GiverV2 = new GiverV2(kit, keys)
-
+        const wallet: SafeMultisigWallet = new SafeMultisigWallet(kit, keys)
         await TerminalContractInfo.logNetwork(this._config)
         await TerminalContractInfo.log()
-        await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
-        await TerminalContractInfo.log()
-        const canDeploy:boolean = await terminalDeploy(giver)
-        if (!canDeploy)
-            process.exit()
-
-        await giver.deploy()
-        await TerminalContractInfo.log(colors.green('DEPLOYED'))
-        await TerminalContractInfo.log()
-        await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
-        await TerminalContractInfo.log()
+        await TerminalContractInfo.logAccount('Wallet', wallet, this._config.locale)
         process.exit()
     }
 }

@@ -78,7 +78,15 @@ export default {
                  *     __dirname + '/../library/keys/GiverV2.se.keys.json'
                  *     '/home/user/keys/GiverV2.keys.json'
                  */
-                giver: __dirname + '/../library/keys/GiverV2.se.keys.json'
+                giver: __dirname + '/../library/keys/GiverV2.se.keys.json',
+
+                /**
+                 * Absolute path to SaveMultisig wallet keys file.
+                 * Examples:
+                 *     __dirname + '/../keys/SaveMultisigWallet.keys.json'
+                 *     '/home/user/keys/SaveMultisigWallet.keys.json'
+                 */
+                wallet: __dirname + '/../keys/SaveMultisigWallet.keys.json'
             },
 
             /**
