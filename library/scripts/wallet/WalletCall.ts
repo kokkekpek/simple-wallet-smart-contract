@@ -12,6 +12,7 @@ import readTerminalArguments from '../base/functions/readTerminalArguments'
 import AccountConfigInterface from '../base/interfaces/AccountConfigInterface'
 import SafeMultisigWallet from '../../ton/contracts/SafeMultisigWallet'
 import fs from 'fs'
+import {AccountTypeEnum} from '../../ton/base/enums/AccountTypeEnum'
 
 export default class WalletSend {
     private readonly _config: AccountConfigInterface
@@ -38,6 +39,14 @@ export default class WalletSend {
         const kit: KitInterface = Ton.kit.create(this._config)
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
         const wallet: SafeMultisigWallet = new SafeMultisigWallet(kit, keys)
+
+        const accountType: AccountTypeEnum = await wallet.getAccountType()
+        if (accountType !== AccountTypeEnum.ACTIVE) {
+            await TerminalContractInfo.logNetwork(this._config)
+            await TerminalContractInfo.logAccount('Giver', wallet, this._config.locale)
+            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
+            process.exit()
+        }
 
         const terminalArguments: TerminalArgumentsInterface = readTerminalArguments([
             'address',

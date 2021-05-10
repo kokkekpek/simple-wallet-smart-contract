@@ -11,6 +11,7 @@ import Contract from '../../ton/base/Contract'
 import TerminalArgumentsInterface from '../base/interfaces/TerminalArgumentsInterface'
 import readTerminalArguments from '../base/functions/readTerminalArguments'
 import AccountConfigInterface from '../base/interfaces/AccountConfigInterface'
+import {AccountTypeEnum} from '../../ton/base/enums/AccountTypeEnum'
 
 export default class GiverSend {
     private readonly _config: AccountConfigInterface
@@ -37,6 +38,14 @@ export default class GiverSend {
         const kit: KitInterface = Ton.kit.create(this._config)
         const keys: KeyPair = await TonKeysFile.createRandomIfNotExist(this._config.keysFile, kit.client)
         const giver: GiverV2 = new GiverV2(kit, keys)
+
+        const accountType: AccountTypeEnum = await giver.getAccountType()
+        if (accountType !== AccountTypeEnum.ACTIVE) {
+            await TerminalContractInfo.logNetwork(this._config)
+            await TerminalContractInfo.logAccount('Giver', giver, this._config.locale)
+            await TerminalContractInfo.log(colors.red('ACCOUNT IS NOT ACTIVE'))
+            process.exit()
+        }
 
         const terminalArguments: TerminalArgumentsInterface = readTerminalArguments([
             'address',
