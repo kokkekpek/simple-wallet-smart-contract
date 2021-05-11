@@ -3,5 +3,5 @@ export enum AccountTypeEnum {
     UN_INIT = 0,
     ACTIVE = 1,
     FROZEN = 2,
-    NON_EXIST = 2
+    NON_EXIST = 3
 }
