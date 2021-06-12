@@ -40,7 +40,7 @@ uint256 regName;
 
 
 ## Modifiers
-### If possible, place data validation into modifiers.
+### If possible, place data validation into modifiers
 ✅
 ```sol
 modifier oneTon() {
