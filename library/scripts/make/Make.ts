@@ -10,6 +10,22 @@ import {ExtensionType} from './types/ExtensionType'
 import {ExportType} from './types/ExportType'
 
 export default class Make {
+    private static readonly CONFIG = {
+        EXTENSION: 'ts' as ExtensionType,
+        EXPORT: 'es6-default' as ExportType
+    }
+
+    private static readonly COMMAND = {
+        SOL_SET: 'sol set',
+        SOL_COMPILE: 'sol compile',
+        JS_WRAP: 'js wrap'
+    }
+
+    private static readonly EXTENSION = {
+        SOL: 'sol',
+        ABI_JSON: 'abi.json',
+    }
+
     private readonly _config: MakeConfigInterface
     private readonly _extension: ExtensionType
     private readonly _export: ExportType
@@ -34,8 +50,8 @@ export default class Make {
      */
     public constructor(config: MakeConfigInterface) {
         this._config = config
-        this._extension = config.extension ?? 'ts'
-        this._export = config.export ?? 'es6-default'
+        this._extension = config.extension ?? Make.CONFIG.EXTENSION
+        this._export = config.export ?? Make.CONFIG.EXPORT
         TonClient.useBinaryLibrary(libNode)
     }
 
@@ -43,7 +59,7 @@ export default class Make {
      * Run commands.
      */
     public async run(): Promise<void> {
-        await runCommand(errorConsoleTerminal, 'sol set', {
+        await runCommand(errorConsoleTerminal, Make.COMMAND.SOL_SET, {
             compiler: this._config.compiler,
             linker: this._config.linker
         })
@@ -71,8 +87,8 @@ export default class Make {
      * @private
      */
     private static async _compile(file: string): Promise<void> {
-        await runCommand(errorConsoleTerminal, 'sol compile', {
-            file: path.resolve(root, `${file}.sol`),
+        await runCommand(errorConsoleTerminal, Make.COMMAND.SOL_COMPILE, {
+            file: path.resolve(root, `${file}.${Make.EXTENSION.SOL}`),
             outputDir: path.resolve(root, path.parse(file).dir)
         })
     }
@@ -84,8 +100,8 @@ export default class Make {
      * @private
      */
     private async _wrap(file: string): Promise<void> {
-        await runCommand(errorConsoleTerminal, 'js wrap', {
-            file: path.resolve(root, `${file}.abi.json`),
+        await runCommand(errorConsoleTerminal, Make.COMMAND.JS_WRAP, {
+            file: path.resolve(root, `${file}.${Make.EXTENSION.ABI_JSON}`),
             export: this._export,
             output: `${path.basename(file)}.${this._extension}`
         })
