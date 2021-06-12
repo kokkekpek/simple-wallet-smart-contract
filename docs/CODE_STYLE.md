@@ -1,5 +1,5 @@
 # Code style
-Based on [Ethereum Style Guide](https://docs.soliditylang.org/en/v0.5.3/style-guide.html)
+Based on [Ethereum Style Guide](https://docs.soliditylang.org/en/v0.8.5/style-guide.html)
 
 ## Naming
 ### Contract variable started from "_"
