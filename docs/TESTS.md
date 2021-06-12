@@ -2,10 +2,9 @@
 ## Requirements
 Check requirements in [INSTALLATION](INSTALLATION.md).
 
-## Prepare
-Run local node
+## Run local node
 ```sh
-yarn startup
+yarn up
 ```
 
 ## Run
