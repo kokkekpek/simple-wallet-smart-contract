@@ -44,7 +44,7 @@ uint256 regName;
 ✅
 ```sol
 modifier oneTon() {
-    require(msg.value == 1 ton, 104, "Method available only 1 ton only");
+    require(msg.value == 1 ton, 104, "Method available with 1 ton only");
     _;
 }
 
