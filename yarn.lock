@@ -503,15 +503,25 @@
   dependencies:
     "@tonclient/core" "^1"
 
-"@tonclient/core@^1", "@tonclient/core@^1.8.0":
+"@tonclient/core@^1":
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/@tonclient/core/-/core-1.14.2.tgz#d5c195570eaf381aba653eaa14fc330d65fd8d86"
   integrity sha512-7EL7/x3Q619YIEmF2n4qfGoEDav8qQFD0NVgYeJfHDJntEU0MX3jPmapAOW78rD/RecwoeLbxIQ6nTEKEmqmYA==
 
-"@tonclient/lib-node@^1", "@tonclient/lib-node@^1.8.0":
+"@tonclient/core@^1.8.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@tonclient/core/-/core-1.16.0.tgz#0728caa91968866d5344dc877f3542c68fe50c16"
+  integrity sha512-KM8VJl4g9NHixXuPQMxZZt6KBvkQMg6jKxLIJwICmcE4N5yaSH4wtumM1zkBeMU1SbxcG8GGuzElRymBnHjjfw==
+
+"@tonclient/lib-node@^1":
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/@tonclient/lib-node/-/lib-node-1.14.2.tgz#66b8e5744b0f7f1dcf85f1e1b78a6ed2181eae73"
   integrity sha512-fnsoMNeH7KshfwPprYwU2GwgBIcCHThi8d9DgncCCdQ60AygXowk24nu6WuMrnLYx0kJI6YVLVlDXk5D9izdFg==
+
+"@tonclient/lib-node@^1.8.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@tonclient/lib-node/-/lib-node-1.16.0.tgz#225320e9f1b1d0d6086fe1c5f1c45c0b7b5a2b04"
+  integrity sha512-OsskO7ixG2EW3MBL53KIf4dl7rGtHb03OauqAgwdIAzCI4xk6p5uUDz2BfK0vctifwwsAGM3qrUvloRN74N+Xw==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.14"
@@ -586,9 +596,9 @@
   integrity sha512-p68+a+KoxpoB47015IeYZYRrdqMUcpbK8re/zpFB8Ld46LHC1lPEbp3EXgkEhAYEcPvjJF6ZO+869SQ0aH1dcA==
 
 "@types/node@^14.14.31":
-  version "14.14.44"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.44.tgz#df7503e6002847b834371c004b372529f3f85215"
-  integrity sha512-+gaugz6Oce6ZInfI/tK4Pq5wIIkJMEJUu92RB3Eu93mtj4wjjjz9EB5mLp5s1pSsLXdC/CPut/xF20ZzAQJbTA==
+  version "14.17.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
+  integrity sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -3699,9 +3709,9 @@ typedarray-to-buffer@^3.1.5:
     is-typedarray "^1.0.0"
 
 typescript@^4.1.5:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
-  integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
+  integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
 
 union-value@^1.0.0:
   version "1.0.1"
