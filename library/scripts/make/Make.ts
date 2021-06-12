@@ -32,7 +32,7 @@ export default class Make {
 
     /**
      * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension.
-     * You can get compiler and linker versions from `tondev sol version`
+     * You can get compiler, linker and stdlib versions from `tondev sol version`
      * Example:
      *     {
      *         compile: [
@@ -42,8 +42,9 @@ export default class Make {
      *         wrap: [
      *             'tests/contracts/SafeMultisigWallet'
      *         ],
-     *         compiler: '0.42.0',
-     *         linker: '0.3.0',
+     *         compiler: '0.45.0',
+     *         linker: '0.7.31',
+     *         stdlib: '0.45.0',
      *         extension: 'ts',
      *         export: 'es6-default'
      *     }
@@ -61,7 +62,8 @@ export default class Make {
     public async run(): Promise<void> {
         await runCommand(errorConsoleTerminal, Make.COMMAND.SOL_SET, {
             compiler: this._config.compiler,
-            linker: this._config.linker
+            linker: this._config.linker,
+            stdlib: this._config.stdlib
         })
 
         const compile: string[] = this._config.compile
