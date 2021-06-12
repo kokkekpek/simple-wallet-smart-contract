@@ -6,11 +6,13 @@ import path from 'path'
 import {runCommand} from 'tondev'
 import errorConsoleTerminal from '../base/utils/errorConsoleTerminal'
 import colors from 'colors'
+import {ExtensionType} from './types/ExtensionType'
+import {ExportType} from './types/ExportType'
 
 export default class Make {
     private readonly _config: MakeConfigInterface
-    private readonly _extension: string
-    private readonly _export: string
+    private readonly _extension: ExtensionType
+    private readonly _export: ExportType
 
     /**
      * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension.
