@@ -64,20 +64,21 @@ export default class Make {
 
     /**
      * Compile *.sol file.
-     * @param file {string} Example:
-     *     '/home/user/Project/nifi/contracts/Root.sol'
+     * @param file {string} Relative path without '.sol'. Example:
+     *     '/home/user/Project/nifi/contracts/Root'
      * @private
      */
     private static async _compile(file: string): Promise<void> {
         await runCommand(errorConsoleTerminal, 'sol compile', {
-            file: path.resolve(root, `${file}.sol`)
+            file: path.resolve(root, `${file}.sol`),
+            outputDir: path.resolve(root, path.parse(file).dir)
         })
     }
 
     /**
      * Wrap *.abi.json file.
-     * @param file {string} Example:
-     *     '/home/user/Project/nifi/contracts/Root.abi.json'
+     * @param file {string} Relative path without '.abi.json'. Example:
+     *     '/home/user/Project/nifi/contracts/Root'
      * @private
      */
     private async _wrap(file: string): Promise<void> {
