@@ -1,5 +1,5 @@
 # Scripts
-## Simple Wallet
+## SimpleWallet
 ### Info
 ```sh
 yarn inf
@@ -35,7 +35,7 @@ Example
 yarn giver.send 0:0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff 100_000_000 false
 ```
 
-## Wallet
+## SafeMultisigWallet
 ### Info
 ```sh
 yarn wallet
