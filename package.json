@@ -6,7 +6,7 @@
   "scripts": {
     "cp": "cp configs/config.example.ts configs/config.ts",
     "make": "ts-node scripts/make",
-    "startup": "ts-node scripts/startup",
+    "up": "ts-node scripts/up",
     "inf": "ts-node scripts/inf",
     "deploy": "ts-node scripts/deploy",
     "giver": "ts-node scripts/giver/info",

@@ -1,5 +1,23 @@
 export default {
     net: {
+        local: {
+            /**
+             * Version of local node. Run `tondev se version` to view options.
+             * @see https://github.com/tonlabs/tondev
+             * Examples:
+             *     'latest'
+             *     '0.28.3'
+             */
+            version: 'latest',
+
+            /**
+             * Network port.
+             * Examples:
+             *     '8080'
+             *     '80'
+             */
+            port: '8080',
+        },
         test: {
             /**
              * Network URL without port.
@@ -16,15 +34,6 @@ export default {
              *     '80'
              */
             port: '8080',
-
-            /**
-             * Version of test node. Actual for testing on local node. Run `tondev se version` to view options.
-             * @see https://github.com/tonlabs/tondev
-             * Examples:
-             *     '0.27.2'
-             *     'latest'
-             */
-            version: '0.27.2',
 
             /**
              * IMPORTANT!!!
