@@ -16,7 +16,7 @@ export default {
              *     '8080'
              *     '80'
              */
-            port: '8080',
+            port: '8080'
         },
         test: {
             /**
