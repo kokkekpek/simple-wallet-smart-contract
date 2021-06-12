@@ -1,7 +1,7 @@
 import {AbiContract, KeyPair} from '@tonclient/core/dist/modules'
 
 export default interface ContractConfigInterface {
-    abi: AbiContract | Object
+    abi: AbiContract
     initialData: Object
     keys: KeyPair
     tvc: string
