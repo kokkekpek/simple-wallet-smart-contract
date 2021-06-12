@@ -23,14 +23,13 @@ yarn giver.deploy
 
 ### Send
 ```sh
-yarn wallet.send <address> <value> <bounce> <flags> <comment>
+yarn giver.send <address> <value> <bounce> <flags>
 ```
 * `address` - destination contract address
 * `value` - value in nano grams
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
-* `comment` - text comment. Maximum 124 symbols
 
-Example
+**Example**
 ```sh
 yarn giver.send 0:0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff 100_000_000 false
 ```
