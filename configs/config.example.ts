@@ -11,12 +11,29 @@ export default {
             version: 'latest',
 
             /**
+             * Network URL without port.
+             * Examples:
+             *     'http://localhost'
+             *     'http://0.0.0.0
+             */
+            url: 'http://localhost',
+
+            /**
              * Network port.
              * Examples:
              *     '8080'
              *     '80'
              */
-            port: '8080'
+            port: '8080',
+
+            /**
+             * How long to wait result of call or deployment in milliseconds.
+             * Examples:
+             *     3000
+             *     30000
+             *     60000
+             */
+            timeout: 30000
         },
         test: {
             /**
