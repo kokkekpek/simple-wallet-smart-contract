@@ -2,61 +2,61 @@
 Based on [Ethereum Style Guide](https://docs.soliditylang.org/en/v0.8.5/style-guide.html)
 
 ## Naming
-### Contract variable started from "_"
-No
+### Contract variables started from "_"
+✅
+```sol
+address private _manager;
+```
+
+⛔️
 ```sol
 address private m_manager;
 address private manager;
 ```
 
-Yes
-```sol
-address private _manager;
-```
-
 ### Private and internal methods started from "_"
-No
-```sol
-function nameIsValid(string name) private pure returns (bool) {}
-```
-
-Yes
+✅
 ```sol
 function _nameIsValid(string name) private pure returns (bool) {}
 ```
 
-### Avoiding contractions
-No
+⛔️
 ```sol
-uint256 pubKey;
-uint256 regName;
+function nameIsValid(string name) private pure returns (bool) {}
 ```
 
-Yes
+### Avoiding contractions
+✅
 ```sol
 uint256 publicKey;
 uint256 regisgerName;
 ```
 
-
-## Modifiers
-### If possible, data validation is placed in modifiers
-No
+⛔️
 ```sol
-function registerName() oneTon {
-    require(msg.value == 1 ton, 104, "Method available with only 1 ton");
-    // ...
-}
+uint256 pubKey;
+uint256 regName;
 ```
 
-Yes
+
+## Modifiers
+### If possible, place data validation into modifiers.
+✅
 ```sol
 modifier oneTon() {
-    require(msg.value == 1 ton, 104, "Method available with only 1 ton");
+    require(msg.value == 1 ton, 104, "Method available only 1 ton only");
     _;
 }
 
 function registerName() oneTon {
+    // ...
+}
+```
+
+⛔️
+```sol
+function registerName() oneTon {
+    require(msg.value == 1 ton, 104, "Method available with 1 ton only");
     // ...
 }
 ```
@@ -79,9 +79,16 @@ contract Root {
 ### Each contract consists of several blocks
 Each block begins with a three-line commentary for easy navigation. Blocks in the following order.
 ```sol
-    /*************
+    /**********
+     * EVENTS *
+     **********/
+    event BidEvent(uint128 id, address creator, address bider, uint128 value);
+    
+    
+    
+    /**************
      * STRUCTURES *
-     *************/
+     **************/
     struct MyStructure {
         address sender;
         string  name;
@@ -92,17 +99,23 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     /*************
      * CONSTANTS *
      *************/
-     uint256 private constant X = 0;
-     
-     
-     
-    /**************
+    uint256 private constant X = 0;
+    
+    
+    /**********
+     * STATIC *
+     **********/
+    address static _root;
+    
+    
+    
+    /*************
      * VARIABLES *
      *************/
     uint256 private _x;
-     
-     
-     
+    
+    
+    
     /*************
      * MODIFIERS *
      *************/
@@ -114,57 +127,58 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
      * CONSTRUCTOR *
      ***************/
     constructor() public {}
-     
-     
-     
+    
+    
+    
     /************
      * EXTERNAL *
      ************/
     function externalFunction() external {}
-     
-     
-     
+    
+    
+    
     /**********
      * PUBLIC *
      **********/
     function publicFunction() public {}
-     
-     
-     
+    
+    
+    
     /*************
      * RECEIVERS *
      *************/
     function receiveX() external view returns(uint256 x) {}
     
     
-      
+    
     /***********
      * GETTERS *
      ***********/
     function getX() public view returns(uint256 x) {}
-     
-     
-     
+    
+    
+    
     /***********
      * SETTRES *
      ***********/
     function setX(uint256 x) public {}
-     
-     
-     
+    
+    
+    
     /************
      * INTERNAL *
      ************/
     function _calculateX() internal {}
-     
-     
-     
+    
+    
+    
     /***********
      * PRIVATE *
      ***********/
     function _calculateX2() private {}
-     
-     
+    
+    
+    
     /*********
      * OTHER *
      *********/

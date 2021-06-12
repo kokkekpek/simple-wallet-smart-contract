@@ -23,6 +23,7 @@ export default {
              * Examples:
              *     '8080'
              *     '80'
+             *     '443'
              */
             port: '8080',
 
@@ -40,7 +41,9 @@ export default {
              * Network URL without port.
              * Examples:
              *     'http://localhost'
-             *     'http://0.0.0.0
+             *     'https://net.ton.dev
+             *     'https://main.ton.dev
+             *     'https://gql.custler.net
              */
             url: 'http://localhost',
 
@@ -49,29 +52,32 @@ export default {
              * Examples:
              *     '8080'
              *     '80'
+             *     '443'
              */
             port: '8080',
 
             /**
              * IMPORTANT!!!
-             * Dont use default path. Store keys in encrypted directory or key storage.
+             * Dont use default paths. Store keys in encrypted directory or key storage.
              * For directory encryption on linux use CryFS or any other solution.
              */
-            keys: {
+            giver: {
                 /**
                  * Absolute path to giver keys file.
                  * Examples:
                  *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                 *     __dirname + '/../keys/GiverV2.keys.json'
                  *     '/home/user/keys/GiverV2.keys.json'
                  */
-                giver: __dirname + '/../library/keys/GiverV2.se.keys.json'
+                keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
             },
 
             /**
-             * How long to wait and result of call or deployment from local node in milliseconds
+             * How long to wait result of call or deployment in milliseconds.
              * Examples:
              *     3000
-             *     5000
+             *     30000
+             *     60000
              */
             timeout: 3000
         },
@@ -80,7 +86,9 @@ export default {
              * Network URL without port.
              * Examples:
              *     'http://localhost'
-             *     'http://0.0.0.0
+             *     'https://net.ton.dev
+             *     'https://main.ton.dev
+             *     'https://gql.custler.net
              */
             url: 'http://localhost',
 
@@ -89,8 +97,26 @@ export default {
              * Examples:
              *     '8080'
              *     '80'
+             *     '443'
              */
             port: '8080',
+
+            /**
+             * IMPORTANT!!!
+             * Dont use default paths. Store keys in encrypted directory or key storage.
+             * For directory encryption on linux use CryFS or any other solution.
+             */
+            giver: {
+                /**
+                 * Absolute path to keys file.
+                 * Examples:
+                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                 *     __dirname + '/../keys/GiverV2.keys.json'
+                 *     '/home/user/keys/GiverV2.keys.json'
+                 */
+                keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
+            },
+
 
             /**
              * IMPORTANT!!!
