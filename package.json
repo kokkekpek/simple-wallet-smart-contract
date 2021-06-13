@@ -16,7 +16,7 @@
     "wallet.deploy": "ts-node scripts/wallet/deploy",
     "wallet.send": "ts-node scripts/wallet/send",
     "wallet.call": "ts-node scripts/wallet/call",
-    "test": "jest --detectOpenHandles --forceExit --runInBand --verbose"
+    "test": "jest --verbose"
   },
   "author": "Kok Kek",
   "license": "GPL-3.0-only",

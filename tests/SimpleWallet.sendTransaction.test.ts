@@ -13,8 +13,8 @@ import SafeMultisigWallet from '../library/ton/contracts/SafeMultisigWallet'
 TonClient.useBinaryLibrary(libNode)
 const kit: KitInterface = Ton.kit.create(config.net.test)
 
-it('Valid', async done => {
-    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.giverKeys)
+it('sendTransaction', async () => {
+    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.contracts.giver.keys)
     const giver: GiverV2 = new GiverV2(kit, giverKeys)
     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
     const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
@@ -27,9 +27,9 @@ it('Valid', async done => {
         1_000_000_000,
         false,
         1,
-        '123'
+        'test'
     )
 
     expect(await safeMultisigWallet.getBalance()).toBe(Ton.hex.number(1_000_000_000))
-    done()
+    kit.client.close()
 }, testTimeout)

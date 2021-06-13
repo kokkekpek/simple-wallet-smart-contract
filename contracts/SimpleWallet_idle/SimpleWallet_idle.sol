@@ -12,4 +12,11 @@ contract SimpleWallet_idle {
     function getVersion() public pure returns(uint8 version) {
         return 2;
     }
+
+
+
+    /**************************
+     * PURE * ON CODE UPGRADE *
+     **************************/
+    function onCodeUpgrade() private pure {}
 }

@@ -12,8 +12,8 @@ import SimpleWallet from '../contracts/SimpleWallet'
 TonClient.useBinaryLibrary(libNode)
 const kit: KitInterface = Ton.kit.create(config.net.test)
 
-it('Valid', async done => {
-    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.giverKeys)
+it('changeOwner', async () => {
+    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.contracts.giver.keys)
     const giver: GiverV2 = new GiverV2(kit, giverKeys)
     const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
     const simpleWalletKeys2: KeyPair = await Ton.keys.random(kit.client)
@@ -24,5 +24,5 @@ it('Valid', async done => {
     await simpleWallet.changeOwner(Ton.hex.x0(simpleWalletKeys2.public))
 
     expect(await simpleWallet.getOwner()).toBe(Ton.hex.x0(simpleWalletKeys2.public))
-    done()
+    kit.client.close()
 }, testTimeout)

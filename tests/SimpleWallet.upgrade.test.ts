@@ -14,8 +14,8 @@ import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
 TonClient.useBinaryLibrary(libNode)
 const kit: KitInterface = Ton.kit.create(config.net.test)
 
-it('Valid', async done => {
-    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.giverKeys)
+it('upgrade', async () => {
+    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.contracts.giver.keys)
     const giver: GiverV2 = new GiverV2(kit, giverKeys)
     const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
     const simpleWallet: SimpleWallet = new SimpleWallet(kit, simpleWalletKeys)
@@ -30,5 +30,5 @@ it('Valid', async done => {
     await simpleWallet.upgrade(SimpleWallet_idleContract.code)
 
     expect(await simpleWallet_idle.getVersion()).toBe('2')
-    done()
+    kit.client.close()
 }, testTimeout)
