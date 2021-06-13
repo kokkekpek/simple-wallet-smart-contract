@@ -53,7 +53,12 @@ export default class Contract {
      *         tvc: 'te6ccg...'
      *     }
      */
-    public constructor(client: TonClient, timeout: number, config: ContractConfigInterface | DeployedContractConfigInterface) {
+    public constructor(
+        client: TonClient,
+        timeout: number,
+        config: ContractConfigInterface | DeployedContractConfigInterface
+    )
+    {
         this._client = client
         this._timeout = timeout
         this._abi = Contract._getAbi(config.abi)
@@ -67,12 +72,13 @@ export default class Contract {
     /**
      * Called once. Use if you want to know the address of the contract before deployment.
      * Example:
-     *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
-     *     const keys: KeyPair = await Ton.keys.random(kit.client)
-     *     const root: ArtRoot = new ArtRoot(kit, keys)
-     *     const rootAddress: string = await root.calculateAddress()
+     *     const client: TonClient = Client.create(config.net.test)
+     *     const timeout: number = config.net.test.timeout
+     *     const keys: KeyPair = await Keys.random(client)
+     *     const root: ArtRoot = new ArtRoot(client, timeout, keys)
+     *     const rootAddress: string = await root.address()
      */
-    public async calculateAddress(): Promise<string> {
+    public async address(): Promise<string> {
         if (this._address)
             return this._address
 
@@ -92,9 +98,10 @@ export default class Contract {
 
     /**
      * Use this if you want to wait for a transaction from one contract to another. Example:
-     *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
-     *     const sender: SenderContract = new SenderContract(kit)
-     *     const receiver: ReceiverContract = new ReceiverContract(kit)
+     *     const client: TonClient = Client.create(config.net.test)
+     *     const timeout: number = config.net.test.timeout
+     *     const sender: SenderContract = new SenderContract(client, timeout)
+     *     const receiver: ReceiverContract = new ReceiverContract(client, timeout)
      *
      *     // Deployment here...
      *
@@ -112,7 +119,7 @@ export default class Contract {
                 collection: 'accounts',
                 filter: {
                     id: {
-                        eq: await this.calculateAddress()
+                        eq: await this.address()
                     },
                     last_trans_lt: {
                         gt: this._lastTransactionLogicTime.toString()
@@ -131,16 +138,18 @@ export default class Contract {
     /**
      * Return contract balance.
      * Example:
-     *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
-     *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
-     *     const balance: string = await safeMultisigWallet.getBalance()
+     *     const client: TonClient = Client.create(config.net.test)
+     *     const timeout: number = config.net.test.timeout
+     *     const keys: KeyPair = await Keys.random(client)
+     *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(client, timeout, keys)
+     *     const balance: string = await safeMultisigWallet.balance()
      */
-    public async getBalance(): Promise<string> {
+    public async balance(): Promise<string> {
         const queryCollectionResult: ResultOfQueryCollection = await this._client.net.query_collection({
             collection: 'accounts',
             filter: {
                 id: {
-                    eq: await this.calculateAddress()
+                    eq: await this.address()
                 }
             },
             result: 'balance'
@@ -152,17 +161,19 @@ export default class Contract {
     /**
      * Return contract account type.
      * Example:
-     *     const kit: KitInterface = Ton.kit.getKit(config.net.test)
-     *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
-     *     const accountType: AccountTypeEnum = await safeMultisigWallet.getAccountType()
+     *     const client: TonClient = Client.create(config.net.test)
+     *     const timeout: number = config.net.test.timeout
+     *     const keys: KeyPair = await Keys.random(client)
+     *     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(client, timeout, keys)
+     *     const accountType: AccountTypeEnum = await safeMultisigWallet.accountType()
      * @return {Promise<AccountTypeEnum>}
      */
-    public async getAccountType(): Promise<AccountTypeEnum> {
+    public async accountType(): Promise<AccountTypeEnum> {
         const queryCollectionResult: ResultOfQueryCollection = await this._client.net.query_collection({
             collection: 'accounts',
             filter: {
                 id: {
-                    eq: await this.calculateAddress()
+                    eq: await this.address()
                 }
             },
             result: 'acc_type'
@@ -195,7 +206,7 @@ export default class Contract {
             collection: 'accounts',
             filter: {
                 id: {
-                    eq: await this.calculateAddress()
+                    eq: await this.address()
                 }
             },
             result: 'boc'
@@ -252,7 +263,7 @@ export default class Contract {
                     type: 'Keys',
                     keys: keysPair
                 },
-                address: await this.calculateAddress(),
+                address: await this.address(),
                 call_set: {
                     function_name: method,
                     input: input
@@ -280,7 +291,7 @@ export default class Contract {
             collection: 'accounts',
             filter: {
                 id: {
-                    eq: await this.calculateAddress()
+                    eq: await this.address()
                 },
                 data: {
                     eq: null

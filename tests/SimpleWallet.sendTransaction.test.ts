@@ -22,16 +22,16 @@ it('sendTransaction', async () => {
     const simpleWalletKeys: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
     await simpleWallet.deploy()
     await simpleWallet.sendTransaction(
-        await safeMultisigWallet.calculateAddress(),
+        await safeMultisigWallet.address(),
         1_000_000_000,
         false,
         1,
         'test'
     )
 
-    expect(await safeMultisigWallet.getBalance()).toBe(Hex.number(1_000_000_000))
+    expect(await safeMultisigWallet.balance()).toBe(Hex.number(1_000_000_000))
     client.close()
 }, testTimeout)

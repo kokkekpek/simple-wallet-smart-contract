@@ -19,7 +19,7 @@ it('deploy', async () => {
     const simpleWalletKeys: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
     const deployResult: boolean = await simpleWallet.deploy()
 
     expect(deployResult).toBeTruthy()

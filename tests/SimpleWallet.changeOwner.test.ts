@@ -20,7 +20,7 @@ it('changeOwner', async () => {
     const simpleWalletKeys2: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
     await simpleWallet.deploy()
     await simpleWallet.changeOwner(Hex.x0(simpleWalletKeys2.public))
 

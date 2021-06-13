@@ -23,10 +23,10 @@ it('upgrade', async () => {
         client,
         timeout,
         simpleWalletKeys,
-        await simpleWallet.calculateAddress()
+        await simpleWallet.address()
     )
 
-    await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
     await simpleWallet.deploy()
     await simpleWallet.upgrade(SimpleWallet_idleContract.code)
 
