@@ -1,7 +1,7 @@
 {
   "name": "simple-wallet-smart-contract",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple wallet smart-contract with one public key",
   "main": "index.ts",
   "scripts": {
     "cp": "cp configs/config.example.ts configs/config.ts",
