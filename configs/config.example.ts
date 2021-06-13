@@ -61,15 +61,17 @@ export default {
              * Dont use default paths. Store keys in encrypted directory or key storage.
              * For directory encryption on linux use CryFS or any other solution.
              */
-            giver: {
-                /**
-                 * Absolute path to giver keys file.
-                 * Examples:
-                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
-                 *     __dirname + '/../keys/GiverV2.keys.json'
-                 *     '/home/user/keys/GiverV2.keys.json'
-                 */
-                keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
+            contracts: {
+                giver: {
+                    /**
+                     * Absolute path to keys file.
+                     * Examples:
+                     *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                     *     __dirname + '/../keys/GiverV2.keys.json'
+                     *     '/home/user/keys/GiverV2.keys.json'
+                     */
+                    keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
+                }
             },
 
             /**
@@ -106,64 +108,53 @@ export default {
              * Dont use default paths. Store keys in encrypted directory or key storage.
              * For directory encryption on linux use CryFS or any other solution.
              */
-            giver: {
-                /**
-                 * Absolute path to keys file.
-                 * Examples:
-                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
-                 *     __dirname + '/../keys/GiverV2.keys.json'
-                 *     '/home/user/keys/GiverV2.keys.json'
-                 */
-                keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
-            },
-
-
-            /**
-             * IMPORTANT!!!
-             * Dont use default path. Store keys in encrypted directory or key storage.
-             * For directory encryption on linux use CryFS or any other solution.
-             */
-            keys: {
-                /**
-                 * Absolute path to giver keys file.
-                 * Examples:
-                 *     __dirname + '/../library/keys/GiverV2.se.keys.json'
-                 *     '/home/user/keys/GiverV2.keys.json'
-                 */
-                giver: __dirname + '/../library/keys/GiverV2.se.keys.json',
-
-                /**
-                 * Absolute path to SafeMultisigWallet keys file.
-                 * Examples:
-                 *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
-                 *     '/home/user/keys/SafeMultisigWallet.keys.json'
-                 */
-                wallet: __dirname + '/../keys/SafeMultisigWallet.keys.json',
-
-                /**
-                 * Absolute path to SimpleWallet keys file.
-                 * Examples:
-                 *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
-                 *     '/home/user/keys/SafeMultisigWallet.keys.json'
-                 */
-                simpleWallet: __dirname + '/../keys/SimpleWallet.keys.json'
+            contracts: {
+                giver: {
+                    /**
+                     * Absolute path to keys file.
+                     * Examples:
+                     *     __dirname + '/../library/keys/GiverV2.se.keys.json'
+                     *     __dirname + '/../keys/GiverV2.keys.json'
+                     *     '/home/user/keys/GiverV2.keys.json'
+                     */
+                    keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
+                },
+                wallet: {
+                    /**
+                     * Absolute path to keys file.
+                     * Examples:
+                     *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
+                     *     '/home/user/keys/SafeMultisigWallet.keys.json'
+                     */
+                    keys: __dirname + '/../keys/SafeMultisigWallet.keys.json'
+                },
+                simpleWallet: {
+                    /**
+                     * Absolute path to keys file.
+                     * Examples:
+                     *     __dirname + '/../keys/SimpleWallet.keys.json'
+                     *     '/home/user/keys/SimpleWallet.keys.json'
+                     */
+                    keys: __dirname + '/../keys/SimpleWallet.keys.json'
+                }
             },
 
             /**
-             * How long to wait and result of call or deployment from local node in milliseconds
+             * How long to wait result of call or deployment in milliseconds.
              * Examples:
              *     3000
-             *     5000
+             *     30000
+             *     60000
              */
             timeout: 30000,
-
-            /**
-             * One or more BCP 47 extension sequences or `undefined`
-             * Examples:
-             *     'RU'
-             *     'EN'
-             */
-            locale: undefined
         }
-    }
+    },
+
+    /**
+     * One or more BCP 47 extension sequences or `undefined`
+     * Examples:
+     *     'RU'
+     *     'EN'
+     */
+    locale: undefined
 }
