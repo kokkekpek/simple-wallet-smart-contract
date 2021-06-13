@@ -105,8 +105,8 @@ export default class Contract {
      *
      *     // Deployment here...
      *
-     *     const receiverAddress: string = await receiver.calculateAddress()
-     *     await sender.send(receiverAddress, 1000000000)
+     *     const receiverAddress: string = await receiver.address()
+     *     await sender.send(receiverAddress, 1_000_000_000)
      *     const waitingResult: boolean = await receiver.waitForTransaction(5000)
      * @param {number} timeout. Time in milliseconds. Examples:
      *     3000
