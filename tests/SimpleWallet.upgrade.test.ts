@@ -1,26 +1,27 @@
 import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import TonKeysFile from '../library/ton/utils/node/TonKeysFile'
 import GiverV2 from '../library/ton/contracts/GiverV2'
 import {TonClient} from '@tonclient/core'
-import KitInterface from '../library/ton/utils/interfaces/KitInterface'
-import Ton from '../library/ton/utils/Ton'
 import {libNode} from '@tonclient/lib-node'
 import config from '../configs/config'
 import SimpleWallet from '../contracts/SimpleWallet'
 import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWallet_idle'
 import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
+import Client from '../library/ton/utils/Client'
+import Keys from '../library/ton/utils/Keys'
 
 TonClient.useBinaryLibrary(libNode)
-const kit: KitInterface = Ton.kit.create(config.net.test)
+const client: TonClient = Client.create(config.net.test)
+const timeout: number = config.net.test.timeout
 
 it('upgrade', async () => {
-    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.contracts.giver.keys)
-    const giver: GiverV2 = new GiverV2(kit, giverKeys)
-    const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
-    const simpleWallet: SimpleWallet = new SimpleWallet(kit, simpleWalletKeys)
+    const giverKeys: KeyPair = Keys.read(config.net.test.contracts.giver.keys)
+    const giver: GiverV2 = new GiverV2(client, timeout, giverKeys)
+    const simpleWalletKeys: KeyPair = await Keys.random(client)
+    const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
     const simpleWallet_idle: SimpleWallet_idle = new SimpleWallet_idle(
-        kit,
+        client,
+        timeout,
         simpleWalletKeys,
         await simpleWallet.calculateAddress()
     )
@@ -30,5 +31,5 @@ it('upgrade', async () => {
     await simpleWallet.upgrade(SimpleWallet_idleContract.code)
 
     expect(await simpleWallet_idle.getVersion()).toBe('2')
-    kit.client.close()
+    client.close()
 }, testTimeout)

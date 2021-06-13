@@ -1,4 +1,6 @@
-export default class TonHex {
+import {AbiContract} from '@tonclient/core/dist/modules'
+
+export default class Hex {
     /**
      * Add 0x to number or string.
      * @param {number} number Example:
@@ -6,7 +8,7 @@ export default class TonHex {
      * @return {string} Example:
      *     '0x123'
      */
-    public x0(number: number | string): string {
+    public static x0(number: number | string): string {
         return `0x${number}`
     }
 
@@ -17,8 +19,8 @@ export default class TonHex {
      * @return {string} Example:
      *     '7b0a0922...'
      */
-    public abi(abi: Object): string {
-        return this.string(JSON.stringify(abi))
+    public static abi(abi: AbiContract): string {
+        return Hex.string(JSON.stringify(abi))
     }
 
     /**
@@ -28,19 +30,19 @@ export default class TonHex {
      * @return {string} Example:
      *     '58595a313233'
      */
-    public string(string: string): string {
+    public static string(string: string): string {
         return string.split('').map(x => x.charCodeAt(0).toString(16)).join('')
     }
 
     /**
-     * Convert array of strings to hex. Actual for string[] parameter in Solidity.
+     * Convert array of strings to hex. Actual for string[] or bytes[] parameter in Solidity.
      * @param {string[]} strings Example:
      *     ['XYZ123', 'ABC456']
      * @return {string} Example:
      *     ['58595a313233', '414243343536']
      */
-    public strings(strings: string[]): string[] {
-        return strings.map(x => this.string(x))
+    public static strings(strings: string[]): string[] {
+        return strings.map(x => Hex.string(x))
     }
 
     /**
@@ -50,7 +52,7 @@ export default class TonHex {
      * @return {string} Example:
      *     '0x3b9aca00'
      */
-    public number(number: number): string {
-        return this.x0(number.toString(16))
+    public static number(number: number): string {
+        return Hex.x0(number.toString(16))
     }
 }

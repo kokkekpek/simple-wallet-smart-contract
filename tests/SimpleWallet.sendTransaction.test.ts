@@ -1,24 +1,26 @@
 import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import TonKeysFile from '../library/ton/utils/node/TonKeysFile'
 import GiverV2 from '../library/ton/contracts/GiverV2'
 import {TonClient} from '@tonclient/core'
-import KitInterface from '../library/ton/utils/interfaces/KitInterface'
-import Ton from '../library/ton/utils/Ton'
 import {libNode} from '@tonclient/lib-node'
 import config from '../configs/config'
 import SimpleWallet from '../contracts/SimpleWallet'
 import SafeMultisigWallet from '../library/ton/contracts/SafeMultisigWallet'
+import Client from '../library/ton/utils/Client'
+import Keys from '../library/ton/utils/Keys'
+import Hex from '../library/ton/utils/Hex'
 
 TonClient.useBinaryLibrary(libNode)
-const kit: KitInterface = Ton.kit.create(config.net.test)
+const client: TonClient = Client.create(config.net.test)
+const timeout: number = config.net.test.timeout
 
 it('sendTransaction', async () => {
-    const giverKeys: KeyPair = TonKeysFile.read(config.net.test.contracts.giver.keys)
-    const giver: GiverV2 = new GiverV2(kit, giverKeys)
-    const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(kit, await Ton.keys.random(kit.client))
-    const simpleWalletKeys: KeyPair = await Ton.keys.random(kit.client)
-    const simpleWallet: SimpleWallet = new SimpleWallet(kit, simpleWalletKeys)
+    const giverKeys: KeyPair = Keys.read(config.net.test.contracts.giver.keys)
+    const giver: GiverV2 = new GiverV2(client, timeout, giverKeys)
+    const safeMultisigWalletKeys: KeyPair = await Keys.random(client)
+    const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(client, timeout, safeMultisigWalletKeys)
+    const simpleWalletKeys: KeyPair = await Keys.random(client)
+    const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
     await giver.sendTransaction(await simpleWallet.calculateAddress(), 10_000_000_000)
     await simpleWallet.deploy()
@@ -30,6 +32,6 @@ it('sendTransaction', async () => {
         'test'
     )
 
-    expect(await safeMultisigWallet.getBalance()).toBe(Ton.hex.number(1_000_000_000))
-    kit.client.close()
+    expect(await safeMultisigWallet.getBalance()).toBe(Hex.number(1_000_000_000))
+    client.close()
 }, testTimeout)

@@ -1,11 +1,11 @@
 import {KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
 import Contract from '../base/Contract'
 import GiverV2Contract from './GiverV2/GiverV2'
-import KitInterface from '../utils/interfaces/KitInterface'
+import {TonClient} from '@tonclient/core'
 
 export default class GiverV2 extends Contract {
-    public constructor(kit: KitInterface, keys: KeyPair) {
-        super(kit, {
+    public constructor(client: TonClient, timeout: number, keys: KeyPair) {
+        super(client, timeout, {
             abi: GiverV2Contract.abi,
             initialData: {},
             keys: keys,

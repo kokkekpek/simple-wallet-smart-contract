@@ -13,10 +13,9 @@ import {
 import {TonClient} from '@tonclient/core'
 import ContractConfigInterface from './interfaces/ContractConfigInterface'
 import DeployedContractConfigInterface from './interfaces/DeployedContractConfigInterface'
-import KitInterface from '../utils/interfaces/KitInterface'
-import Ton from '../utils/Ton'
-import abi from './abi/transfer.abi.json'
+import transferAbi from './abi/transfer.abi.json'
 import {AccountTypeEnum} from './enums/AccountTypeEnum'
+import Hex from '../utils/Hex'
 
 export default class Contract {
     private readonly _client: TonClient
@@ -34,11 +33,11 @@ export default class Contract {
      * PUBLIC *
      **********/
     /**
-     * @param kit {KitInterface} Example:
-     *     {
-     *         url: 'http://localhost:8080'
-     *         timeout: 3000
-     *     }
+     * @param client {TonClient}
+     * @param timeout {number} Examples:
+     *     3000
+     *     30000
+     *     60000
      * @param config {ContractConfigInterface | DeployedContractConfigInterface} Examples:
      *     // Already deployment contract
      *     {
@@ -54,9 +53,9 @@ export default class Contract {
      *         tvc: 'te6ccg...'
      *     }
      */
-    public constructor(kit: KitInterface, config: ContractConfigInterface | DeployedContractConfigInterface) {
-        this._client = kit.client
-        this._timeout = kit.timeout
+    public constructor(client: TonClient, timeout: number, config: ContractConfigInterface | DeployedContractConfigInterface) {
+        this._client = client
+        this._timeout = timeout
         this._abi = Contract._getAbi(config.abi)
         this._initialData = config.initialData
         this._tvc = config.tvc
@@ -366,14 +365,14 @@ export default class Contract {
      */
     protected async _getPayloadToTransferWithComment(comment: string = ''): Promise<string> {
         const resultOfEncoding: ResultOfEncodeMessageBody = await this._client.abi.encode_message_body({
-            abi: Contract._getAbi(abi),
+            abi: Contract._getAbi(transferAbi),
             signer: {
                 type: 'None'
             },
             call_set: {
                 function_name: 'transfer',
                 input: {
-                    comment: Ton.hex.string(comment)
+                    comment: Hex.string(comment)
                 }
             },
             is_internal: true

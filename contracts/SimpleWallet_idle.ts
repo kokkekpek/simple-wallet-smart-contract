@@ -1,11 +1,11 @@
 import Contract from '../library/ton/base/Contract'
 import SimpleWalletV2Contract from './SimpleWallet_idle/SimpleWallet_idle'
 import {DecodedMessageBody, KeyPair} from '@tonclient/core/dist/modules'
-import KitInterface from '../library/ton/utils/interfaces/KitInterface'
+import {TonClient} from '@tonclient/core'
 
 export default class SimpleWallet_idle extends Contract {
-    public constructor(kit: KitInterface, keys: KeyPair, address: string,) {
-        super(kit, {
+    public constructor(client: TonClient, timeout: number, keys: KeyPair, address: string) {
+        super(client, timeout, {
             abi: SimpleWalletV2Contract.abi,
             keys: keys,
             address: address
