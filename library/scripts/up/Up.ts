@@ -2,8 +2,7 @@ import UpConfigInterface from './interfaces/UpConfigInterface'
 import {consoleTerminal, runCommand} from 'tondev'
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
-import Ton from '../../ton/utils/Ton'
-import KitInterface from '../../ton/utils/interfaces/KitInterface'
+import Client from '../../ton/utils/Client'
 
 export default class Up {
     private static readonly CONFIG = {
@@ -60,12 +59,12 @@ export default class Up {
      */
     async _waitAnswerFromNode(): Promise<void> {
         TonClient.useBinaryLibrary(libNode)
-        const kit: KitInterface = Ton.kit.create(this._config)
-        await kit.client.net.wait_for_collection({
+        const client: TonClient = Client.create(this._config)
+        await client.net.wait_for_collection({
             collection: 'accounts',
             result: 'id',
-            timeout: kit.timeout
+            timeout: this._config.timeout
         })
-        kit.client.close()
+        client.close()
     }
 }
