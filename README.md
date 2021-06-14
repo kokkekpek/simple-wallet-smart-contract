@@ -8,7 +8,7 @@
 ```sh
 yarn install && yarn cp
 ```
-Check and edit `config.ts`
+Check and edit `configs/config.ts`
 
 ## Compilation
 ```sh
