@@ -1,4 +1,4 @@
-import Contract from '../base/contract/Contract'
+import Contract from '../contract/Contract'
 import safeMultisigWalletData from './SafeMultisigWallet/SafeMultisigWallet'
 import {AbiContract, KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
