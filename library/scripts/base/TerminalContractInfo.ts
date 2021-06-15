@@ -34,9 +34,9 @@ export default class TerminalContractInfo {
      * @param locale {string} One or more BCP 47 extension sequences or `undefined`. Examples:
      */
     public static async logAccount(label: string, contract: Contract, locale: string): Promise<void> {
-        const address: string = await contract.calculateAddress()
-        const balance: string = await contract.getBalance()
-        const accountType: AccountTypeEnum = await contract.getAccountType()
+        const address: string = await contract.address()
+        const balance: string = await contract.balance()
+        const accountType: AccountTypeEnum = await contract.accountType()
         const colorFunction: ColorFunctionInterface = this._getColorFunction(accountType)
         const balanceAndType: string = `${this._getBalance(balance, locale)}   ${this._getAccountType(accountType)}`
         console.log(`${colors.gray(label)}`)
