@@ -15,7 +15,7 @@ import ContractConfigInterface from './interfaces/ContractConfigInterface'
 import DeployedContractConfigInterface from './interfaces/DeployedContractConfigInterface'
 import transferAbi from './abi/transfer.abi.json'
 import {AccountTypeEnum} from './enums/AccountTypeEnum'
-import Hex from '../utils/Hex'
+import Hex from '../../utils/Hex'
 
 export default class Contract {
     private readonly _client: TonClient

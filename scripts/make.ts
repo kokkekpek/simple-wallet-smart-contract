@@ -6,8 +6,8 @@ const make: Make = new Make({
         'contracts/SimpleWallet_idle/SimpleWallet_idle'
     ],
     wrap: [
-        'library/ton/contracts/SafeMultisigWallet/SafeMultisigWallet',
-        'library/ton/contracts/GiverV2/GiverV2'
+        'library/contracts/SafeMultisigWallet/SafeMultisigWallet',
+        'library/contracts/GiverV2/GiverV2'
     ],
     compiler: '0.45.0',
     linker: '0.7.31',

@@ -1,4 +1,4 @@
-import {AccountTypeEnum} from '../../../ton/base/enums/AccountTypeEnum'
+import {AccountTypeEnum} from '../../contract/enums/AccountTypeEnum'
 
 const contractTypes: { [key: string]: string } = {}
 contractTypes[AccountTypeEnum.NOT_FOUND] = 'Not found'

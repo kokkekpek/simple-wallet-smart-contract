@@ -1,6 +1,6 @@
-import {AccountTypeEnum} from '../../../ton/base/enums/AccountTypeEnum'
+import {AccountTypeEnum} from '../../contract/enums/AccountTypeEnum'
 import colors from 'colors'
-import Contract from '../../../ton/base/Contract'
+import Contract from '../../contract/Contract'
 
 /**
  * Run commands. Output into terminal. Return true if can deploy.

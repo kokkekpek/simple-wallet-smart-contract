@@ -1,4 +1,4 @@
-import Contract from '../library/ton/base/Contract'
+import Contract from '../library/base/contract/Contract'
 import SimpleWalletV2Contract from './SimpleWallet_idle/SimpleWallet_idle'
 import {DecodedMessageBody, KeyPair} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'

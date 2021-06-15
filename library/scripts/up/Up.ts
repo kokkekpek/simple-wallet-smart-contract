@@ -2,7 +2,7 @@ import UpConfigInterface from './interfaces/UpConfigInterface'
 import {consoleTerminal, runCommand} from 'tondev'
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
-import Client from '../../ton/utils/Client'
+import Client from '../../utils/Client'
 
 export default class Up {
     private static readonly CONFIG = {

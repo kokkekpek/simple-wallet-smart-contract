@@ -1,10 +1,10 @@
-import Contract from '../../ton/base/Contract'
+import Contract from '../contract/Contract'
 import TerminalContractInfoNetworkConfigInterface from './interfaces/TerminalContractInfoNetworkConfigInterface'
 import colors from 'colors'
 import contractTypes from './utils/contractTypes'
 import contractTypeColorFunctions from './utils/contractTypeColorFunctions'
 import ColorFunctionInterface from './interfaces/ColorFunctionInterface'
-import {AccountTypeEnum} from '../../ton/base/enums/AccountTypeEnum'
+import {AccountTypeEnum} from '../contract/enums/AccountTypeEnum'
 
 export default class TerminalContractInfo {
     /**

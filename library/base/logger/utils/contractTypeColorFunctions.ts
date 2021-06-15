@@ -1,5 +1,5 @@
 import colors from 'colors'
-import { AccountTypeEnum } from '../../../ton/base/enums/AccountTypeEnum'
+import { AccountTypeEnum } from '../../contract/enums/AccountTypeEnum'
 import ColorFunctionInterface from '../interfaces/ColorFunctionInterface'
 
 const contractTypeColorFunctions: {[key: string]: ColorFunctionInterface} = {}

@@ -1,4 +1,4 @@
-import Contract from '../library/ton/base/Contract'
+import Contract from '../library/base/contract/Contract'
 import SimpleWalletContract from './SimpleWallet/SimpleWallet'
 import {AbiContract, DecodedMessageBody, KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'

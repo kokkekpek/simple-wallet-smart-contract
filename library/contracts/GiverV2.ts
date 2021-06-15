@@ -1,5 +1,5 @@
 import {KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
-import Contract from '../base/Contract'
+import Contract from '../base/contract/Contract'
 import GiverV2Contract from './GiverV2/GiverV2'
 import {TonClient} from '@tonclient/core'
 
