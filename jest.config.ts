@@ -1,5 +1,5 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-    slowTestThreshold: 30
+    slowTestThreshold: 600
 }

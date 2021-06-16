@@ -1,1 +1,1 @@
-export default 30000
+export default 240_000

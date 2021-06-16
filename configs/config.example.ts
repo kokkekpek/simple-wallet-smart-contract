@@ -81,7 +81,7 @@ export default {
              *     30000
              *     60000
              */
-            timeout: 3000
+            timeout: 60000
         },
         deploy: {
             /**
@@ -146,7 +146,7 @@ export default {
              *     30000
              *     60000
              */
-            timeout: 30000,
+            timeout: 60000
         }
     },
 
