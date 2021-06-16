@@ -9,6 +9,7 @@ import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWall
 import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
 import Client from '../library/utils/Client'
 import Keys from '../library/utils/Keys'
+import B from '../library/constants/B'
 
 TonClient.useBinaryLibrary(libNode)
 const client: TonClient = Client.create(config.net.test)
@@ -26,7 +27,7 @@ it('upgrade', async () => {
         await simpleWallet.address()
     )
 
-    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 0.04 * B)
     await simpleWallet.deploy()
     await simpleWallet.upgrade(SimpleWallet_idleContract.code)
 

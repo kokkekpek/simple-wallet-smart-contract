@@ -7,6 +7,7 @@ import config from '../configs/config'
 import SimpleWallet from '../contracts/SimpleWallet'
 import Client from '../library/utils/Client'
 import Keys from '../library/utils/Keys'
+import B from '../library/constants/B'
 
 TonClient.useBinaryLibrary(libNode)
 const client: TonClient = Client.create(config.net.test)
@@ -18,14 +19,14 @@ it('changeOwner exit code 101', async () => {
     const simpleWalletKeys: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 0.03 * B)
     await simpleWallet.deploy()
 
     let errorCode: number
     try {
         await simpleWallet.changeOwner('0x0')
     } catch (e: any) {
-        errorCode = e.data.exit_code
+        errorCode = e.data.exit_code ?? e.data.local_error.data.exit_code
     }
     expect(errorCode).toBe(101)
     client.close()

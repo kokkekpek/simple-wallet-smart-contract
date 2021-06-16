@@ -9,6 +9,7 @@ import SafeMultisigWallet from '../library/contracts/SafeMultisigWallet'
 import Client from '../library/utils/Client'
 import Keys from '../library/utils/Keys'
 import Hex from '../library/utils/Hex'
+import B from '../library/constants/B'
 
 TonClient.useBinaryLibrary(libNode)
 const client: TonClient = Client.create(config.net.test)
@@ -22,16 +23,19 @@ it('sendTransaction', async () => {
     const simpleWalletKeys: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 0.05 * B)
     await simpleWallet.deploy()
+
+    const value: number = 0.01 * B
     await simpleWallet.sendTransaction(
         await safeMultisigWallet.address(),
-        1_000_000_000,
+        value,
         false,
         1,
         'test'
     )
 
-    expect(await safeMultisigWallet.balance()).toBe(Hex.number(1_000_000_000))
+    await safeMultisigWallet.waitForTransaction()
+    expect(await safeMultisigWallet.balance()).toBe(Hex.number(value))
     client.close()
 }, testTimeout)

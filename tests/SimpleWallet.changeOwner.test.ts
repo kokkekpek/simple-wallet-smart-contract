@@ -8,6 +8,7 @@ import SimpleWallet from '../contracts/SimpleWallet'
 import Client from '../library/utils/Client'
 import Keys from '../library/utils/Keys'
 import Hex from '../library/utils/Hex'
+import B from '../library/constants/B'
 
 TonClient.useBinaryLibrary(libNode)
 const client: TonClient = Client.create(config.net.test)
@@ -20,7 +21,7 @@ it('changeOwner', async () => {
     const simpleWalletKeys2: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
-    await giver.sendTransaction(await simpleWallet.address(), 10_000_000_000)
+    await giver.sendTransaction(await simpleWallet.address(), 0.04 * B)
     await simpleWallet.deploy()
     await simpleWallet.changeOwner(Hex.x0(simpleWalletKeys2.public))
 
