@@ -14,7 +14,7 @@ export default {
              * Network URL without port.
              * Examples:
              *     'http://localhost'
-             *     'http://0.0.0.0
+             *     'http://0.0.0.0'
              */
             url: 'http://localhost',
 
@@ -41,9 +41,9 @@ export default {
              * Network URL without port.
              * Examples:
              *     'http://localhost'
-             *     'https://net.ton.dev
-             *     'https://main.ton.dev
-             *     'https://gql.custler.net
+             *     'https://net.ton.dev'
+             *     'https://main.ton.dev'
+             *     'https://gql.custler.net'
              */
             url: 'http://localhost',
 
@@ -88,9 +88,9 @@ export default {
              * Network URL without port.
              * Examples:
              *     'http://localhost'
-             *     'https://net.ton.dev
-             *     'https://main.ton.dev
-             *     'https://gql.custler.net
+             *     'https://net.ton.dev'
+             *     'https://main.ton.dev'
+             *     'https://gql.custler.net'
              */
             url: 'http://localhost',
 
