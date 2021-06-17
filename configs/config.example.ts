@@ -117,7 +117,15 @@ export default {
                      *     __dirname + '/../keys/GiverV2.keys.json'
                      *     '/home/user/keys/GiverV2.keys.json'
                      */
-                    keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
+                    keys: __dirname + '/../library/keys/GiverV2.se.keys.json',
+
+                    /**
+                     * Crystals required for deployment. 1 = 1 ton = 1e9 nano ton
+                     * Examples:
+                     *     0.03
+                     *     1
+                     */
+                    requiredTons: 0.03
                 },
                 wallet: {
                     /**
