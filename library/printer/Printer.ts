@@ -21,9 +21,9 @@ export default class Printer {
     }
 
     /**
-     * Log empty line.
+     * Print text.
      */
-    public static log(text: string = ''): void {
+    public print(text: string = ''): void {
         console.log(text)
     }
 
