@@ -2,7 +2,6 @@ import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import Client from '../../utils/Client'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import colors from 'colors'
 import Printer from '../../printer/Printer'
 import Keys from '../../utils/Keys'
 import DeployConfigInterface from './interfaces/DeployConfigInterface'
@@ -40,19 +39,19 @@ export default class Deploy {
         const printer: Printer = new Printer(this._config.locale)
         const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
 
-        //////////////////
-        // Get contract //
-        //////////////////
+        /////////////
+        // Network //
+        /////////////
         const contract: Contract = this._getContract(keys)
 
-        ///////////////////
-        // Print network //
-        ///////////////////
+        /////////////
+        // Network //
+        /////////////
         printer.network(this._config)
 
-        /////////////////////////
-        // Print contract data //
-        /////////////////////////
+        ///////////////////
+        // Contract data //
+        ///////////////////
         await printer.account(contract)
 
         ////////////////////////
@@ -88,19 +87,24 @@ export default class Deploy {
             return
         }
 
-        ////////////
-        // Deploy //
-        ////////////
+        //////////
+        // Mark //
+        //////////
+        printer.print(DeployMessages.DEPLOYING)
+
+        ///////////////
+        // Deploying //
+        ///////////////
         await this._deploy(contract)
 
-        ////////////////
-        // Print mark //
-        ////////////////
-        printer.print(colors.green('DEPLOYED\n'))
+        //////////
+        // Mark //
+        //////////
+        printer.print(`${DeployMessages.DEPLOYED}\n`)
 
-        /////////////////////////
-        // Print contract data //
-        /////////////////////////
+        ///////////////////
+        // Contract data //
+        ///////////////////
         await printer.account(contract)
 
         this._client.close()
