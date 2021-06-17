@@ -23,7 +23,7 @@ export default class GiverV2Deploy extends Deploy {
      * @param contract {Contract}
      * @protected
      */
-    protected async _deployContract(contract: GiverV2): Promise<void> {
+    protected async _deploy(contract: GiverV2): Promise<void> {
         await contract.deploy()
     }
 }

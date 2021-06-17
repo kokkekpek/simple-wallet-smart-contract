@@ -91,7 +91,7 @@ export default class Deploy {
         ////////////
         // Deploy //
         ////////////
-        await this._deployContract(contract)
+        await this._deploy(contract)
 
         ////////////////
         // Print mark //
@@ -129,7 +129,7 @@ export default class Deploy {
      * @param contract {Contract}
      * @protected
      */
-    protected async _deployContract(contract: Contract): Promise<void> {
+    protected async _deploy(contract: Contract): Promise<void> {
         await contract.balance()
     }
 }
