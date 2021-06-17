@@ -134,7 +134,15 @@ export default {
                      *     __dirname + '/../keys/SafeMultisigWallet.keys.json'
                      *     '/home/user/keys/SafeMultisigWallet.keys.json'
                      */
-                    keys: __dirname + '/../keys/SafeMultisigWallet.keys.json'
+                    keys: __dirname + '/../keys/SafeMultisigWallet.keys.json',
+
+                    /**
+                     * Crystals required for deployment. 1 = 1 ton = 1e9 nano ton
+                     * Examples:
+                     *     0.03
+                     *     1
+                     */
+                    requiredTons: 0.03
                 },
                 simpleWallet: {
                     /**
