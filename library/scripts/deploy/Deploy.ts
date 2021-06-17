@@ -24,7 +24,7 @@ export default class Deploy {
      *             timeout: 30000,
      *             locale: 'EN',
      *             keys: __dirname + '/../library/keys/GiverV2.se.keys.json',
-     *             requiredTons: 30_000_000
+     *             requiredTons: 0.03
      *     }
      */
     constructor(config: DeployConfigInterface) {
