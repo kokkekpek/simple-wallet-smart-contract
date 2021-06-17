@@ -125,7 +125,7 @@ export default class Deploy {
     }
 
     /**
-     * Create and return contract object.
+     * Deploy contract.
      * @param contract {Contract}
      * @protected
      */

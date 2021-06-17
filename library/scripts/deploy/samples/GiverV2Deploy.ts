@@ -19,7 +19,7 @@ export default class GiverV2Deploy extends Deploy {
     }
 
     /**
-     * Create and return contract object.
+     * Deploy contract.
      * @param contract {Contract}
      * @protected
      */
