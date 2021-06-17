@@ -1,7 +1,7 @@
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import Client from '../../utils/Client'
-import InfoScriptConfigInterface from './interfaces/InfoConfigInterface'
+import InfoConfigInterface from './interfaces/InfoConfigInterface'
 import Contract from '../../contract/Contract'
 import transferAbi from '../../contract/abi/transfer.abi.json'
 import {KeyPair} from '@tonclient/core/dist/modules'
@@ -9,11 +9,11 @@ import Keys from '../../utils/Keys'
 import Printer from '../../printer/Printer'
 
 export default class Info {
-    protected readonly _config: InfoScriptConfigInterface
+    protected readonly _config: InfoConfigInterface
     protected readonly _client: TonClient
 
     /**
-     * @param config {InfoScriptConfigInterface} Example:
+     * @param config {InfoConfigInterface} Example:
      *     {
      *             url: 'http://localhost',
      *             port: '8080',
@@ -22,7 +22,7 @@ export default class Info {
      *             keys: __dirname + '/../library/keys/GiverV2.se.keys.json'
      *     }
      */
-    constructor(config: InfoScriptConfigInterface) {
+    constructor(config: InfoConfigInterface) {
         TonClient.useBinaryLibrary(libNode)
         this._config = config
         this._client = Client.create(config)
