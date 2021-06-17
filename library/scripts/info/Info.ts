@@ -33,10 +33,7 @@ export default class Info {
      */
     async run() {
         const printer: Printer = new Printer(this._config.locale)
-        const keys: KeyPair = await Keys.createRandomIfNotExist(
-            this._config.keys,
-            this._client
-        )
+        const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
         const contract: Contract = this._getContract(keys)
         printer.network(this._config)
         await printer.account(contract)
