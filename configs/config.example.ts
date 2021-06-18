@@ -142,7 +142,7 @@ export default {
                      *     0.03
                      *     1
                      */
-                    requiredTons: 0.03
+                    requiredTons: 0.07
                 },
                 simpleWallet: {
                     /**
@@ -151,7 +151,15 @@ export default {
                      *     __dirname + '/../keys/SimpleWallet.keys.json'
                      *     '/home/user/keys/SimpleWallet.keys.json'
                      */
-                    keys: __dirname + '/../keys/SimpleWallet.keys.json'
+                    keys: __dirname + '/../keys/SimpleWallet.keys.json',
+
+                    /**
+                     * Crystals required for deployment. 1 = 1 ton = 1e9 nano ton
+                     * Examples:
+                     *     0.03
+                     *     1
+                     */
+                    requiredTons: 0.03
                 }
             },
 
