@@ -10,7 +10,7 @@ const make: Make = new Make({
         'library/contracts/GiverV2/GiverV2'
     ],
     compiler: '0.45.0',
-    linker: '0.7.31',
+    linker: '0.9.4',
     stdlib: '0.45.0'
 })
 make.run().then()
