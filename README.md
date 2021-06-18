@@ -16,7 +16,7 @@ yarn make
 ```
 
 ## Tests
-> Setup all test parameters in `configs/config.ts` `net.local` and `net.test`
+> Setup test parameters in `configs/config.ts` `net.local` and `net.test`
  
 1. Bring up a local node
 ```sh
@@ -29,7 +29,7 @@ yarn test
 ```
 
 ## Deployment
-> Setup all deployment parameters in `configs/config.ts` `net.deploy`
+> Setup deployment parameters in `configs/config.ts` `net.deploy`
 
 1. Check balance on giver
 ```sh
