@@ -7,7 +7,7 @@ const deploy: SafeMultisigWalletDeployWithGiver = new SafeMultisigWalletDeployWi
     timeout: config.net.deploy.timeout,
     locale: config.locale,
     giverKeys: config.net.deploy.contracts.giver.keys,
-    transactionFee: 0.02,
+    transactionFee: config.net.deploy.transactionFee,
     keys: config.net.deploy.contracts.wallet.keys,
     requiredTons: config.net.deploy.contracts.wallet.requiredTons
 })
