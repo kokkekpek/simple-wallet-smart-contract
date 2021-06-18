@@ -81,7 +81,9 @@ export default class Deploy {
         // Check balance //
         ///////////////////
         const balance: number = parseInt(await contract.balance())
-        if (balance < this._config.requiredTons * B) {
+        const requiredBalance: number = this._config.requiredTons * B
+        const tolerance: number = this._config.tolerance * B
+        if (balance < requiredBalance - tolerance) {
             printer.print(DeployMessages.NOT_ENOUGH_BALANCE)
             this._client.close()
             return

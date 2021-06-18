@@ -83,9 +83,13 @@ export default class DeployWithGiver {
         // Check balance //
         ///////////////////
         const balance: number = parseInt(await contract.balance())
-        if (balance < this._config.requiredTons * B) {
+        const requiredBalance: number = this._config.requiredTons * B
+        const tolerance: number = this._config.tolerance * B
+        if (balance < requiredBalance - tolerance) {
             const giverBalance: number = parseInt(await giver.balance())
-            if (giverBalance < (this._config.requiredTons + this._config.transactionFee) * B) {
+            const needSendToTarget: number = requiredBalance - balance
+            const needHaveOnGiver: number = needSendToTarget + this._config.transactionFee * B
+            if (giverBalance < needHaveOnGiver) {
                 printer.print(DeployMessages.NOT_ENOUGH_BALANCE)
                 this._client.close()
                 return
@@ -99,7 +103,7 @@ export default class DeployWithGiver {
             /////////////
             // Sending //
             /////////////
-            await giver.sendTransaction(await contract.address(), this._config.requiredTons * B)
+            await giver.sendTransaction(await contract.address(), needSendToTarget)
             await contract.waitForTransaction()
 
             //////////

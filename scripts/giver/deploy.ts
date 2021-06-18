@@ -7,6 +7,7 @@ const deploy: GiverV2Deploy = new GiverV2Deploy({
     timeout: config.net.deploy.timeout,
     locale: config.locale,
     keys: config.net.deploy.contracts.giver.keys,
-    requiredTons: config.net.deploy.contracts.giver.requiredTons
+    requiredTons: config.net.deploy.contracts.giver.requiredTons,
+    tolerance: config.net.deploy.tolerance
 })
 deploy.run().then()

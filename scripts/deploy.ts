@@ -9,6 +9,7 @@ const deploy: SimpleWalletDeployWithGiver = new SimpleWalletDeployWithGiver({
     giverKeys: config.net.deploy.contracts.giver.keys,
     transactionFee: config.net.deploy.transactionFee,
     keys: config.net.deploy.contracts.simpleWallet.keys,
-    requiredTons: config.net.deploy.contracts.simpleWallet.requiredTons
+    requiredTons: config.net.deploy.contracts.simpleWallet.requiredTons,
+    tolerance: config.net.deploy.tolerance
 })
 deploy.run().then()

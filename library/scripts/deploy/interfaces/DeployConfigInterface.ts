@@ -5,4 +5,5 @@ export default interface DeployConfigInterface {
     locale: string
     keys: string
     requiredTons: number
+    tolerance: number
 }

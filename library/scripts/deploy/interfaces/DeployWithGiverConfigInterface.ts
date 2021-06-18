@@ -7,4 +7,5 @@ export default interface DeployWithGiverConfigInterface {
     transactionFee: number
     keys: string
     requiredTons: number
+    tolerance: number
 }

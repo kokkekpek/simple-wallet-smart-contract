@@ -170,7 +170,25 @@ export default {
              *     30000
              *     60000
              */
-            timeout: 60000
+            timeout: 60000,
+
+            /**
+             * Crystals required for transaction fee. 1 = 1 ton = 1e9 nano ton
+             * Examples:
+             *     0.03
+             *     1
+             */
+            transactionFee: 0.02,
+
+            /**
+             * Tolerance when comparing contract balances.
+             * Use it because sometimes after transfer your balance loose some nano grams.
+             * e.g. contract receive 9_999_999 instead 10_000_000.
+             * Examples:
+             *     0.000_001
+             *     0.001
+             */
+            tolerance: 0.000_001
         }
     },
 
