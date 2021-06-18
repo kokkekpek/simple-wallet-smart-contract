@@ -7,7 +7,7 @@ const deploy: SimpleWalletDeployWithGiver = new SimpleWalletDeployWithGiver({
     timeout: config.net.deploy.timeout,
     locale: config.locale,
     giverKeys: config.net.deploy.contracts.giver.keys,
-    giverFee: 0.02,
+    transactionFee: 0.02,
     keys: config.net.deploy.contracts.simpleWallet.keys,
     requiredTons: config.net.deploy.contracts.simpleWallet.requiredTons
 })

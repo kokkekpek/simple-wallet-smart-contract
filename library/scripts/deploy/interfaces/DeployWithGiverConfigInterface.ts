@@ -4,7 +4,7 @@ export default interface DeployWithGiverConfigInterface {
     timeout: number
     locale: string
     giverKeys: string
-    giverFee: number
+    transactionFee: number
     keys: string
     requiredTons: number
 }

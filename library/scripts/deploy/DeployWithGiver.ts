@@ -24,7 +24,7 @@ export default class DeployWithGiver {
      *             timeout: 30000,
      *             locale: 'EN',
      *             giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
-     *             giverFee: 0.02,
+     *             transactionFee: 0.02,
      *             keys: __dirname + '/../keys/SafeMultisigWallet.keys.json',
      *             requiredTons: 0.03
      *     }
@@ -85,7 +85,7 @@ export default class DeployWithGiver {
         const balance: number = parseInt(await contract.balance())
         if (balance < this._config.requiredTons * B) {
             const giverBalance: number = parseInt(await giver.balance())
-            if (giverBalance < (this._config.requiredTons + this._config.giverFee) * B) {
+            if (giverBalance < (this._config.requiredTons + this._config.transactionFee) * B) {
                 printer.print(DeployMessages.NOT_ENOUGH_BALANCE)
                 this._client.close()
                 return
