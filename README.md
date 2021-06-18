@@ -15,7 +15,7 @@ Check and edit `configs/config.ts`
 yarn make
 ```
 
-## Testing
+## Tests
 ### Bring up a local node
 ```sh
 yarn up
@@ -24,6 +24,23 @@ yarn up
 ### Run tests
 ```sh
 yarn test
+```
+
+## Deployment
+1. Setup all deployment parameters in `config.net.deploy` in `configs/config.ts`.
+2. Check balance on giver
+```sh
+yarn giver
+```
+
+3. If giver is not deployed send the money to the address you can see after `yarn giver` command and deploy.
+```sh
+yarn giver.deploy
+```
+
+4. Deploy
+```sh
+yarn deploy
 ```
 
 ## Scripts
