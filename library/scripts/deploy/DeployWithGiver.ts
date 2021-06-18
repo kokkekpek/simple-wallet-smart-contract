@@ -100,6 +100,7 @@ export default class DeployWithGiver {
             // Sending //
             /////////////
             await giver.sendTransaction(await contract.address(), this._config.requiredTons * B)
+            await contract.waitForTransaction()
 
             //////////
             // Mark //
