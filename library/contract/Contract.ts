@@ -152,10 +152,14 @@ export default class Contract {
                     eq: await this.address()
                 }
             },
-            result: 'balance'
+            result: 'balance, last_trans_lt'
         })
         const result: any[] = queryCollectionResult.result
-        return result.length ? result[0]['balance'] : '0x0'
+        if (!result.length)
+            return '0x0'
+
+        this._lastTransactionLogicTime = result[0]['last_trans_lt']
+        return result[0]['balance']
     }
 
     /**
@@ -176,10 +180,14 @@ export default class Contract {
                     eq: await this.address()
                 }
             },
-            result: 'acc_type'
+            result: 'acc_type, last_trans_lt'
         })
         const result: any[] = queryCollectionResult.result
-        return result.length ? result[0]['acc_type'] : -1
+        if (!result.length)
+            return AccountTypeEnum.NOT_FOUND
+
+        this._lastTransactionLogicTime = result[0]['last_trans_lt']
+        return result[0]['acc_type']
     }
 
 
