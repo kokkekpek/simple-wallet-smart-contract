@@ -16,29 +16,32 @@ yarn make
 ```
 
 ## Tests
-### Bring up a local node
+> Setup all test parameters in `config.net.local` and `config.net.test` in `configs/config.ts`
+ 
+1. Bring up a local node
 ```sh
 yarn up
 ```
 
-### Run tests
+2. Run tests
 ```sh
 yarn test
 ```
 
 ## Deployment
-1. Setup all deployment parameters in `config.net.deploy` in `configs/config.ts`.
-2. Check balance on giver
+> Setup all deployment parameters in `config.net.deploy` in `configs/config.ts`.
+
+1. Check balance on giver
 ```sh
 yarn giver
 ```
 
-3. If giver is not deployed send the money to the address you can see after `yarn giver` command and deploy.
+2. If giver is not deployed send the money to the address you can see after `yarn giver` command and deploy
 ```sh
 yarn giver.deploy
 ```
 
-4. Deploy
+3. Deploy
 ```sh
 yarn deploy
 ```
