@@ -19,15 +19,15 @@
   "license": "GPL-3.0-only",
   "private": false,
   "devDependencies": {
-    "@tonclient/core": "^1.16.0",
-    "@tonclient/lib-node": "^1.16.0",
+    "@tonclient/core": "^1.16.1",
+    "@tonclient/lib-node": "^1.16.1",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.2",
+    "@types/node": "^15.12.4",
     "colors": "^1.4.0",
     "jest": "^27.0.4",
-    "tondev": "^0.7.2",
+    "tondev": "^0.7.3",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.4"
   }
 }
