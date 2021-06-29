@@ -4,7 +4,7 @@
   "description": "Simple wallet smart-contract with one public key",
   "main": "index.ts",
   "scripts": {
-    "cp": "cp configs/config.example.ts configs/config.ts",
+    "cp": "ts-node scripts/cp",
     "make": "ts-node scripts/make",
     "up": "ts-node scripts/up",
     "inf": "ts-node scripts/info",
