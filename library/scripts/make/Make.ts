@@ -8,6 +8,7 @@ import errorConsoleTerminal from './terminal/errorConsoleTerminal'
 import colors from 'colors'
 import {ExtensionType} from './types/ExtensionType'
 import {ExportType} from './types/ExportType'
+import {StringMap} from '../../types/StringMap'
 
 export default class Make {
     private static readonly CONFIG = {
@@ -15,13 +16,13 @@ export default class Make {
         EXPORT: 'es6-default' as ExportType
     }
 
-    private static readonly COMMAND = {
+    private static readonly COMMAND: StringMap = {
         SOL_SET: 'sol set',
         SOL_COMPILE: 'sol compile',
         JS_WRAP: 'js wrap'
     }
 
-    private static readonly EXTENSION = {
+    private static readonly EXTENSION: StringMap = {
         SOL: 'sol',
         ABI_JSON: 'abi.json',
     }
@@ -31,7 +32,7 @@ export default class Make {
     private readonly _export: ExportType
 
     /**
-     * @param config {MakeConfigInterface} Config contains relative paths without '.sol' and '.tvc' extension.
+     * @param config {MakeConfigInterface} Config contains relative paths without `.sol` and `.tvc` extension.
      * You can get compiler, linker and stdlib versions from `tondev sol version`
      * Example:
      *     {
@@ -57,7 +58,7 @@ export default class Make {
     }
 
     /**
-     * Run commands.
+     * Run command.
      */
     public async run(): Promise<void> {
         await runCommand(errorConsoleTerminal, Make.COMMAND.SOL_SET, {
@@ -84,7 +85,8 @@ export default class Make {
 
     /**
      * Compile *.sol file.
-     * @param file {string} Relative path without '.sol'. Example:
+     * @param file {string} Relative path without '.sol'.
+     * Example:
      *     '/home/user/Project/nifi/contracts/Root'
      * @private
      */
@@ -97,7 +99,8 @@ export default class Make {
 
     /**
      * Wrap *.abi.json file.
-     * @param file {string} Relative path without '.abi.json'. Example:
+     * @param file {string} Relative path without '.abi.json'.
+     * Example:
      *     '/home/user/Project/nifi/contracts/Root'
      * @private
      */

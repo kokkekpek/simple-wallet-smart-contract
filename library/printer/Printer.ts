@@ -4,7 +4,6 @@ import contractTypes from './utils/contractTypes'
 import colorFunctions from './utils/colorFunctions'
 import ColorFunctionInterface from './interfaces/ColorFunctionInterface'
 import {AccountTypeEnum} from '../contract/enums/AccountTypeEnum'
-import NetworkConfigInterface from '../utils/interfaces/NetworkConfigInterface'
 import B from '../constants/B'
 
 export default class Printer {
@@ -22,20 +21,19 @@ export default class Printer {
 
     /**
      * Print text.
+     * @param [text] {string}
      */
     public print(text: string = ''): void {
         console.log(text)
     }
 
     /**
-     * @param config {NetworkConfigInterface} Example:
-     *     {
-     *         url: 'http://localhost'
-     *         port: '8080'
-     *     }
+     * @param url {string}
+     * Example:
+     *     'http://localhost'
      */
-    public network(config: NetworkConfigInterface): void {
-        console.log(`${colors.gray(`${config.url}:${config.port}`)}`)
+    public network(url: string): void {
+        console.log(`${colors.gray(url)}`)
         console.log()
     }
 
@@ -56,11 +54,12 @@ export default class Printer {
     }
 
     /**
-     * @param balance {string} Examples:
+     * @param balance {string}
+     * Examples:
      *     '0x4563918243faa410'
      *     '0x0'
-     * @private
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     '4,999,999,999.983658'
      *     '0'
      */

@@ -1,9 +1,8 @@
+import NetConfigInterface from '../../../config/NetConfigInterface'
+
 export default interface DeployConfigInterface {
-    url: string
-    port: string
-    timeout: number
-    locale: string
+    net: NetConfigInterface
+    locale: string | undefined
     keys: string
-    requiredTons: number
-    tolerance: number
+    requiredForDeployment: number
 }

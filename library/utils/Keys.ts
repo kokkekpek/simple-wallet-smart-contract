@@ -13,7 +13,8 @@ export default class Keys {
 
     /**
      * Read keys from *.json file.
-     * @param file {string} Absolute path to file. Example:
+     * @param file {string} Absolute path to file.
+     * Example:
      *     '/home/user/keys/GiverV2.keys.json'
      * @return {KeyPair}
      */
@@ -24,7 +25,8 @@ export default class Keys {
 
     /**
      * Create random keys if keys not exists.
-     * @param file {string} Absolute path to file. Example:
+     * @param file {string} Absolute path to file.
+     * Example:
      *     '/home/user/keys/GiverV2.keys.json'
      * @param client {TonClient}
      * @return {KeyPair}

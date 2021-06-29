@@ -37,7 +37,8 @@ contract SimpleWallet {
      * PUBLIC * ONLY OWNER *
      ***********************/
     /**
-     * @param owner {uint256} New public key of owner. Example:
+     * @param owner {uint256} New public key of owner.
+     * Example:
      *     '0x7d1abef2b7e4f1d4de1447d226092f0db53c9ef71509d43c963dcdf94a4a51de2'
      */
     function changeOwner(uint256 owner) public onlyOwner ownerIsNotNull(owner) accept {
@@ -45,9 +46,11 @@ contract SimpleWallet {
     }
 
     /**
-     * @param dest {uint256} Destination address. Example:
+     * @param dest {uint256} Destination address.
+     * Example:
      *     '0:e16969e5e83ebf73aed8954e05f897375bd9623261c36be8b685140fdc2d46eb'
-     * @param value {uint128} Value in nano grams. Example:
+     * @param value {uint128} Value in nano grams.
+     * Example:
      *     '1000000000'
      * @param bounce {bool} It's set and deploying falls (only at computing phase, not at action phase!)
      *     then funds will be returned. Otherwise (flag isn't set or deploying terminated successfully) the

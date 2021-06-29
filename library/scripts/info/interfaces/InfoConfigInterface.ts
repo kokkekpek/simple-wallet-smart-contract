@@ -1,7 +1,7 @@
+import NetConfigInterface from '../../../config/NetConfigInterface'
+
 export default interface InfoConfigInterface {
-    url: string
-    port: string
-    timeout: number
-    locale: string
+    net: NetConfigInterface
     keys: string
+    locale: string
 }

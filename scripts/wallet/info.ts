@@ -1,12 +1,12 @@
 import SafeMultisigWalletInfo from '../../library/scripts/info/samples/SafeMultisigWalletInfo'
 import config from '../../configs/config'
+import NetConfigInterface from '../../library/config/NetConfigInterface'
+import Net from '../../library/utils/Net'
 
-const info: SafeMultisigWalletInfo = new SafeMultisigWalletInfo(
-    {
-        url: config.net.deploy.url,
-        port: config.net.deploy.port,
-        timeout: config.net.deploy.timeout,
-        locale: config.locale,
-        keys: config.net.deploy.contracts.giver.keys
-    })
+const netConfig: NetConfigInterface = Net.getConfig(config)
+const info: SafeMultisigWalletInfo = new SafeMultisigWalletInfo({
+    net: netConfig,
+    locale: config.locale,
+    keys: config.contracts.safeMultisigWallet.keys
+})
 info.run().then()

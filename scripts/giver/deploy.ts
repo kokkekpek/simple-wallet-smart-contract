@@ -1,13 +1,13 @@
 import GiverV2Deploy from '../../library/scripts/deploy/samples/GiverV2Deploy'
 import config from '../../configs/config'
+import NetConfigInterface from '../../library/config/NetConfigInterface'
+import Net from '../../library/utils/Net'
 
+const netConfig: NetConfigInterface = Net.getConfig(config)
 const deploy: GiverV2Deploy = new GiverV2Deploy({
-    url: config.net.deploy.url,
-    port: config.net.deploy.port,
-    timeout: config.net.deploy.timeout,
+    net: netConfig,
     locale: config.locale,
-    keys: config.net.deploy.contracts.giver.keys,
-    requiredTons: config.net.deploy.contracts.giver.requiredTons,
-    tolerance: config.net.deploy.tolerance
+    keys: config.contracts.giver.keys.dev,
+    requiredForDeployment: config.contracts.giver.requiredForDeployment
 })
 deploy.run().then()

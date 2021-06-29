@@ -3,9 +3,11 @@ import {AbiContract} from '@tonclient/core/dist/modules'
 export default class Hex {
     /**
      * Add 0x to number or string.
-     * @param {number} number Example:
+     * @param {number} number
+     * Example:
      *     '123'
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     '0x123'
      */
     public static x0(number: number | string): string {
@@ -14,9 +16,11 @@ export default class Hex {
 
     /**
      * Convert abi to hex.
-     * @param {Object} abi Example:
+     * @param {Object} abi
+     * Example:
      *     '{ABI ver...'
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     '7b0a0922...'
      */
     public static abi(abi: AbiContract): string {
@@ -25,9 +29,11 @@ export default class Hex {
 
     /**
      * Convert string to hex.
-     * @param {string} string Example:
+     * @param {string} string
+     * Example:
      *     'XYZ123'
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     '58595a313233'
      */
     public static string(string: string): string {
@@ -36,9 +42,11 @@ export default class Hex {
 
     /**
      * Convert array of strings to hex. Actual for string[] or bytes[] parameter in Solidity.
-     * @param {string[]} strings Example:
+     * @param {string[]} strings
+     * Example:
      *     ['XYZ123', 'ABC456']
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     ['58595a313233', '414243343536']
      */
     public static strings(strings: string[]): string[] {
@@ -47,9 +55,11 @@ export default class Hex {
 
     /**
      * Convert number to hex.
-     * @param {number} number Example:
+     * @param {number} number
+     * Example:
      *     1_000_000_000
-     * @return {string} Example:
+     * @return {string}
+     * Example:
      *     '0x3b9aca00'
      */
     public static number(number: number): string {

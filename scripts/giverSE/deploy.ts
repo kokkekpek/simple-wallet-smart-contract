@@ -1,12 +1,13 @@
-import GiverV2Info from '../../library/scripts/info/samples/GiverV2Info'
+import GiverV2Deploy from '../../library/scripts/deploy/samples/GiverV2Deploy'
 import config from '../../configs/config'
 import NetConfigInterface from '../../library/config/NetConfigInterface'
 import Net from '../../library/utils/Net'
 
 const netConfig: NetConfigInterface = Net.getConfig(config)
-const info: GiverV2Info = new GiverV2Info({
+const deploy: GiverV2Deploy = new GiverV2Deploy({
     net: netConfig,
     locale: config.locale,
-    keys: config.contracts.giver.keys.dev
+    keys: config.contracts.giver.keys.se,
+    requiredForDeployment: config.contracts.giver.requiredForDeployment
 })
-info.run().then()
+deploy.run().then()

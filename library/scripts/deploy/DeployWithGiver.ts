@@ -17,22 +17,26 @@ export default class DeployWithGiver {
     protected readonly _client: TonClient
 
     /**
-     * @param config {DeployWithGiverConfigInterface} Example:
+     * @param config {DeployWithGiverConfigInterface}
+     * Example:
      *     {
-     *             url: 'http://localhost',
-     *             port: '8080',
-     *             timeout: 30000,
-     *             locale: 'EN',
-     *             giverKeys: __dirname + '/../library/keys/GiverV2.se.keys.json',
+     *         net: {
+     *             url: 'http://localhost:8080',
+     *             timeout: 30_000,
      *             transactionFee: 0.02,
-     *             keys: __dirname + '/../keys/SafeMultisigWallet.keys.json',
-     *             requiredTons: 0.03
+     *             tolerance: 0.000_001,
+     *             giver: 'se'
+     *         },
+     *         locale: 'EN',
+     *         keys: `${__dirname}/../keys/SafeMultisigWallet.keys.json`,
+     *         requiredForDeployment: 0.03,
+     *         giverKeys: `${__dirname}/../keys/GiverV2.keys.json`
      *     }
      */
     constructor(config: DeployWithGiverConfigInterface) {
         TonClient.useBinaryLibrary(libNode)
         this._config = config
-        this._client = Client.create(config)
+        this._client = Client.create(config.net.url)
     }
 
     /**
@@ -42,7 +46,7 @@ export default class DeployWithGiver {
         const printer: Printer = new Printer(this._config.locale)
         const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
         const giverKeys: KeyPair = await Keys.createRandomIfNotExist(this._config.giverKeys, this._client)
-        const giver: GiverV2 = new GiverV2(this._client, this._config.timeout, giverKeys)
+        const giver: GiverV2 = new GiverV2(this._client, this._config.net.timeout, giverKeys)
 
         //////////////////
         // Get contract //
@@ -52,7 +56,7 @@ export default class DeployWithGiver {
         /////////////
         // Network //
         /////////////
-        printer.network(this._config)
+        printer.network(this._config.net.url)
 
         ////////////////////
         // Contracts data //
@@ -83,12 +87,12 @@ export default class DeployWithGiver {
         // Check balance //
         ///////////////////
         const balance: number = parseInt(await contract.balance())
-        const requiredBalance: number = this._config.requiredTons * B
-        const tolerance: number = this._config.tolerance * B
+        const requiredBalance: number = this._config.requiredForDeployment * B
+        const tolerance: number = this._config.net.tolerance * B
         if (balance < requiredBalance - tolerance) {
             const giverBalance: number = parseInt(await giver.balance())
             const needSendToTarget: number = requiredBalance - balance
-            const needHaveOnGiver: number = needSendToTarget + this._config.transactionFee * B
+            const needHaveOnGiver: number = needSendToTarget + this._config.net.transactionFee * B
             if (giverBalance < needHaveOnGiver) {
                 printer.print(DeployMessages.NOT_ENOUGH_BALANCE)
                 this._client.close()
@@ -142,9 +146,15 @@ export default class DeployWithGiver {
         this._client.close()
     }
 
+
+
+    //////////////////////
+    // MUST BE OVERRIDE //
+    //////////////////////
     /**
      * Create and return contract object.
-     * @param keys {KeyPair} Example:
+     * @param keys {KeyPair}
+     * Example:
      *     {
      *         public: '0x2ada2e65ab8eeab09490e3521415f45b6e42df9c760a639bcf53957550b25a16',
      *         secret: '0x172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3'
@@ -153,7 +163,7 @@ export default class DeployWithGiver {
      * @return {Contract}
      */
     protected _getContract(keys: KeyPair): Contract {
-        return new Contract(this._client, this._config.timeout, {
+        return new Contract(this._client, this._config.net.timeout, {
             abi: transferAbi,
             keys: keys,
             address: '0x0000000000000000000000000000000000000000000000000000000000000000'

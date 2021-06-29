@@ -34,11 +34,13 @@ export default class Contract {
      **********/
     /**
      * @param client {TonClient}
-     * @param timeout {number} Examples:
+     * @param timeout {number}
+     * Examples:
      *     3000
      *     30000
      *     60000
-     * @param config {ContractConfigInterface | DeployedContractConfigInterface} Examples:
+     * @param config {ContractConfigInterface | DeployedContractConfigInterface}
+     * Examples:
      *     // Already deployment contract
      *     {
      *         abi: {'ABI version': 2, '...'}
@@ -97,7 +99,8 @@ export default class Contract {
     }
 
     /**
-     * Use this if you want to wait for a transaction from one contract to another. Example:
+     * Use this if you want to wait for a transaction from one contract to another.
+     * Example:
      *     const client: TonClient = Client.create(config.net.test)
      *     const timeout: number = config.net.test.timeout
      *     const sender: SenderContract = new SenderContract(client, timeout)
@@ -108,7 +111,8 @@ export default class Contract {
      *     const receiverAddress: string = await receiver.address()
      *     await sender.send(receiverAddress, 1_000_000_000)
      *     const waitingResult: boolean = await receiver.waitForTransaction(5000)
-     * @param {number} timeout. Time in milliseconds. Examples:
+     * @param {number} timeout. Time in milliseconds.
+     * Examples:
      *     3000
      *     5000
      */
@@ -197,9 +201,11 @@ export default class Contract {
      *************/
     /**
      * Run method locally.
-     * @param method {string} Method name. Example:
+     * @param method {string} Method name.
+     * Example:
      *     'getHistory'
-     * @param input {Object} Example:
+     * @param input {Object}
+     * Example:
      *     {
      *         offset: 0,
      *         limit: 10
@@ -252,14 +258,17 @@ export default class Contract {
 
     /**
      * External call.
-     * @param method {string} Method name. Example:
+     * @param method {string} Method name.
+     * Example:
      *     'getHistory'
-     * @param input {Object} Example:
+     * @param input {Object}
+     * Example:
      *     {
      *         offset: 0,
      *         limit: 10
      *     }
-     * @param [keys] {KeyPair} Use if want call contact with another keys. Use this._keys by default. Example:
+     * @param [keys] {KeyPair} Use if want call contact with another keys. Use this._keys by default.
+     * Example:
      *     {
      *         public: '0x2ada2e65ab8eeab09490e3521415f45b6e42df9c760a639bcf53957550b25a16',
      *         secret: '0x172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3'
@@ -289,7 +298,8 @@ export default class Contract {
 
     /**
      * Deploy.
-     * @param input {Object} Example:
+     * @param input {Object}
+     * Example:
      *     {
      *         count: 500
      *     }
@@ -350,11 +360,14 @@ export default class Contract {
 
     /**
      * Generate payload message for internal call.
-     * @param abi {AbiContract} Example:
+     * @param abi {AbiContract}
+     * Example:
      *     {'ABI version': 2, '...'}
-     * @param method {string} Example:
+     * @param method {string}
+     * Example:
      *     'bet'
-     * @param input {Object} Example:
+     * @param input {Object}
+     * Example:
      *     {
      *         value: 1_000_000_000,
      *         luckyNumber: 50
@@ -382,7 +395,8 @@ export default class Contract {
 
     /**
      * Generate payload message with comment for transfer.
-     * @param comment {string} Example:
+     * @param comment {string}
+     * Example:
      *     'for homeless'
      * @protected
      */

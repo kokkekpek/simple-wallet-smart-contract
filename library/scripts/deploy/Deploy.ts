@@ -16,20 +16,25 @@ export default class Deploy {
     protected readonly _client: TonClient
 
     /**
-     * @param config {DeployConfigInterface} Example:
+     * @param config {DeployConfigInterface}
+     * Example:
      *     {
-     *             url: 'http://localhost',
-     *             port: '8080',
-     *             timeout: 30000,
-     *             locale: 'EN',
-     *             keys: __dirname + '/../library/keys/GiverV2.se.keys.json',
-     *             requiredTons: 0.03
+     *         net: {
+     *             url: 'http://localhost:8080',
+     *             timeout: 30_000,
+     *             transactionFee: 0.02,
+     *             tolerance: 0.000_001,
+     *             giver: 'se'
+     *         },
+     *         locale: 'EN',
+     *         keys: `${__dirname}/../keys/GiverV2.keys.json`,
+     *         requiredForDeployment: 0.03
      *     }
      */
     constructor(config: DeployConfigInterface) {
         TonClient.useBinaryLibrary(libNode)
         this._config = config
-        this._client = Client.create(config)
+        this._client = Client.create(config.net.url)
     }
 
     /**
@@ -47,7 +52,7 @@ export default class Deploy {
         /////////////
         // Network //
         /////////////
-        printer.network(this._config)
+        printer.network(this._config.net.url)
 
         ///////////////////
         // Contract data //
@@ -81,8 +86,8 @@ export default class Deploy {
         // Check balance //
         ///////////////////
         const balance: number = parseInt(await contract.balance())
-        const requiredBalance: number = this._config.requiredTons * B
-        const tolerance: number = this._config.tolerance * B
+        const requiredBalance: number = this._config.requiredForDeployment * B
+        const tolerance: number = this._config.net.tolerance * B
         if (balance < requiredBalance - tolerance) {
             printer.print(DeployMessages.NOT_ENOUGH_BALANCE)
             this._client.close()
@@ -112,9 +117,15 @@ export default class Deploy {
         this._client.close()
     }
 
+
+
+    //////////////////////
+    // MUST BE OVERRIDE //
+    //////////////////////
     /**
      * Create and return contract object.
-     * @param keys {KeyPair} Example:
+     * @param keys {KeyPair}
+     * Example:
      *     {
      *         public: '0x2ada2e65ab8eeab09490e3521415f45b6e42df9c760a639bcf53957550b25a16',
      *         secret: '0x172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3'
@@ -123,7 +134,7 @@ export default class Deploy {
      * @return {Contract}
      */
     protected _getContract(keys: KeyPair): Contract {
-        return new Contract(this._client, this._config.timeout, {
+        return new Contract(this._client, this._config.net.timeout, {
             abi: transferAbi,
             keys: keys,
             address: '0x0000000000000000000000000000000000000000000000000000000000000000'

@@ -3,53 +3,50 @@ import {consoleTerminal, runCommand} from 'tondev'
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import Client from '../../utils/Client'
+import {StringMap} from '../../types/StringMap'
 
 export default class Up {
-    private static readonly CONFIG = {
-        DB_PORT: '',
-        INSTANCE: '*'
-    }
-
-    private static readonly COMMAND = {
+    private static readonly COMMAND: StringMap = {
         SE_SET: 'se set',
-        SE_START: 'se start',
+        SE_START: 'se start'
     }
 
     private readonly _config: UpConfigInterface
-    private readonly _dbPort: string
-    private readonly _instance: string
 
     /**
      *
-     * @param config {UpConfigInterface} Example:
+     * @param config {UpConfigInterface}
      * You can get version from `tondev se version`
      * Example:
      *     {
-     *         version: 'latest',
-     *         url: 'http://localhost',
-     *         port: '8080',
-     *         dbPort: '',
-     *         instance: '*'
+     *         node: {
+     *             version: 'latest',
+     *             port: 8080,
+     *             dbPort: 'none',
+     *             instance: 'default'
+     *         },
+     *         net: {
+     *             url: 'http://localhost',
+     *             timeout: 30_000
+     *         }
      *     }
      */
     public constructor(config: UpConfigInterface) {
         this._config = config
-        this._dbPort = config.dbPort ?? Up.CONFIG.DB_PORT
-        this._instance = config.instance ?? Up.CONFIG.INSTANCE
     }
 
     /**
-     * Run commands.Prepare
+     * Run command.
      */
     async run(): Promise<void> {
         await runCommand(consoleTerminal, Up.COMMAND.SE_SET, {
-            version: this._config.version,
-            port: this._config.port,
-            dbPort: this._dbPort,
-            instance: this._instance
+            version: this._config.node.version,
+            port: this._config.node.port,
+            dbPort: this._config.node.dbPort,
+            instance: this._config.node.instance
         })
         await runCommand(consoleTerminal, Up.COMMAND.SE_START, {
-            instance: this._instance
+            instance: this._config.node.instance
         })
         await this._waitAnswerFromNode()
     }
@@ -59,11 +56,11 @@ export default class Up {
      */
     async _waitAnswerFromNode(): Promise<void> {
         TonClient.useBinaryLibrary(libNode)
-        const client: TonClient = Client.create(this._config)
+        const client: TonClient = Client.create(this._config.net.url)
         await client.net.wait_for_collection({
             collection: 'accounts',
             result: 'id',
-            timeout: this._config.timeout
+            timeout: this._config.net.timeout
         })
         client.close()
     }

@@ -11,6 +11,8 @@
     "deploy": "ts-node scripts/deploy",
     "giver": "ts-node scripts/giver/info",
     "giver.deploy": "ts-node scripts/giver/deploy",
+    "giverSE": "ts-node scripts/giverSE/info",
+    "giverSE.deploy": "ts-node scripts/giverSE/deploy",
     "wallet": "ts-node scripts/wallet/info",
     "wallet.deploy": "ts-node scripts/wallet/deploy",
     "test": "jest --verbose"
@@ -24,6 +26,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.4",
     "colors": "^1.4.0",
+    "cross-env": "^7.0.3",
     "jest": "^27.0.4",
     "tondev": "^0.7.3",
     "ts-jest": "^27.0.3",

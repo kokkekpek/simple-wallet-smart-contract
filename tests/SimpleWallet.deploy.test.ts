@@ -9,14 +9,19 @@ import Client from '../library/utils/Client'
 import Keys from '../library/utils/Keys'
 import Hex from '../library/utils/Hex'
 import B from '../library/constants/B'
+import NetConfigInterface from '../library/config/NetConfigInterface'
+import Net from '../library/utils/Net'
+import Filer from '../library/utils/Filer'
 
 TonClient.useBinaryLibrary(libNode)
-const client: TonClient = Client.create(config.net.test)
-const timeout: number = config.net.test.timeout
+const netConfig: NetConfigInterface = Net.getConfig(config)
+const client: TonClient = Client.create(netConfig.url)
+const timeout: number = netConfig.timeout
+const giverKeysFile: string = Filer.getKeys(netConfig.giver, config.contracts.giver.keys)
+const giverKeys: KeyPair = Keys.read(giverKeysFile)
+const giver: GiverV2 = new GiverV2(client, timeout, giverKeys)
 
 it('deploy', async () => {
-    const giverKeys: KeyPair = Keys.read(config.net.test.contracts.giver.keys)
-    const giver: GiverV2 = new GiverV2(client, timeout, giverKeys)
     const simpleWalletKeys: KeyPair = await Keys.random(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 

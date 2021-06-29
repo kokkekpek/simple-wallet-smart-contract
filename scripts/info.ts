@@ -1,12 +1,12 @@
 import SimpleWalletInfo from './simpleWallet/SimpleWalletInfo'
 import config from '../configs/config'
+import NetConfigInterface from '../library/config/NetConfigInterface'
+import Net from '../library/utils/Net'
 
-const info: SimpleWalletInfo = new SimpleWalletInfo(
-    {
-        url: config.net.deploy.url,
-        port: config.net.deploy.port,
-        timeout: config.net.deploy.timeout,
-        locale: config.locale,
-        keys: config.net.deploy.contracts.simpleWallet.keys
-    })
+const netConfig: NetConfigInterface = Net.getConfig(config)
+const info: SimpleWalletInfo = new SimpleWalletInfo({
+    net: netConfig,
+    locale: config.locale,
+    keys: config.contracts.simpleWallet.keys
+})
 info.run().then()

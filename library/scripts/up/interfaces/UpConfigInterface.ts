@@ -1,8 +1,7 @@
+import NodeConfigInterface from '../../../config/NodeConfigInterface'
+import NetConfigInterface from '../../../config/NetConfigInterface'
+
 export default interface UpConfigInterface {
-    version: string
-    url: string
-    port: string
-    timeout: number
-    dbPort?: string
-    instance?: string
+    node: NodeConfigInterface
+    net: NetConfigInterface
 }

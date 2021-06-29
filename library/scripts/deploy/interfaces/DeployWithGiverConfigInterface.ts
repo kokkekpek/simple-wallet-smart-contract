@@ -1,11 +1,5 @@
-export default interface DeployWithGiverConfigInterface {
-    url: string
-    port: string
-    timeout: number
-    locale: string
+import DeployConfigInterface from './DeployConfigInterface'
+
+export default interface DeployWithGiverConfigInterface extends DeployConfigInterface {
     giverKeys: string
-    transactionFee: number
-    keys: string
-    requiredTons: number
-    tolerance: number
 }
