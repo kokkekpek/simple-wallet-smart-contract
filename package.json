@@ -11,8 +11,8 @@
     "deploy": "ts-node scripts/deploy",
     "giver": "ts-node scripts/giver/info",
     "giver.deploy": "ts-node scripts/giver/deploy",
-    "giverSE": "ts-node scripts/giverSE/info",
-    "giverSE.deploy": "ts-node scripts/giverSE/deploy",
+    "giver.se": "ts-node scripts/giver-se/info",
+    "giver.se.deploy": "ts-node scripts/giver-se/deploy",
     "wallet": "ts-node scripts/wallet/info",
     "wallet.deploy": "ts-node scripts/wallet/deploy",
     "test": "jest --verbose"
