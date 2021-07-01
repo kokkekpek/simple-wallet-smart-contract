@@ -66,7 +66,7 @@ yarn up
 
 ## Giver
 * Scripts use a [GiverV2](https://github.com/tonlabs/tonos-se/tree/master/contracts/giver_v2) smart contract for [tests](#tests) and [deployment](#deployment).
-* For **local net**, the default key file is `GiverV2.se.keys.json` from the library.
+* For **local network**, the default key file is `GiverV2.se.keys.json`.
 * For **production network** you must deploy your own giver.
 
 ### Deploy giver
@@ -128,7 +128,7 @@ yarn deploy
 
 ### In public network
 ```sh
-yarn giver.send <address> <value> <bounce> <flags>
+yarn cross-env net=<network> yarn deploy
 ```
 * `network` - network name from `configs/config.ts`
 
