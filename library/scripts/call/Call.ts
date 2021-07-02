@@ -106,6 +106,11 @@ export default class Call {
         this._client.close()
     }
 
+    /**
+     * Print error and exit.
+     * @param printer {Printer}
+     * @private
+     */
     private _invalidArgumentsCountError(printer: Printer): void {
         printer.print(CallMessages.INVALID_ARGUMENTS_COUNT)
         printer.print(CallMessages.ARGUMENTS)
@@ -114,6 +119,12 @@ export default class Call {
         process.exit()
     }
 
+    /**
+     * Print error and exit.
+     * @param printer {Printer}
+     * @param contract {Contract}
+     * @private
+     */
     private async _accountInsNotActiveError(printer: Printer, contract: Contract): Promise<void> {
         await printer.network(this._config.net.url)
         await printer.account(contract)
@@ -121,6 +132,16 @@ export default class Call {
         process.exit()
     }
 
+    /**
+     * Read arguments from process.argv and return StringMap.
+     * @return {StringMap}
+     * Example:
+     *     {
+     *         address: '0x01234...',
+     *         value: '1_000_000_000'
+     *     }
+     * @private
+     */
     private _readArguments(): StringMap {
         const result: StringMap = {}
         for (let i: number = 0; i < this._args.length; i++)
