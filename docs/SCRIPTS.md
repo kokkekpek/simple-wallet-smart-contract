@@ -1,19 +1,25 @@
 # Scripts
 ## Content table
 - [Scripts](#scripts)
-    - [Content table](#content-table)
-    - [SimpleWallet](#simplewallet)
-        - [Info](#info)
-        - [Deploy](#deploy)
-    - [Giver](#giver)
-        - [Info](#info-1)
-        - [Deploy](#deploy-1)
-        - [Send](#send)
-    - [SafeMultisigWallet](#safemultisigwallet)
-        - [Info](#info-2)
-        - [Deploy](#deploy-2)
-        - [Send](#send-1)
-        - [Call](#call)
+  - [Content table](#content-table)
+  - [SimpleWallet](#simplewallet)
+    - [Info](#info)
+    - [Deploy](#deploy)
+  - [Giver](#giver)
+    - [Info](#info-1)
+    - [Deploy](#deploy-1)
+    - [Send](#send)
+  - [Giver SE](#giver-se)
+    - [Info](#info-2)
+    - [Deploy](#deploy-2)
+    - [Send](#send-1)
+  - [SafeMultisigWallet](#safemultisigwallet)
+    - [Info](#info-3)
+    - [Deploy](#deploy-3)
+    - [Send](#send-2)
+    - [Call](#call)
+
+
 
 ## SimpleWallet
 ### Info
@@ -25,6 +31,8 @@ yarn inf
 ```sh
 yarn deploy
 ```
+
+
 
 ## Giver
 ### Info
@@ -49,6 +57,34 @@ yarn giver.send <address> <value> <bounce> <flags>
 ```sh
 yarn giver.send 0:0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff 100_000_000 false
 ```
+
+
+
+## Giver SE
+### Info
+```sh
+yarn giver.se
+```
+
+### Deploy
+```sh
+yarn giver.se.deploy
+```
+
+### Send
+```sh
+yarn giver.se.send <address> <value> <bounce> <flags>
+```
+* `address` - destination contract address
+* `value` - value in nano grams
+* `bounce` - if it's set and transaction falls then funds will be returned
+
+**Example**
+```sh
+yarn giver.se.send 0:0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff 100_000_000 false
+```
+
+
 
 ## SafeMultisigWallet
 ### Info
