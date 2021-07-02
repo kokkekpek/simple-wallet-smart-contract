@@ -33,7 +33,7 @@ export default class DeployWithGiver {
      *         giverKeys: `${__dirname}/../keys/GiverV2.keys.json`
      *     }
      */
-    constructor(config: DeployWithGiverConfigInterface) {
+    public constructor(config: DeployWithGiverConfigInterface) {
         TonClient.useBinaryLibrary(libNode)
         this._config = config
         this._client = Client.create(config.net.url)

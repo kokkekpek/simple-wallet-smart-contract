@@ -15,7 +15,7 @@ export default class Printer {
      *     'RU'
      *     'EN'
      */
-    constructor(locale: string) {
+    public constructor(locale: string) {
         this._locale = locale
     }
 
