@@ -42,7 +42,6 @@ export default class Call {
         TonClient.useBinaryLibrary(libNode)
         this._config = config
         this._names = names
-        console.log(names)
         this._args = process.argv.slice(2)
         this._client = Client.create(config.net.url)
     }
