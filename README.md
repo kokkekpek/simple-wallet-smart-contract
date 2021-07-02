@@ -174,6 +174,7 @@ yarn giver.send <address> <value> <bounce> <flags>
 ```
 * `address` - destination contract address
 * `value` - value in nano grams
+* `bounce` - if it's set and transaction falls then funds will be returned
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
 
 **Example**
@@ -198,6 +199,7 @@ yarn wallet.send <address> <value> <bounce> <flags> <comment>
 ```
 * `address` - destination contract address
 * `value` - value in nano grams
+* `bounce` - if it's set and transaction falls then funds will be returned
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
 * `comment` - text comment. Maximum 124 symbols
 
@@ -212,6 +214,7 @@ yarn wallet.send <address> <value> <bounce> <flags> <pathToAbiFile> <method> <pa
 ```
 * `address` - destination contract address
 * `value` - value in nano grams
+* `bounce` - if it's set and transaction falls then funds will be returned
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
 * `pathToAbiFile` - absolute path to destination contract *.abi.json file
 * `method` - destination contract method
