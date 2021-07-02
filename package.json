@@ -17,6 +17,7 @@
     "giver.se.send": "ts-node scripts/giver-se/send",
     "wallet": "ts-node scripts/wallet/info",
     "wallet.deploy": "ts-node scripts/wallet/deploy",
+    "wallet.send": "ts-node scripts/wallet/send",
     "test": "jest --verbose"
   },
   "author": "Kok Kek",
