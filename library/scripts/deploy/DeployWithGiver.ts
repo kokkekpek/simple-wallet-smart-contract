@@ -47,10 +47,6 @@ export default class DeployWithGiver {
         const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
         const giverKeys: KeyPair = await Keys.createRandomIfNotExist(this._config.giverKeys, this._client)
         const giver: GiverV2 = new GiverV2(this._client, this._config.net.timeout, giverKeys)
-
-        //////////////////
-        // Get contract //
-        //////////////////
         const contract: Contract = this._getContract(keys)
 
         /////////////

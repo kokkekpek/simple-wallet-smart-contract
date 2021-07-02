@@ -37,8 +37,17 @@ export default class Info {
         const printer: Printer = new Printer(this._config.locale)
         const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
         const contract: Contract = this._getContract(keys)
+
+        /////////////
+        // Network //
+        /////////////
         printer.network(this._config.net.url)
+
+        ///////////////////
+        // Contract data //
+        ///////////////////
         await printer.account(contract)
+
         this._client.close()
     }
 
