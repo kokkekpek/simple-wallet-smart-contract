@@ -33,7 +33,7 @@ export default class Info {
     /**
      * Run command.
      */
-    async run() {
+    async run(): Promise<void> {
         const printer: Printer = new Printer(this._config.locale)
         const keys: KeyPair = await Keys.createRandomIfNotExist(this._config.keys, this._client)
         const contract: Contract = this._getContract(keys)
