@@ -175,7 +175,6 @@ yarn giver.send <address> <value> <bounce> <flags>
 * `address` - destination contract address
 * `value` - value in nano grams
 * `bounce` - if it's set and transaction falls then funds will be returned
-* `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
 
 **Example**
 ```sh
