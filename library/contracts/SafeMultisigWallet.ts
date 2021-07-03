@@ -51,23 +51,6 @@ export default class SafeMultisigWallet extends Contract {
         )
     }
 
-    public async sendTransaction(
-        dest: string,
-        value: number,
-        bounce: boolean,
-        flags: number,
-        payload: string,
-        keys: KeyPair
-    ): Promise<ResultOfProcessMessage> {
-        return await this._call('sendTransaction', {
-            dest: dest,
-            value: value,
-            bounce: bounce,
-            flags: flags,
-            payload: payload
-        }, keys)
-    }
-
     public async sendTransactionWithComment(
         dest: string,
         value: number,
@@ -77,6 +60,24 @@ export default class SafeMultisigWallet extends Contract {
         keys: KeyPair
     ): Promise<ResultOfProcessMessage> {
         const payload: string = await this._getPayloadToTransferWithComment(comment)
+        return await this.sendTransaction(
+            dest,
+            value,
+            bounce,
+            flags,
+            payload,
+            keys
+        )
+    }
+
+    public async sendTransaction(
+        dest: string,
+        value: number,
+        bounce: boolean,
+        flags: number,
+        payload: string,
+        keys: KeyPair
+    ): Promise<ResultOfProcessMessage> {
         return await this._call('sendTransaction', {
             dest: dest,
             value: value,

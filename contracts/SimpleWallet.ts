@@ -54,7 +54,7 @@ export default class SimpleWallet extends Contract {
         )
     }
 
-    public async sendTransaction(
+    public async sendTransactionWithComment(
         dest: string,
         value: number,
         bounce: boolean,
@@ -62,6 +62,22 @@ export default class SimpleWallet extends Contract {
         comment: string
     ): Promise<ResultOfProcessMessage> {
         const payload: string = await this._getPayloadToTransferWithComment(comment)
+        return await this.sendTransaction(
+            dest,
+            value,
+            bounce,
+            flags,
+            payload
+        )
+    }
+
+    public async sendTransaction(
+        dest: string,
+        value: number,
+        bounce: boolean,
+        flags: number,
+        payload: string
+    ): Promise<ResultOfProcessMessage> {
         return await this._call('sendTransaction', {
             dest: dest,
             value: value,
