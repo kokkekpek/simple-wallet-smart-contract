@@ -9,8 +9,8 @@ const make: Make = new Make({
         'library/contracts/SafeMultisigWallet/SafeMultisigWallet',
         'library/contracts/GiverV2/GiverV2'
     ],
-    compiler: '0.46.0',
-    linker: '0.9.27',
-    stdlib: '0.45.0'
+    compiler: '0.47.0',
+    linker: '0.11.1',
+    stdlib: '0.47.0'
 })
 make.run().then()
