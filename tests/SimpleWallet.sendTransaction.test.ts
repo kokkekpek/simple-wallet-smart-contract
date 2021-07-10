@@ -16,7 +16,7 @@ it('sendTransaction', async () => {
     await simpleWallet.deploy()
 
     const value: number = 0.01 * B
-    await simpleWallet.sendTransaction(
+    await simpleWallet.sendTransactionWithComment(
         await safeMultisigWallet.address(),
         value,
         false,
