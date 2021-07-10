@@ -1,4 +1,4 @@
-pragma ton-solidity >= 0.46.0;
+pragma ton-solidity >= 0.47.0;
 
 /**
  * Error codes
