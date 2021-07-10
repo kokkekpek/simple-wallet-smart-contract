@@ -1,11 +1,8 @@
 import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import SimpleWallet from '../contracts/SimpleWallet'
-import Keys from '../library/utils/Keys'
-import B from '../library/constants/B'
 import prepareTest from './__utils/prepareTest'
-import SafeMultisigWallet from '../library/contracts/SafeMultisigWallet'
-import Hex from '../library/utils/Hex'
+import {B, Hex, Keys, SafeMultisigWallet} from 'jton'
 
 const {client, timeout, giver} = prepareTest()
 

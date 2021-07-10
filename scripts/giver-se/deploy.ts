@@ -1,7 +1,5 @@
-import GiverV2Deploy from '../../library/scripts/deploy/samples/GiverV2Deploy'
 import config from '../../configs/config'
-import NetConfigInterface from '../../library/config/NetConfigInterface'
-import Net from '../../library/utils/Net'
+import {GiverV2Deploy, Net, NetConfigInterface} from 'jton'
 
 const netConfig: NetConfigInterface = Net.getConfig(config)
 const deploy: GiverV2Deploy = new GiverV2Deploy({

@@ -1,8 +1,6 @@
 import config from '../configs/config'
-import NetConfigInterface from '../library/config/NetConfigInterface'
-import Net from '../library/utils/Net'
 import SimpleWalletDeployWithGiver from './simpleWallet/SimpleWalletDeployWithGiver'
-import Filer from '../library/utils/Filer'
+import {Filer, Net, NetConfigInterface} from 'jton'
 
 const netConfig: NetConfigInterface = Net.getConfig(config)
 const giverKeysFile: string = Filer.getKeys(netConfig.giver, config.contracts.giver.keys)

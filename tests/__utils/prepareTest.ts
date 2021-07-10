@@ -1,14 +1,9 @@
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
-import NetConfigInterface from '../../library/config/NetConfigInterface'
-import Net from '../../library/utils/Net'
 import config from '../../configs/config'
-import Client from '../../library/utils/Client'
-import Filer from '../../library/utils/Filer'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import Keys from '../../library/utils/Keys'
-import GiverV2 from '../../library/contracts/GiverV2'
 import VariablesForTestInterface from './interfaces/VariablesForTestInterface'
+import {Client, Filer, GiverV2, Keys, Net, NetConfigInterface} from 'jton'
 
 export default function prepareTest(): VariablesForTestInterface {
     TonClient.useBinaryLibrary(libNode)

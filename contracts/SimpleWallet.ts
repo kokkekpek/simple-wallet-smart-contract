@@ -1,7 +1,7 @@
-import Contract from '../library/contract/Contract'
 import SimpleWalletContract from './SimpleWallet/SimpleWallet'
 import {AbiContract, DecodedMessageBody, KeyPair, ResultOfProcessMessage} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
+import {Contract} from 'jton'
 
 export default class SimpleWallet extends Contract {
     public constructor(client: TonClient, timeout: number, keys: KeyPair) {

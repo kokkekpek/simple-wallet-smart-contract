@@ -1,5 +1,5 @@
 import config from '../configs/config'
-import Up from '../library/scripts/up/Up'
+import {Up} from 'jton'
 
 const up: Up = new Up({
     node: config.node,

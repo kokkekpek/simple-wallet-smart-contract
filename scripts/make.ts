@@ -1,13 +1,11 @@
-import Make from '../library/scripts/make/Make'
+import {Make} from 'jton'
+import root from '../root'
 
 const make: Make = new Make({
+    root: root,
     compile: [
         'contracts/SimpleWallet/SimpleWallet',
         'contracts/SimpleWallet_idle/SimpleWallet_idle'
-    ],
-    wrap: [
-        'library/contracts/SafeMultisigWallet/SafeMultisigWallet',
-        'library/contracts/GiverV2/GiverV2'
     ],
     compiler: '0.47.0',
     linker: '0.11.64',

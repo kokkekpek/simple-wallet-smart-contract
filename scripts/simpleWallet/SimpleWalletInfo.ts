@@ -1,7 +1,6 @@
 import {KeyPair} from '@tonclient/core/dist/modules'
-import Info from '../../library/scripts/info/Info'
-import Contract from '../../library/contract/Contract'
 import SimpleWallet from '../../contracts/SimpleWallet'
+import {Contract, Info} from 'jton'
 
 export default class SimpleWalletInfo extends Info {
     /**

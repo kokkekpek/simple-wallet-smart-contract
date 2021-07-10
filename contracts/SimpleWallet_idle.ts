@@ -1,7 +1,7 @@
-import Contract from '../library/contract/Contract'
 import SimpleWalletV2Contract from './SimpleWallet_idle/SimpleWallet_idle'
 import {DecodedMessageBody, KeyPair} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
+import {Contract} from 'jton'
 
 export default class SimpleWallet_idle extends Contract {
     public constructor(client: TonClient, timeout: number, keys: KeyPair, address: string) {

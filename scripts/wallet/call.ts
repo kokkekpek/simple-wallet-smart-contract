@@ -1,7 +1,5 @@
 import config from '../../configs/config'
-import NetConfigInterface from '../../library/config/NetConfigInterface'
-import Net from '../../library/utils/Net'
-import SafeMultisigWalletCall from '../../library/scripts/call/samples/SafeMultisigWalletCall'
+import {Net, NetConfigInterface, SafeMultisigWalletCall} from 'jton'
 
 const netConfig: NetConfigInterface = Net.getConfig(config)
 const call: SafeMultisigWalletCall = new SafeMultisigWalletCall({
