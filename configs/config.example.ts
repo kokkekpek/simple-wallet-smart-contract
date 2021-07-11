@@ -221,12 +221,12 @@ export default {
             /**
              * Absolute path to keys file.
              * Examples:
-             *     `${__dirname}/../node_modules/jton/dist/keys/GiverV2.se.keys.json`
+             *     `${__dirname}/../node_modules/jton/dist/contract/keys/GiverV2.se.keys.json`
              *     `${__dirname}/../keys/GiverV2.keys.json`
              *     `/home/user/keys/GiverV2.keys.json`
              */
             keys: {
-                se: `${__dirname}/../node_modules/jton/dist/keys/GiverV2.se.keys.json`,
+                se: `${__dirname}/../node_modules/jton/dist/contract/keys/GiverV2.se.keys.json`,
                 dev: `${__dirname}/../keys/GiverV2.keys.json`
             },
 

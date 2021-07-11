@@ -2,16 +2,16 @@ import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
 import config from '../../configs/config'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import VariablesForTestInterface from './interfaces/VariablesForTestInterface'
-import {Client, Filer, GiverV2, Keys, Net, NetConfigInterface} from 'jton'
+import TestKit from './TestKit'
+import {createClient, filterKey, getNetConfig, GiverV2, NetConfig, readKeyFile} from 'jton'
 
-export default function prepareTest(): VariablesForTestInterface {
+export default function prepareTest(): TestKit {
     TonClient.useBinaryLibrary(libNode)
-    const netConfig: NetConfigInterface = Net.getConfig(config)
-    const client: TonClient = Client.create(netConfig.url)
+    const netConfig: NetConfig = getNetConfig(config)
+    const client: TonClient = createClient(netConfig.url)
     const timeout: number = netConfig.timeout
-    const giverKeysFile: string = Filer.getKeys(netConfig.giver, config.contracts.giver.keys)
-    const giverKeys: KeyPair = Keys.read(giverKeysFile)
+    const giverKeysFile: string = filterKey(netConfig.giver, config.contracts.giver.keys)
+    const giverKeys: KeyPair = readKeyFile(giverKeysFile)
     const giver: GiverV2 = new GiverV2(client, timeout, giverKeys)
     return {
         client: client,

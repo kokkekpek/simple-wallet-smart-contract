@@ -5,4 +5,4 @@ const up: Up = new Up({
     node: config.node,
     net: config.net.local
 })
-up.run().then()
+up.run().then().catch((e: any) => console.log(e))

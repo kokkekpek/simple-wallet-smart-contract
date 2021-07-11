@@ -2214,10 +2214,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jton@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/jton/-/jton-0.0.4.tgz#77d76e1e77fe487f40084fd452c6d00f1494220b"
-  integrity sha512-q1Xwx5aIHCZTy3NRNpRJeWRxTcFO4xyLbB1VfDPQI+fnNA+jLzkHOj9DFPDntU1GSru5Sk3WkCIyM9Hkdjcsgg==
+jton@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jton/-/jton-0.2.0.tgz#0a1fee7a14cb38f99e83649941a41b787592b754"
+  integrity sha512-kzw3SIY8e1NoLoDQ2Yb0V4ph4P6b7QFctTPLvd4OkVCQWboLTfhwzgRgRrQNZjpdYLvPDzLVQiCb5brxdJ+sqg==
   dependencies:
     "@tonclient/core" "^1.19.0"
     colors "^1.4.0"

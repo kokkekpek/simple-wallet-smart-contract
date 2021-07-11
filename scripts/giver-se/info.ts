@@ -1,10 +1,10 @@
 import config from '../../configs/config'
-import {GiverV2Info, Net, NetConfigInterface} from 'jton'
+import {getNetConfig, GiverV2Info, NetConfig} from 'jton'
 
-const netConfig: NetConfigInterface = Net.getConfig(config)
+const netConfig: NetConfig = getNetConfig(config)
 const info: GiverV2Info = new GiverV2Info({
     net: netConfig,
     locale: config.locale,
     keys: config.contracts.giver.keys.se
 })
-info.run().then()
+info.run().then().catch((e: any) => console.log(e))

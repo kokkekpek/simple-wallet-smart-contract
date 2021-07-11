@@ -4,12 +4,12 @@ import SimpleWallet from '../contracts/SimpleWallet'
 import prepareTest from './__utils/prepareTest'
 import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
 import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWallet_idle'
-import {B, Keys} from 'jton'
+import {B, getRandomKeyPair} from 'jton'
 
 const {client, timeout, giver} = prepareTest()
 
 it('upgrade', async () => {
-    const simpleWalletKeys: KeyPair = await Keys.random(client)
+    const simpleWalletKeys: KeyPair = await getRandomKeyPair(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
     const simpleWallet_idle: SimpleWallet_idle = new SimpleWallet_idle(
         client,

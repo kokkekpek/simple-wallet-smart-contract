@@ -1,10 +1,10 @@
 import config from '../../configs/config'
-import {Net, NetConfigInterface, SafeMultisigWalletInfo} from 'jton'
+import {getNetConfig, NetConfig, SafeMultisigWalletInfo} from 'jton'
 
-const netConfig: NetConfigInterface = Net.getConfig(config)
+const netConfig: NetConfig = getNetConfig(config)
 const info: SafeMultisigWalletInfo = new SafeMultisigWalletInfo({
     net: netConfig,
     locale: config.locale,
     keys: config.contracts.safeMultisigWallet.keys
 })
-info.run().then()
+info.run().then().catch((e: any) => console.log(e))

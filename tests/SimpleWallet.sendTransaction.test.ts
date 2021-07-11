@@ -2,14 +2,14 @@ import testTimeout from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import SimpleWallet from '../contracts/SimpleWallet'
 import prepareTest from './__utils/prepareTest'
-import {B, Hex, Keys, SafeMultisigWallet} from 'jton'
+import {B, getRandomKeyPair, numberToHex, SafeMultisigWallet} from 'jton'
 
 const {client, timeout, giver} = prepareTest()
 
 it('sendTransaction', async () => {
-    const safeMultisigWalletKeys: KeyPair = await Keys.random(client)
+    const safeMultisigWalletKeys: KeyPair = await getRandomKeyPair(client)
     const safeMultisigWallet: SafeMultisigWallet = new SafeMultisigWallet(client, timeout, safeMultisigWalletKeys)
-    const simpleWalletKeys: KeyPair = await Keys.random(client)
+    const simpleWalletKeys: KeyPair = await getRandomKeyPair(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
 
     await giver.sendTransaction(await simpleWallet.address(), 0.05 * B)
@@ -25,6 +25,6 @@ it('sendTransaction', async () => {
     )
 
     await safeMultisigWallet.waitForTransaction()
-    expect(await safeMultisigWallet.balance()).toBe(Hex.number(value))
+    expect(await safeMultisigWallet.balance()).toBe(numberToHex(value))
     client.close()
 }, testTimeout)

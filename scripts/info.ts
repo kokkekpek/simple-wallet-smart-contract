@@ -1,11 +1,11 @@
 import SimpleWalletInfo from './simpleWallet/SimpleWalletInfo'
 import config from '../configs/config'
-import {Net, NetConfigInterface} from 'jton'
+import {getNetConfig, NetConfig} from 'jton'
 
-const netConfig: NetConfigInterface = Net.getConfig(config)
+const netConfig: NetConfig = getNetConfig(config)
 const info: SimpleWalletInfo = new SimpleWalletInfo({
     net: netConfig,
     locale: config.locale,
     keys: config.contracts.simpleWallet.keys
 })
-info.run().then()
+info.run().then().catch((e: any) => console.log(e))

@@ -11,4 +11,4 @@ const make: Make = new Make({
     linker: '0.11.64',
     stdlib: '0.47.0'
 })
-make.run().then()
+make.run().then().catch((e: any) => console.log(e))

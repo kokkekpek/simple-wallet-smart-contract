@@ -1,9 +1,9 @@
 import config from '../configs/config'
 import SimpleWalletDeployWithGiver from './simpleWallet/SimpleWalletDeployWithGiver'
-import {Filer, Net, NetConfigInterface} from 'jton'
+import {filterKey, getNetConfig, NetConfig} from 'jton'
 
-const netConfig: NetConfigInterface = Net.getConfig(config)
-const giverKeysFile: string = Filer.getKeys(netConfig.giver, config.contracts.giver.keys)
+const netConfig: NetConfig = getNetConfig(config)
+const giverKeysFile: string = filterKey(netConfig.giver, config.contracts.giver.keys)
 const deploy: SimpleWalletDeployWithGiver = new SimpleWalletDeployWithGiver({
     net: netConfig,
     locale: config.locale,
@@ -12,4 +12,4 @@ const deploy: SimpleWalletDeployWithGiver = new SimpleWalletDeployWithGiver({
     giverKeys: giverKeysFile,
 
 })
-deploy.run().then()
+deploy.run().then().catch((e: any) => console.log(e))
