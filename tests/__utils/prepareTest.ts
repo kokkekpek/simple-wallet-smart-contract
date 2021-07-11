@@ -1,11 +1,11 @@
+import {config} from '../../configs/config'
 import {TonClient} from '@tonclient/core'
 import {libNode} from '@tonclient/lib-node'
-import config from '../../configs/config'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import TestKit from './TestKit'
+import {TestKit} from './TestKit'
 import {createClient, filterKey, getNetConfig, GiverV2, NetConfig, readKeyFile} from 'jton'
 
-export default function prepareTest(): TestKit {
+export function prepareTest(): TestKit {
     TonClient.useBinaryLibrary(libNode)
     const netConfig: NetConfig = getNetConfig(config)
     const client: TonClient = createClient(netConfig.url)

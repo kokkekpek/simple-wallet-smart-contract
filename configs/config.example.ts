@@ -1,4 +1,4 @@
-export default {
+export const config: any = {
     node: {
         /**
          * Version of local node. Run `tondev se version` to view options.

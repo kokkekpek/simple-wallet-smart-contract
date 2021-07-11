@@ -3,7 +3,7 @@ import {DecodedMessageBody, KeyPair} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
 import {Contract} from 'jton'
 
-export default class SimpleWallet_idle extends Contract {
+export class SimpleWallet_idle extends Contract {
     public constructor(client: TonClient, timeout: number, keys: KeyPair, address: string) {
         super(client, timeout, {
             abi: SimpleWalletV2Contract.abi,
@@ -11,7 +11,6 @@ export default class SimpleWallet_idle extends Contract {
             address: address
         })
     }
-
 
 
     /***********

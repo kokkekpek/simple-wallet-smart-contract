@@ -1,1 +1,1 @@
-export default 240_000
+export const testTimeout: number = 240_000

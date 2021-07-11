@@ -1,1 +1,1 @@
-export default __dirname
+export const root: string = __dirname

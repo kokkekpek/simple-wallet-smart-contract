@@ -1,5 +1,5 @@
-import SimpleWalletInfo from './simpleWallet/SimpleWalletInfo'
-import config from '../configs/config'
+import {SimpleWalletInfo} from './simpleWallet/SimpleWalletInfo'
+import {config} from '../configs/config'
 import {getNetConfig, NetConfig} from 'jton'
 
 const netConfig: NetConfig = getNetConfig(config)

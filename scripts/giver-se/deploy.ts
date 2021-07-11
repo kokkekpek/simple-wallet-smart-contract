@@ -1,4 +1,4 @@
-import config from '../../configs/config'
+import {config} from '../../configs/config'
 import {getNetConfig, GiverV2Deploy, NetConfig} from 'jton'
 
 const netConfig: NetConfig = getNetConfig(config)

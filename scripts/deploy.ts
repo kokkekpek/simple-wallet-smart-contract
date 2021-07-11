@@ -1,5 +1,5 @@
-import config from '../configs/config'
-import SimpleWalletDeployWithGiver from './simpleWallet/SimpleWalletDeployWithGiver'
+import {config} from '../configs/config'
+import {SimpleWalletDeployWithGiver} from './simpleWallet/SimpleWalletDeployWithGiver'
 import {filterKey, getNetConfig, NetConfig} from 'jton'
 
 const netConfig: NetConfig = getNetConfig(config)

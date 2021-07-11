@@ -3,7 +3,7 @@ import {AbiContract, DecodedMessageBody, KeyPair, ResultOfProcessMessage} from '
 import {TonClient} from '@tonclient/core'
 import {Contract} from 'jton'
 
-export default class SimpleWallet extends Contract {
+export class SimpleWallet extends Contract {
     public constructor(client: TonClient, timeout: number, keys: KeyPair) {
         super(client, timeout, {
             abi: SimpleWalletContract.abi,
@@ -14,14 +14,12 @@ export default class SimpleWallet extends Contract {
     }
 
 
-
     /**********
      * DEPLOY *
      **********/
     public async deploy(): Promise<boolean> {
         return await this._deploy()
     }
-
 
 
     /**********
@@ -86,7 +84,6 @@ export default class SimpleWallet extends Contract {
             payload: payload
         })
     }
-
 
 
     /***********

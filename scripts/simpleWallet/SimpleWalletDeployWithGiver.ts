@@ -1,8 +1,8 @@
 import {KeyPair} from '@tonclient/core/dist/modules'
-import SimpleWallet from '../../contracts/SimpleWallet'
+import {SimpleWallet} from '../../contracts/SimpleWallet'
 import {Contract, DeployWithGiver} from 'jton'
 
-export default class SimpleWalletDeployWithGiver extends DeployWithGiver {
+export class SimpleWalletDeployWithGiver extends DeployWithGiver {
     private _keys: KeyPair
 
     /**

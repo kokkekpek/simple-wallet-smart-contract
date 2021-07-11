@@ -1,4 +1,4 @@
-import config from '../../configs/config'
+import {config} from '../../configs/config'
 import {getNetConfig, NetConfig, SafeMultisigWalletInfo} from 'jton'
 
 const netConfig: NetConfig = getNetConfig(config)

@@ -1,8 +1,8 @@
-import testTimeout from './__utils/testTimeout'
+import {testTimeout} from './__utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import SimpleWallet from '../contracts/SimpleWallet'
-import prepareTest from './__utils/prepareTest'
-import SimpleWallet_idle from '../contracts/SimpleWallet_idle'
+import {SimpleWallet} from '../contracts/SimpleWallet'
+import {prepareTest} from './__utils/prepareTest'
+import {SimpleWallet_idle} from '../contracts/SimpleWallet_idle'
 import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWallet_idle'
 import {B, getRandomKeyPair} from 'jton'
 

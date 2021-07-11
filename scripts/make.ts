@@ -1,5 +1,5 @@
 import {Make} from 'jton'
-import root from '../root'
+import {root} from '../root'
 
 const make: Make = new Make({
     root: root,

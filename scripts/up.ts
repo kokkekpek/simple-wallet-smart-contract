@@ -1,4 +1,4 @@
-import config from '../configs/config'
+import {config} from '../configs/config'
 import {Up} from 'jton'
 
 const up: Up = new Up({
