@@ -8,7 +8,7 @@ const make: Make = new Make({
         'contracts/SimpleWallet_idle/SimpleWallet_idle'
     ],
     compiler: '0.47.0',
-    linker: '0.11.64',
+    linker: '0.11.77',
     stdlib: '0.47.0'
 })
 make.run().then().catch((e: any) => console.log(e))
