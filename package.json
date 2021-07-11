@@ -1,6 +1,6 @@
 {
   "name": "simple-wallet-smart-contract",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple wallet smart contract with one public key",
   "main": "index.ts",
   "scripts": {

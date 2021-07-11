@@ -13,7 +13,7 @@ it('changeOwner exit code 101', async () => {
     await giver.sendTransaction(await simpleWallet.address(), 0.03 * B)
     await simpleWallet.deploy()
 
-    let errorCode: number
+    let errorCode: number = 0
     try {
         await simpleWallet.changeOwner('0x0')
     } catch (e: any) {

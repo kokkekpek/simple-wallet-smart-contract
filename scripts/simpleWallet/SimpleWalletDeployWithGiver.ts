@@ -3,8 +3,6 @@ import {SimpleWallet} from '../../contracts/SimpleWallet'
 import {Contract, DeployWithGiver} from 'jton'
 
 export class SimpleWalletDeployWithGiver extends DeployWithGiver {
-    private _keys: KeyPair
-
     /**
      * Create and return contract object.
      * @param keys
@@ -15,7 +13,6 @@ export class SimpleWalletDeployWithGiver extends DeployWithGiver {
      *     }
      */
     protected _getContract(keys: KeyPair): Contract {
-        this._keys = keys
         return new SimpleWallet(this._client, this._config.net.timeout, keys)
     }
 
