@@ -13,5 +13,5 @@ contracts/**/*.keys.json
 # Yarn
 *.log
 
-# TonOS CLI config in root directory
-*cli.conf.json
+# NPM
+package-lock.json
