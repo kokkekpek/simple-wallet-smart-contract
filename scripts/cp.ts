@@ -1,9 +1,5 @@
-import fs from 'fs'
-import ErrnoException = NodeJS.ErrnoException
+import {root} from '../root'
+import {Copy} from 'jton/dist/scripts/copy/Copy'
 
-const SOURCE: string = 'configs/config.example.ts'
-const DESTINATION: string = 'configs/config.ts'
-fs.copyFile(SOURCE, DESTINATION, (error: ErrnoException | null) => {
-    if (error)
-        throw error
-})
+const copy: Copy = new Copy(`${root}/configs/*`)
+copy.run()
