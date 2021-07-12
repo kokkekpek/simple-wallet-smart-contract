@@ -545,7 +545,7 @@
   resolved "https://registry.yarnpkg.com/@tonclient/core/-/core-1.19.0.tgz#291d6cbf792774f90db45f4726a62572acba4187"
   integrity sha512-xW+CtJahZEhlD+l4ap1ilrzCedNouTfdTTA1bpvFv0FYTpUilJi138gZGq6MWY1kbfgqLG5VXAB2ClUeSqTQbw==
 
-"@tonclient/lib-node@^1", "@tonclient/lib-node@^1.19.0":
+"@tonclient/lib-node@^1":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@tonclient/lib-node/-/lib-node-1.19.0.tgz#c8de5175c15ca059d7cc870e327fc4563f57d495"
   integrity sha512-LwW80I1XtEHO6yTHQoE6fo0/+o4uIyP5Bll8Z7By512H0RSiYngxTI5Opg+XRveQO5Gl2HrsPQrasWqJxirRtw==
