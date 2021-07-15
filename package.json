@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "jton": "^0.6.5",
-    "jton-contracts": "^0.1.1"
+    "jton-contracts": "^0.1.3"
   }
 }
