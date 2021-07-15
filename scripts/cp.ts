@@ -1,5 +1,7 @@
+import {copy} from 'jton'
 import {root} from '../root'
-import {Copy} from 'jton/dist/scripts/copy/Copy'
 
-const copy: Copy = new Copy(`${root}/configs/*`)
-copy.run()
+copy({
+    source: `${root}/configs/*`,
+    words: 'example'
+}).catch((e: any) => console.log(e))

@@ -15,6 +15,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
-    "noUnusedLocals": true
-  }
+    "noUnusedLocals": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*.json",
+    "src/**/*.ts"
+  ]
 }

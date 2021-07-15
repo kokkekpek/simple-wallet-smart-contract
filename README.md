@@ -21,7 +21,6 @@
     - [Gas](#gas-2)
   - [Scripts](#scripts)
   - [Code Style](#code-style)
-  - [How it works](#how-it-works)
 
 
 
@@ -146,8 +145,3 @@ yarn cross-env net=fld yarn deploy
 
 ## Code style
 [Link](docs/CODE_STYLE.md)
-
-
-
-## How it works
-[Link](docs/HOW_IT_WORKS.md)

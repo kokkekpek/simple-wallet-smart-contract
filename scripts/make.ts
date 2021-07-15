@@ -1,14 +1,12 @@
-import {Make} from 'jton'
 import {root} from '../root'
+import {make} from 'jton'
 
-const make: Make = new Make({
+make({
     root: root,
     compile: [
-        'contracts/SimpleWallet/SimpleWallet',
-        'contracts/SimpleWallet_idle/SimpleWallet_idle'
+        'src/contract/SimpleWallet',
     ],
     compiler: '0.47.0',
     linker: '0.11.77',
     stdlib: '0.47.0'
-})
-make.run().then().catch((e: any) => console.log(e))
+}).then().catch((e: any) => console.log(e))

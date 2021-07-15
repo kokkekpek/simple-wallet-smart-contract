@@ -1,27 +1,25 @@
-import {testTimeout} from './__utils/testTimeout'
+import {testTimeout} from './_utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
-import {SimpleWallet} from '../contracts/SimpleWallet'
-import {prepareTest} from './__utils/prepareTest'
-import {SimpleWallet_idle} from '../contracts/SimpleWallet_idle'
-import SimpleWallet_idleContract from '../contracts/SimpleWallet_idle/SimpleWallet_idle'
 import {B, getRandomKeyPair} from 'jton'
+import {SimpleWallet} from '../src'
+import {prepareGiverV2} from 'jton-contracts/dist/tonlabs/GiverV2/utils'
+import {config} from '../configs/config'
+import {Idle, IdleContract} from 'jton-contracts/dist/kokkekpek/Idle'
 
-const {client, timeout, giver} = prepareTest()
+const {client, timeout, giver} = prepareGiverV2(config, config.contracts.giver.keys)
 
 it('upgrade', async () => {
     const simpleWalletKeys: KeyPair = await getRandomKeyPair(client)
     const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
-    const simpleWallet_idle: SimpleWallet_idle = new SimpleWallet_idle(
+    const idle: Idle = new Idle(
         client,
         timeout,
         simpleWalletKeys,
         await simpleWallet.address()
     )
-
-    await giver.sendTransaction(await simpleWallet.address(), 0.04 * B)
+    await giver.sendTransaction({dest: await simpleWallet.address(), value: 0.04 * B})
     await simpleWallet.deploy()
-    await simpleWallet.upgrade(SimpleWallet_idleContract.code)
-
-    expect(await simpleWallet_idle.getVersion()).toBe('2')
+    await simpleWallet.upgrade({code: IdleContract.code})
+    expect((await idle.isIdle()).idle).toBeTruthy()
     client.close()
 }, testTimeout)

@@ -1,8 +1,7 @@
 import {config} from '../configs/config'
-import {Up} from 'jton'
+import {up} from 'jton'
 
-const up: Up = new Up({
+up({
     node: config.node,
     net: config.net.local
-})
-up.run().then().catch((e: any) => console.log(e))
+}).then().catch((e: any) => console.log(e))

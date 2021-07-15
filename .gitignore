@@ -4,14 +4,14 @@ configs/config.ts
 # Node modules
 node_modules
 
-# Contracts
-contracts/**/*.code
-contracts/**/*.decode
-contracts/**/*.conf.json
-contracts/**/*.keys.json
-
 # Yarn
 *.log
+
+# TypeScript Compilator
+*.tsbuildinfo
+
+# Output
+dist
 
 # NPM
 package-lock.json

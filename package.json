@@ -1,14 +1,16 @@
 {
   "name": "simple-wallet-smart-contract",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Simple wallet smart contract with one public key",
-  "main": "index.ts",
+  "main": "dist/index.ts",
   "scripts": {
+    "build": "tsc --project tsconfig.src.json",
+    "prepublishOnly": "yarn install && yarn tsc --project tsconfig.src.json",
     "cp": "ts-node scripts/cp",
     "make": "ts-node scripts/make",
     "up": "ts-node scripts/up",
-    "inf": "ts-node scripts/info",
-    "deploy": "ts-node scripts/deploy",
+    "inf": "ts-node scripts/simpleWallet/info",
+    "deploy": "ts-node scripts/simpleWallet/deploy",
     "giver": "ts-node scripts/giver/info",
     "giver.deploy": "ts-node scripts/giver/deploy",
     "giver.send": "ts-node scripts/giver/send",
@@ -21,17 +23,20 @@
     "wallet.call": "ts-node scripts/wallet/call",
     "test": "jest --verbose"
   },
-  "author": "Kok Kek",
+  "author": "@kokkekpek",
   "license": "GPL-3.0-only",
   "private": false,
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.1",
+    "@types/node": "^16.3.2",
     "cross-env": "^7.0.3",
     "jest": "^27.0.6",
-    "jton": "^0.2.2",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "jton": "^0.6.5",
+    "jton-contracts": "^0.1.1"
   }
 }
