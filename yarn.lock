@@ -2272,10 +2272,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jton-contracts@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.1.3.tgz#54d1bf5bdfd58dc7f9305cff99fb3f5f2de029eb"
-  integrity sha512-S8aUaMp/wO2RowvZEsI6NPvsJZt87sFyTfCCVIuob6P1KAaRVH1YXnUQVXxw0k9vDGxQcRCtLI009GZXD1ipkg==
+jton-contracts@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.2.0.tgz#ae5cff26431a7472e9e1851e306e663118f1a007"
+  integrity sha512-LfTMAjIiJJDcrIAzfclPJYUfvIv5jIn9BjYPrgWhfyzv0HF2ldSBRr5kI9nydrAqiCxzR3pdyCpJBu2XMVT33Q==
   dependencies:
     jton "^0.6.4"
 

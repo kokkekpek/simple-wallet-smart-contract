@@ -1,6 +1,6 @@
 import {config} from '../../configs/config'
 import {getKeysByName, getNetConfig, NetConfig} from 'jton'
-import {SafeMultisigWalletDeployWithGiverV2} from 'jton-contracts/dist/tonlabs/SafeMultisigWallet/scripts/SafeMultisigWalletDeployWithGiverV2'
+import {SafeMultisigWalletDeployWithGiverV2} from 'jton-contracts/dist/tonlabs/SafeMultisigWallet'
 
 const netConfig: NetConfig = getNetConfig(config)
 const giverKeysFile: string = getKeysByName(config.contracts.giver.keys, netConfig.giver)

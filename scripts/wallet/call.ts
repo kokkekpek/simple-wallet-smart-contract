@@ -1,6 +1,6 @@
 import {config} from '../../configs/config'
 import {getNetConfig, NetConfig} from 'jton'
-import {SafeMultisigWalletCall} from 'jton-contracts/dist/tonlabs/SafeMultisigWallet/scripts/SafeMultisigWalletCall'
+import {SafeMultisigWalletCall} from 'jton-contracts/dist/tonlabs/SafeMultisigWallet'
 
 const netConfig: NetConfig = getNetConfig(config)
 const call: SafeMultisigWalletCall = new SafeMultisigWalletCall({
