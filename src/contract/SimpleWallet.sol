@@ -1,7 +1,7 @@
 pragma ton-solidity >= 0.47.0;
 
 /**
- * Error codes
+ * Errors
  *     100 - Method for the owner only
  *     101 - Owner public key cannot be null
  */
