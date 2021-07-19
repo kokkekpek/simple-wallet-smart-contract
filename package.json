@@ -36,7 +36,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "jton": "^0.6.5",
-    "jton-contracts": "^0.2.0"
+    "jton": "^0.7.0",
+    "jton-contracts": "^0.2.1"
   }
 }
