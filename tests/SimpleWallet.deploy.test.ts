@@ -2,7 +2,7 @@ import {testTimeout} from './_utils/testTimeout'
 import {KeyPair} from '@tonclient/core/dist/modules'
 import {B, getRandomKeyPair, x0} from 'jton'
 import {SimpleWallet} from '../src'
-import {config} from '../configs/config'
+import {config} from '../config'
 import {prepareGiverV2} from 'jton-contracts/dist/tonlabs/GiverV2'
 
 const {client, timeout, giver} = prepareGiverV2(config, config.contracts.giver.keys)

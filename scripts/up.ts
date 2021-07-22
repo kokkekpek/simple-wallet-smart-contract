@@ -1,4 +1,4 @@
-import {config} from '../configs/config'
+import {config} from '../config'
 import {up} from 'jton'
 
 up({

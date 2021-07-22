@@ -3,7 +3,7 @@ import {KeyPair} from '@tonclient/core/dist/modules'
 import {B, getRandomKeyPair} from 'jton'
 import {SimpleWallet} from '../src'
 import {prepareGiverV2} from 'jton-contracts/dist/tonlabs/GiverV2'
-import {config} from '../configs/config'
+import {config} from '../config'
 import {Idle, IdleContract} from 'jton-contracts/dist/kokkekpek/Idle'
 
 const {client, timeout, giver} = prepareGiverV2(config, config.contracts.giver.keys)

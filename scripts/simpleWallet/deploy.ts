@@ -1,4 +1,4 @@
-import {config} from '../../configs/config'
+import {config} from '../../config'
 import {getKeysByName, getNetConfig, NetConfig} from 'jton'
 import {SimpleWalletDeployWithGiverV2} from '../../src/scripts/SimpleWalletDeployWithGiverV2'
 

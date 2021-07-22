@@ -1,4 +1,4 @@
-import {config} from '../../configs/config'
+import {config} from '../../config'
 import {getNetConfig, NetConfig} from 'jton'
 import {GiverV2Send} from 'jton-contracts/dist/tonlabs/GiverV2'
 
