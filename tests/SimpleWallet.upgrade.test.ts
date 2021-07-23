@@ -20,6 +20,6 @@ it('upgrade', async () => {
     await giver.sendTransaction({dest: await simpleWallet.address(), value: 0.04 * B})
     await simpleWallet.deploy()
     await simpleWallet.upgrade({code: IdleContract.code})
-    expect((await idle.isIdle()).idle).toBeTruthy()
+    expect(await idle.isIdle()).toBeTruthy()
     client.close()
 }, testTimeout)

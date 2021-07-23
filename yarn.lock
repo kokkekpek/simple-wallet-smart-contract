@@ -2272,17 +2272,17 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jton-contracts@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.3.3.tgz#ffeeb46d80d77d51df295f1e69d9b15f5082cbfc"
-  integrity sha512-6VLP+pH5YCIcymp0quuLuSIClAbC/ymJ3g2P1QJ2GkXyArOb92R/lMqUXAxVjP8uyx9wGl1O1uBMCOS29GWCWQ==
+jton-contracts@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.5.1.tgz#dc186192bb0f7b6c44304989f55f161be5e665b3"
+  integrity sha512-s2XCWOyU7Pb/gWBCi/HN4H5xMju8UieNz/9NA3mMJZa8f5y5a0TO3uGjQ6rzYFtplq0pwcSSLXoHpTsZaXMxGg==
   dependencies:
-    jton "^0.8.1"
+    jton "^0.8.2"
 
-jton@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/jton/-/jton-0.8.1.tgz#664ec1ded500a1b83d56b7ea6d511117fa589abe"
-  integrity sha512-vciguJTjh316c+kJCRu+BxMrb6mDh/WRZ10VEzlhkIis1EMwL3ZbnChIQdD7eqr9Onj8wv9MmPL6kZ7U+Rlv8w==
+jton@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/jton/-/jton-0.8.2.tgz#8bfcf4ff3d9b3aa40508e1bff59f839355dedb2f"
+  integrity sha512-aNmGCOCYDVBOzPtHLslWYzuueBefw4QFyoDHvh+Dj9C+rDYAoFTOoAdao9K4nrpJcUpOApWnzD9mipwmEjKY3Q==
   dependencies:
     "@tonclient/core" "^1.20.0"
     colors "^1.4.0"
