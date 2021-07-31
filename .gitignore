@@ -1,5 +1,8 @@
 # Config
 config/index.ts
+config/net.ts
+config/node.ts
+config/contracts.ts
 
 # Node modules
 node_modules
