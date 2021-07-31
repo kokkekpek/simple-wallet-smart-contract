@@ -37,183 +37,218 @@ export const config: any = {
     net: {
         local: {
             /**
-             * Network URL.
-             * Examples:
-             *     'http://localhost:8080'
-             *     'http://localhost'
-             *     'http://0.0.0.0'
+             * TonClient config. See ClientConfig interface.
+             * @see https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts
              */
-            url: 'http://localhost:8080',
-
+            client: {
+                network: {
+                    /**
+                     * List of DApp Server addresses.
+                     * Any correct URL format can be specified, including IP addresses.
+                     * This parameter is prevailing over server_address.
+                     */
+                    endpoints: [
+                        'http://localhost:8080'
+                    ],
+                    /**
+                     * Maximum timeout that is used for query response.
+                     * Must be specified in milliseconds. Default is 40000 (40 sec).
+                     */
+                    wait_for_timeout: 30_000
+                }
+            },
             /**
-             * How long to wait result of call or deployment in milliseconds.
-             * Examples:
-             *     3_000
-             *     30_000
-             *     60_000
+             * Info about network that not stored in client. Transaction fee, giver name etc.
              */
-            timeout: 30_000,
+            transactions: {
+                /**
+                 * Crystals required for transaction fee. 1 is `1 ton` or `1e9 nano ton`
+                 * Examples:
+                 *     0.03
+                 *     1
+                 */
+                fee: 0.02,
 
-            /**
-             * Crystals required for transaction fee. 1 = 1 ton = 1e9 nano ton
-             * Examples:
-             *     0.03
-             *     1
-             */
-            transactionFee: 0.02,
+                /**
+                 * Tolerance when comparing contract balances.
+                 * Use it because sometimes after transfer your balance loose some nano grams.
+                 * e.g. contract receive 9_999_999 instead 10_000_000.
+                 * Examples:
+                 *     0.000_001
+                 *     0.001
+                 */
+                tolerance: 0.000_001,
 
-            /**
-             * Tolerance when comparing contract balances.
-             * Use it because sometimes after transfer your balance loose some nano grams.
-             * e.g. contract receive 9_999_999 instead 10_000_000.
-             * Examples:
-             *     0.000_001
-             *     0.001
-             */
-            tolerance: 0.000_001,
-
-            /**
-             * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
-             * Examples:
-             *     'dev'
-             *     'se'
-             */
-            giver: 'se'
+                /**
+                 * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
+                 * Examples:
+                 *     'dev'
+                 *     'se'
+                 */
+                giver: 'se'
+            }
         },
         dev: {
             /**
-             * Network URL.
-             * Examples:
-             *     'https://net.ton.dev'
-             *     'https://main.ton.dev'
-             *     'https://gql.custler.net'
+             * TonClient config. See ClientConfig interface.
+             * @see https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts
              */
-            url: 'https://net.ton.dev',
-
+            client: {
+                network: {
+                    /**
+                     * List of DApp Server addresses.
+                     * Any correct URL format can be specified, including IP addresses.
+                     * This parameter is prevailing over server_address.
+                     */
+                    endpoints: [
+                        'https://net1.ton.dev',
+                        'https://net2.ton.dev'
+                    ],
+                    /**
+                     * Maximum timeout that is used for query response.
+                     * Must be specified in milliseconds. Default is 40000 (40 sec).
+                     */
+                    wait_for_timeout: 60_000
+                }
+            },
             /**
-             * How long to wait result of call or deployment in milliseconds.
-             * Examples:
-             *     3_000
-             *     30_000
-             *     60_000
+             * Info about network that not stored in client. Transaction fee, giver name etc.
              */
-            timeout: 60_000,
+            transactions: {
+                /**
+                 * Crystals required for transaction fee. 1 is `1 ton` or `1e9 nano ton`
+                 * Examples:
+                 *     0.03
+                 *     1
+                 */
+                fee: 0.02,
 
-            /**
-             * Crystals required for transaction fee. 1 = 1 ton = 1e9 nano ton
-             * Examples:
-             *     0.03
-             *     1
-             */
-            transactionFee: 0.02,
+                /**
+                 * Tolerance when comparing contract balances.
+                 * Use it because sometimes after transfer your balance loose some nano grams.
+                 * e.g. contract receive 9_999_999 instead 10_000_000.
+                 * Examples:
+                 *     0.000_001
+                 *     0.001
+                 */
+                tolerance: 0.000_001,
 
-            /**
-             * Tolerance when comparing contract balances.
-             * Use it because sometimes after transfer your balance loose some nano grams.
-             * e.g. contract receive 9_999_999 instead 10_000_000.
-             * Examples:
-             *     0.000_001
-             *     0.001
-             */
-            tolerance: 0.000_001,
-
-            /**
-             * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
-             * Examples:
-             *     'dev'
-             *     'se'
-             */
-            giver: 'dev'
+                /**
+                 * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
+                 * Examples:
+                 *     'dev'
+                 *     'se'
+                 */
+                giver: 'dev'
+            }
         },
         main: {
             /**
-             * Network URL.
-             * Examples:
-             *     'https://net.ton.dev'
-             *     'https://main.ton.dev'
-             *     'https://gql.custler.net'
+             * TonClient config. See ClientConfig interface.
+             * @see https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts
              */
-            url: 'https://main.ton.dev',
-
+            client: {
+                network: {
+                    /**
+                     * List of DApp Server addresses.
+                     * Any correct URL format can be specified, including IP addresses.
+                     * This parameter is prevailing over server_address.
+                     */
+                    endpoints: [
+                        'https://main2.ton.dev',
+                        'https://main3.ton.dev',
+                        'https://main4.ton.dev'
+                    ],
+                    /**
+                     * Maximum timeout that is used for query response.
+                     * Must be specified in milliseconds. Default is 40000 (40 sec).
+                     */
+                    wait_for_timeout: 60_000
+                }
+            },
             /**
-             * How long to wait result of call or deployment in milliseconds.
-             * Examples:
-             *     3_000
-             *     30_000
-             *     60_000
+             * Info about network that not stored in client. Transaction fee, giver name etc.
              */
-            timeout: 60_000,
+            transactions: {
+                /**
+                 * Crystals required for transaction fee. 1 is `1 ton` or `1e9 nano ton`
+                 * Examples:
+                 *     0.03
+                 *     1
+                 */
+                fee: 0.02,
 
-            /**
-             * Crystals required for transaction fee. 1 = 1 ton = 1e9 nano ton
-             * Examples:
-             *     0.03
-             *     1
-             */
-            transactionFee: 0.02,
+                /**
+                 * Tolerance when comparing contract balances.
+                 * Use it because sometimes after transfer your balance loose some nano grams.
+                 * e.g. contract receive 9_999_999 instead 10_000_000.
+                 * Examples:
+                 *     0.000_001
+                 *     0.001
+                 */
+                tolerance: 0.000_001,
 
-            /**
-             * Tolerance when comparing contract balances.
-             * Use it because sometimes after transfer your balance loose some nano grams.
-             * e.g. contract receive 9_999_999 instead 10_000_000.
-             * Examples:
-             *     0.000_001
-             *     0.001
-             */
-            tolerance: 0.000_001,
-
-            /**
-             * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
-             * Examples:
-             *     'dev'
-             *     'se'
-             */
-            giver: 'dev'
+                /**
+                 * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
+                 * Examples:
+                 *     'dev'
+                 *     'se'
+                 */
+                giver: 'dev'
+            }
         },
         fld: {
             /**
-             * Network URL.
-             * Examples:
-             *     'https://net.ton.dev'
-             *     'https://main.ton.dev'
-             *     'https://gql.custler.net'
+             * TonClient config. See ClientConfig interface.
+             * @see https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts
              */
-            url: 'https://gql.custler.net',
-
+            client: {
+                network: {
+                    /**
+                     * List of DApp Server addresses.
+                     * Any correct URL format can be specified, including IP addresses.
+                     * This parameter is prevailing over server_address.
+                     */
+                    endpoints: [
+                        'https://gql.custler.ne'
+                    ],
+                    /**
+                     * Maximum timeout that is used for query response.
+                     * Must be specified in milliseconds. Default is 40000 (40 sec).
+                     */
+                    wait_for_timeout: 60_000
+                }
+            },
             /**
-             * How long to wait result of call or deployment in milliseconds.
-             * Examples:
-             *     3_000
-             *     30_000
-             *     60_000
+             * Info about network that not stored in client. Transaction fee, giver name etc.
              */
-            timeout: 60_000,
+            transactions: {
+                /**
+                 * Crystals required for transaction fee. 1 is `1 ton` or `1e9 nano ton`
+                 * Examples:
+                 *     0.03
+                 *     1
+                 */
+                fee: 0.02,
 
-            /**
-             * Crystals required for transaction fee. 1 = 1 ton = 1e9 nano ton
-             * Examples:
-             *     0.03
-             *     1
-             */
-            transactionFee: 0.02,
+                /**
+                 * Tolerance when comparing contract balances.
+                 * Use it because sometimes after transfer your balance loose some nano grams.
+                 * e.g. contract receive 9_999_999 instead 10_000_000.
+                 * Examples:
+                 *     0.000_001
+                 *     0.001
+                 */
+                tolerance: 0.000_001,
 
-            /**
-             * Tolerance when comparing contract balances.
-             * Use it because sometimes after transfer your balance loose some nano grams.
-             * e.g. contract receive 9_999_999 instead 10_000_000.
-             * Examples:
-             *     0.000_001
-             *     0.001
-             */
-            tolerance: 0.000_001,
-
-            /**
-             * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
-             * Examples:
-             *     'dev'
-             *     'se'
-             */
-            giver: 'dev'
+                /**
+                 * Name of the keys for the Giver v2 smart contract, which are used to deploy contracts.
+                 * Examples:
+                 *     'dev'
+                 *     'se'
+                 */
+                giver: 'dev'
+            }
         }
     },
     contracts: {
@@ -221,12 +256,12 @@ export const config: any = {
             /**
              * Absolute path to keys file.
              * Examples:
-             *     `${__dirname}/../node_modules/jton-contracts ... GiverV2.se.keys.json`
+             *     `${__dirname}/../node_modules/jton-contracts/dist/tonlabs/GiverV2/contract/GiverV2.se.keys.json`
              *     `${__dirname}/../keys/GiverV2.keys.json`
              *     `/home/user/keys/GiverV2.keys.json`
              */
             keys: {
-                se: `${__dirname}/../node_modules/jton-contracts/dist/tonlabs/GiverV2/8a2bc005cfec4ecd770d50b074179e525b76513b/contract/GiverV2.se.keys.json`,
+                se: `${__dirname}/../node_modules/jton-contracts/dist/tonlabs/GiverV2/8a2bc005cfec4ecd770d50b074179e525b76513b/source/GiverV2.se.keys.json`,
                 dev: `${__dirname}/../keys/GiverV2.keys.json`
             },
 

@@ -642,10 +642,15 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/node@*", "@types/node@^16.4.0":
+"@types/node@*":
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.0.tgz#2c219eaa3b8d1e4d04f4dd6e40bc68c7467d5272"
   integrity sha512-HrJuE7Mlqcjj+00JqMWpZ3tY8w7EUd+S0U3L1+PQSWiXZbOgyQDvi+ogoUxaHApPJq5diKxYBQwA3iIlNcPqOg==
+
+"@types/node@^16.4.7":
+  version "16.4.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.7.tgz#f7afa78769d4b477f5092d7c3468e2e8653d779c"
+  integrity sha512-aDDY54sst8sx47CWT6QQqIZp45yURq4dic0+HCYfYNcY5Ejlb/CLmFnRLfy3wQuYafOeh3lB/DAKaqRKBtcZmA==
 
 "@types/prettier@^2.1.5":
   version "2.3.2"
@@ -2272,22 +2277,22 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jton-contracts@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.5.1.tgz#dc186192bb0f7b6c44304989f55f161be5e665b3"
-  integrity sha512-s2XCWOyU7Pb/gWBCi/HN4H5xMju8UieNz/9NA3mMJZa8f5y5a0TO3uGjQ6rzYFtplq0pwcSSLXoHpTsZaXMxGg==
+jton-contracts@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/jton-contracts/-/jton-contracts-0.9.3.tgz#11db19c5c0160c60b943aa23d6ef76186b98d96c"
+  integrity sha512-zMYFYVqs5gt1XsO51/Y9sTdmJiLFusjXj9SL2xTURgurfXP4nYPEW2RyKoEf3R9VqfhS/tzSl5xu9iw1Ka6vaw==
   dependencies:
-    jton "^0.8.2"
+    jton "^0.10.1"
 
-jton@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/jton/-/jton-0.8.2.tgz#8bfcf4ff3d9b3aa40508e1bff59f839355dedb2f"
-  integrity sha512-aNmGCOCYDVBOzPtHLslWYzuueBefw4QFyoDHvh+Dj9C+rDYAoFTOoAdao9K4nrpJcUpOApWnzD9mipwmEjKY3Q==
+jton@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/jton/-/jton-0.10.1.tgz#f77a362e3299f2202a8c312f1df2fc01ceb988d7"
+  integrity sha512-6S+iGPjLtkjSBDi92hbqSgfdvmvy1J9ttxbsLzsnjVUNd2SO2t8/D7lnvlN0uErMT9pkoQSuPZmEq6FSWGT31Q==
   dependencies:
     "@tonclient/core" "^1.20.0"
     colors "^1.4.0"
     fast-glob "^3.2.7"
-    tondev "^0.7.4"
+    tondev "^0.8.1"
 
 kleur@^3.0.3:
   version "3.0.3"
@@ -2993,10 +2998,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tondev@^0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/tondev/-/tondev-0.7.4.tgz#3f4389604f2d384105a221408215c5ce89009340"
-  integrity sha512-XcmJZV5qRDcqbUrcQponglee7rDqD7zsvg6n99eBYVvCbwEarD4cipc50oYik4+ufzYKrbWCPXszp6QjT9A1ug==
+tondev@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/tondev/-/tondev-0.8.1.tgz#2ccbea9cc9f2d1479a8787538c5aa56e55b4d349"
+  integrity sha512-i1bXCly0E4pg9l8PocTBIyK1tmcih3QLfwz840DdzTLM0w+/vU9whnAxsXahfF5NCzCVBPqqLCOcOuz/1Mvy0A==
   dependencies:
     "@tonclient/appkit" "^0"
     "@tonclient/core" "^1"

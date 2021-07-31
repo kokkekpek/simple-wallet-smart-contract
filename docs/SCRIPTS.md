@@ -47,9 +47,9 @@ yarn giver.deploy
 
 ### Send
 ```sh
-yarn giver.send <address> <value> <bounce> <flags>
+yarn giver.send <dest> <value> <bounce> <flags>
 ```
-* `address` - destination contract address
+* `dest` - destination contract address
 * `value` - value in nano grams
 * `bounce` - if it's set and transaction falls then funds will be returned
 
@@ -73,9 +73,9 @@ yarn giver.se.deploy
 
 ### Send
 ```sh
-yarn giver.se.send <address> <value> <bounce> <flags>
+yarn giver.se.send <dest> <value> <bounce> <flags>
 ```
-* `address` - destination contract address
+* `dest` - destination contract address
 * `value` - value in nano grams
 * `bounce` - if it's set and transaction falls then funds will be returned
 
@@ -99,9 +99,9 @@ yarn wallet.deploy
 
 ### Send
 ```sh
-yarn wallet.send <address> <value> <bounce> <flags> <comment>
+yarn wallet.send <dest> <value> <bounce> <flags> <comment>
 ```
-* `address` - destination contract address
+* `dest` - destination contract address
 * `value` - value in nano grams
 * `bounce` - if it's set and transaction falls then funds will be returned
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)
@@ -114,9 +114,9 @@ yarn wallet.send 0:0000111122223333444455556666777788889999aaaabbbbccccddddeeeef
 
 ### Call
 ```sh
-yarn wallet.send <address> <value> <bounce> <flags> <pathToAbiFile> <method> <parameters>
+yarn wallet.send <dest> <value> <bounce> <flags> <pathToAbiFile> <method> <parameters>
 ```
-* `address` - destination contract address
+* `dest` - destination contract address
 * `value` - value in nano grams
 * `bounce` - if it's set and transaction falls then funds will be returned
 * `flags` - transaction flags. See [transfer](https://github.com/tonlabs/TON-Solidity-Compiler/blob/master/API.md#addresstransfer)

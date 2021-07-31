@@ -6,14 +6,13 @@ import {prepareGiverV2} from 'jton-contracts/dist/tonlabs/GiverV2'
 import {config} from '../config'
 import {Idle, IdleContract} from 'jton-contracts/dist/kokkekpek/Idle'
 
-const {client, timeout, giver} = prepareGiverV2(config, config.contracts.giver.keys)
+const {client, giver} = prepareGiverV2(config, config.contracts.giver.keys)
 
 it('upgrade', async () => {
     const simpleWalletKeys: KeyPair = await getRandomKeyPair(client)
-    const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
+    const simpleWallet: SimpleWallet = new SimpleWallet(client, simpleWalletKeys)
     const idle: Idle = new Idle(
         client,
-        timeout,
         simpleWalletKeys,
         await simpleWallet.address()
     )

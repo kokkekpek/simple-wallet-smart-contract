@@ -4,8 +4,7 @@ import {SafeMultisigWalletCall} from 'jton-contracts/dist/tonlabs/SafeMultisigWa
 
 const netConfig: NetConfig = getNetConfig(config)
 const call: SafeMultisigWalletCall = new SafeMultisigWalletCall({
-    net: netConfig,
-    locale: config.locale,
+    client: netConfig.client,
     keys: config.contracts.safeMultisigWallet.keys
 })
 call.run().then().catch((e: any) => console.log(e))

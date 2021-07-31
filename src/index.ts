@@ -1,5 +1,5 @@
 import SimpleWalletContract from './contract/SimpleWallet'
-import {AbiContract, KeyPair} from '@tonclient/core/dist/modules'
+import {KeyPair} from '@tonclient/core/dist/modules'
 import {TonClient} from '@tonclient/core'
 import {Contract, ResultOfCall} from 'jton'
 
@@ -26,58 +26,13 @@ export interface GetOwnerOut {
 }
 
 export class SimpleWallet extends Contract {
-    public constructor(client: TonClient, timeout: number, keys: KeyPair) {
-        super(client, timeout, {
+    public constructor(client: TonClient, keys: KeyPair, timeout?: number) {
+        super(client, {
             abi: SimpleWalletContract.abi,
             tvc: SimpleWalletContract.tvc,
             initialData: {},
             keys: keys
-        })
-    }
-
-    /**************
-     * DECORATORS *
-     **************/
-    public async callAnotherContract(
-        dest: string,
-        value: number,
-        bounce: boolean,
-        flags: number,
-        abi: AbiContract,
-        method: string,
-        input: Object,
-        keys?: KeyPair
-    ): Promise<ResultOfCall> {
-        const payload: string = await this._getPayloadToCallAnotherContract(abi, method, input)
-        return await this.sendTransaction({
-                dest,
-                value,
-                bounce,
-                flags,
-                payload
-            },
-            keys
-        )
-    }
-
-    public async sendTransactionWithComment(
-        dest: string,
-        value: number,
-        bounce: boolean,
-        flags: number,
-        comment: string,
-        keys?: KeyPair
-    ): Promise<ResultOfCall> {
-        const payload: string = await this._getPayloadToTransferWithComment(comment)
-        return await this.sendTransaction({
-                dest,
-                value,
-                bounce,
-                flags,
-                payload
-            },
-            keys
-        )
+        }, timeout)
     }
 
 

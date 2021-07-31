@@ -28,7 +28,7 @@
   "private": false,
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.0",
+    "@types/node": "^16.4.7",
     "cross-env": "^7.0.3",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.4",
@@ -36,7 +36,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "jton": "^0.8.2",
-    "jton-contracts": "^0.5.1"
+    "jton": "^0.10.1",
+    "jton-contracts": "^0.9.3"
   }
 }

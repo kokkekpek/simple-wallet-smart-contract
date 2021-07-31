@@ -1,5 +1,5 @@
 # Code style
-Based on [Ethereum Style Guide](https://docs.soliditylang.org/en/v0.8.5/style-guide.html)
+Based on [Ethereum Style Guide](https://docs.soliditylang.org/en/v0.8.6/style-guide.html)
 
 ## Naming
 ### Contract variables started from "_"
@@ -77,13 +77,12 @@ contract Root {
 
 ## Structure
 ### Each contract consists of several blocks
-Each block begins with a three-line commentary for easy navigation. Blocks in the following order.
+Each block begins with a two-line commentary for easy navigation. Blocks in the following order.
 ```sol
     /**********
      * EVENTS *
      **********/
     event BidEvent(uint128 id, address creator, address bider, uint128 value);
-    
     
     
     /**************
@@ -95,19 +94,16 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     }
     
     
-    
     /*************
      * CONSTANTS *
      *************/
     uint256 private constant X = 0;
     
     
-    
     /**********
      * STATIC *
      **********/
-    address static _root;
-    
+    address public static _root;
     
     
     /*************
@@ -116,12 +112,10 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     uint256 private _x;
     
     
-    
     /*************
      * MODIFIERS *
      *************/
     modifier accept { _; }
-    
     
     
     /***************
@@ -130,12 +124,10 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     constructor() public {}
     
     
-    
     /************
      * EXTERNAL *
      ************/
     function externalFunction() external {}
-    
     
     
     /**********
@@ -144,26 +136,11 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     function publicFunction() public {}
     
     
-    
-    /*************
-     * RECEIVERS *
-     *************/
-    function receiveX() external view returns(uint256 x) {}
-    
-    
-    
     /***********
      * GETTERS *
      ***********/
-    function getX() public view returns(uint256 x) {}
-    
-    
-    
-    /***********
-     * SETTRES *
-     ***********/
-    function setX(uint256 x) public {}
-    
+    function getX() external view responsible returns(uint256) {}
+    function getX2() external pure responsible returns(uint256) {}
     
     
     /************
@@ -172,12 +149,16 @@ Each block begins with a three-line commentary for easy navigation. Blocks in th
     function _calculateX() internal {}
     
     
-    
     /***********
      * PRIVATE *
      ***********/
     function _calculateX2() private {}
     
+     
+    /******************
+     * PRIVATE * PURE *
+     ******************/
+    function _calculateX2() private pure {}
     
     
     /*********

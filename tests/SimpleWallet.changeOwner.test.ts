@@ -5,12 +5,12 @@ import {prepareGiverV2} from 'jton-contracts/dist/tonlabs/GiverV2'
 import {config} from '../config'
 import {SimpleWallet} from '../src'
 
-const {client, timeout, giver} = prepareGiverV2(config, config.contracts.giver.keys)
+const {client, giver} = prepareGiverV2(config, config.contracts.giver.keys)
 
 it('changeOwner', async () => {
     const simpleWalletKeys: KeyPair = await getRandomKeyPair(client)
     const simpleWalletKeys2: KeyPair = await getRandomKeyPair(client)
-    const simpleWallet: SimpleWallet = new SimpleWallet(client, timeout, simpleWalletKeys)
+    const simpleWallet: SimpleWallet = new SimpleWallet(client, simpleWalletKeys)
     await giver.sendTransaction({dest: await simpleWallet.address(), value: 0.04 * B})
     await simpleWallet.deploy()
     await simpleWallet.changeOwner({owner: x0(simpleWalletKeys2.public)})
